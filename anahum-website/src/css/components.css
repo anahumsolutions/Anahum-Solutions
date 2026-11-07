@@ -1,0 +1,244 @@
+/* ==========================================================================
+   BASE COMPONENTS
+   All components read variables from tokens.css only. Zero color literals allowed.
+   ========================================================================== */
+
+/* 1. Pill Label with Dot */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--dark);
+  color: var(--on-dark);
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+
+.pill-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  display: inline-block;
+}
+
+.pill-badge--light {
+  background-color: var(--cream);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+/* 2. Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--r-btn);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn--primary:hover {
+  opacity: 0.92;
+  box-shadow: 0 4px 16px rgb(var(--ember-rgb) / 0.25);
+}
+
+.btn--dark {
+  background-color: var(--dark);
+  color: var(--on-dark);
+}
+
+.btn--dark:hover {
+  opacity: 0.92;
+  box-shadow: 0 4px 16px rgb(var(--maroon-rgb) / 0.2);
+}
+
+.btn--pill {
+  border-radius: var(--r-pill);
+}
+
+.btn--outline {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background-color: transparent;
+}
+
+.btn--outline:hover {
+  background-color: var(--soft);
+}
+
+/* 3. The Split Button (Section 7.9 & Newsletter) */
+.split-btn {
+  display: inline-flex;
+  align-items: stretch;
+  height: 60px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgb(var(--maroon-rgb) / 0.08);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.split-btn:hover {
+  transform: translateY(-2px);
+}
+
+.split-btn__action {
+  flex: 1;
+  min-width: 150px;
+  background-color: var(--dark);
+  color: var(--on-dark);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.split-btn__icon {
+  width: 60px;
+  background-color: var(--accent);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.split-btn:hover .split-btn__icon {
+  background-color: rgb(var(--ember-rgb) / 0.9);
+}
+
+/* 4. Icon Tiles */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: var(--r-md);
+  flex-shrink: 0;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.icon-tile--dark {
+  background-color: var(--dark);
+  color: var(--accent);
+}
+
+.icon-tile--light {
+  background-color: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.icon-tile--accent {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.icon-tile--soft {
+  background-color: var(--soft);
+  color: var(--ink);
+}
+
+.icon-tile svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 5. Ruler-Tick Divider */
+.ruler-strip {
+  width: 100%;
+  height: 24px;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--line) 0,
+    var(--line) 1px,
+    transparent 1px,
+    transparent 16px
+  );
+  opacity: 0.8;
+  margin: 2rem 0;
+}
+
+/* 6. Back-To-Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--accent);
+  color: var(--cream);
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgb(var(--ember-rgb) / 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), visibility var(--dur-base);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgb(var(--ember-rgb) / 0.45);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 7. Image Placeholders & Cinematic Filters */
+.placeholder-image {
+  background-color: var(--dark);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgb(var(--ember-rgb) / 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}

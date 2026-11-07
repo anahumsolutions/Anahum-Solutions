@@ -1,0 +1,84 @@
+<header class="site-header" role="banner">
+  <div class="site-header__pill">
+    <!-- Brand Logo Lockup -->
+    <a href="#" class="site-header__logo" aria-label="anahum solutions home">
+      <svg viewBox="0 -172 632.0 175" role="img" aria-hidden="true">
+        <use href="#lk"></use>
+      </svg>
+    </a>
+
+    <!-- Actions: Menu Button & Contact CTA -->
+    <div class="site-header__actions">
+      <button 
+        type="button" 
+        class="site-header__menu-btn" 
+        id="menuToggle" 
+        aria-expanded="false" 
+        aria-controls="mainMenu" 
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="menu-icon-bars" viewBox="0 0 24 24" aria-hidden="true">
+          <use href="#icon-menu"></use>
+        </svg>
+        <svg class="menu-icon-close d-none" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+
+      <a href="#pricing" class="site-header__cta">
+        Contact Sales
+      </a>
+    </div>
+  </div>
+
+  <!-- Header Dropdown Menu (Accessible Keyboard Operable) -->
+  <nav 
+    id="mainMenu" 
+    class="site-header__dropdown" 
+    aria-label="Main navigation" 
+    aria-hidden="true"
+  >
+    <ul class="menu-list" role="menubar">
+      <!-- Home with Nested Flyout Submenu -->
+      <li class="menu-item menu-item--has-sub" role="none">
+        <button 
+          type="button" 
+          class="menu-link w-100" 
+          role="menuitem" 
+          aria-haspopup="true" 
+          aria-expanded="false"
+        >
+          <span>Home</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <use href="#icon-chevron-right"></use>
+          </svg>
+        </button>
+        <ul class="submenu" role="menu" aria-label="Home variants">
+          <li role="none"><a href="#hero" class="submenu-link" role="menuitem">Home Light</a></li>
+          <li role="none"><a href="#hero" class="submenu-link" role="menuitem">Home Dark</a></li>
+          <li role="none"><a href="#hero" class="submenu-link" role="menuitem">AI Agency v1</a></li>
+          <li role="none"><a href="#hero" class="submenu-link" role="menuitem">AI Agency v2</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item" role="none">
+        <a href="#what-we-do" class="menu-link" role="menuitem">About Us</a>
+      </li>
+      <li class="menu-item" role="none">
+        <a href="#services" class="menu-link" role="menuitem">Services</a>
+      </li>
+      <li class="menu-item" role="none">
+        <a href="#works" class="menu-link" role="menuitem">Portfolio</a>
+      </li>
+      <li class="menu-item" role="none">
+        <a href="#process" class="menu-link" role="menuitem">Process</a>
+      </li>
+      <li class="menu-item" role="none">
+        <a href="#experts" class="menu-link" role="menuitem">Our Team</a>
+      </li>
+      <li class="menu-item" role="none">
+        <a href="#pricing" class="menu-link" role="menuitem">Pricing</a>
+      </li>
+    </ul>
+  </nav>
+</header>

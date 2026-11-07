@@ -1,0 +1,88 @@
+/* ==========================================================================
+   ANAHUM DESIGN TOKENS
+   All palette values, fonts, radii, spacing, durations and eases reside here.
+   RULE: No color literal may appear outside this file.
+   ========================================================================== */
+
+:root {
+  /* Core Brand Colors */
+  --ember: #F93D0D;
+  --maroon: #350600;
+  --cream: #FFFAEE;
+  --peach: #FFDDD5;
+
+  /* RGB Components for glows and alpha channel compositions */
+  --ember-rgb: 249 61 13;
+  --maroon-rgb: 53 6 0;
+
+  /* Semantic Light Mappings */
+  --bg: var(--cream);
+  --ink: var(--maroon);
+  --surface: #fff;
+  --soft: var(--peach);
+  --accent: var(--ember);
+  --on-accent: var(--maroon);
+  --muted: #7a5a52;
+  --line: rgba(53, 6, 0, 0.14);
+
+  /* Dark Theme Surfaces */
+  --dark: var(--maroon);
+  --dark-card: #2a0600;
+  --on-dark: var(--cream);
+  --muted-dark: #c9aaa0;
+
+  /* Logo Dot Variable */
+  --dot: var(--ember);
+
+  /* Typography Stacks */
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-voice: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Border Radii */
+  --r-sm: 8px;
+  --r-btn: 12px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-card: 24px;
+  --r-panel: 48px;
+  --r-sheet: 100px;
+  --r-pill: 9999px;
+
+  /* Spacing & Container Geometry */
+  --container-outer: 1618px;
+  --container-content: 1368px;
+  --section-pad-y: clamp(70px, 7vw, 120px);
+  --gutter: 24px;
+
+  /* Motion & Easing */
+  --dur-fast: 0.2s;
+  --dur-base: 0.35s;
+  --dur-slow: 0.75s;
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Hero Planet & Terrain Scene Tokens (Replaces Section 7.0) */
+  --hero-ground: color-mix(in srgb, var(--maroon) 85%, #000);
+  --hero-sky-0: color-mix(in srgb, var(--ember) 40%, var(--maroon));
+  --hero-sky-1: color-mix(in srgb, var(--ember) 52%, var(--maroon));
+  --hero-sky-2: color-mix(in srgb, var(--ember) 68%, var(--maroon));
+  --hero-sky-3: color-mix(in srgb, var(--ember) 90%, var(--maroon));
+  --hero-sky-4: var(--ember);
+  --hero-sky-5: color-mix(in srgb, var(--peach) 25%, var(--ember));
+  --hero-sky-6: color-mix(in srgb, var(--peach) 45%, var(--ember));
+  --hero-sky-7: color-mix(in srgb, var(--peach) 75%, var(--ember));
+  --hero-rim: var(--peach);
+  --hero-rim-edge: var(--cream);
+  --hero-terrain-top: color-mix(in srgb, var(--maroon) 65%, #000);
+  --hero-terrain-base: color-mix(in srgb, var(--maroon) 15%, #000);
+}
+
+[data-theme='dark'] {
+  --bg: #1b0300;
+  --ink: var(--cream);
+  --surface: #2a0600;
+  --muted: #c9aaa0;
+  --line: rgba(255, 250, 238, 0.16);
+  --dark-card: #220400;
+}

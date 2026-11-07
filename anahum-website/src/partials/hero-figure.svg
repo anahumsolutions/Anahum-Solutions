@@ -1,0 +1,24 @@
+<svg class="hero__figure-svg" viewBox="0 0 40 72" width="40" height="72" aria-hidden="true">
+  <defs>
+    <filter id="figureRim" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="var(--accent)" flood-opacity="0.6" />
+    </filter>
+  </defs>
+  <!-- Human silhouette floating with arms slightly out -->
+  <g filter="url(#figureRim)" fill="color-mix(in srgb, var(--maroon) 25%, black)">
+    <!-- Head -->
+    <circle cx="20" cy="8" r="6" />
+    <!-- Neck -->
+    <rect x="18" y="14" width="4" height="4" />
+    <!-- Torso -->
+    <path d="M 12 18 L 28 18 L 26 42 L 14 42 Z" />
+    <!-- Left Arm slightly out -->
+    <path d="M 12 19 L 4 34 L 6 36 L 13 24 Z" />
+    <!-- Right Arm slightly out -->
+    <path d="M 28 19 L 36 34 L 34 36 L 27 24 Z" />
+    <!-- Left Leg floating -->
+    <path d="M 14 42 L 13 62 L 11 72 L 15 72 L 18 62 L 19 42 Z" />
+    <!-- Right Leg floating -->
+    <path d="M 26 42 L 27 62 L 29 72 L 25 72 L 22 62 L 21 42 Z" />
+  </g>
+</svg>

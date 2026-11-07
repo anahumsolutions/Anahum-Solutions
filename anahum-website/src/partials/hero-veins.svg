@@ -1,0 +1,72 @@
+<svg class="hero__veins-svg" viewBox="0 0 1354 977" aria-hidden="true">
+  <defs>
+    <!-- Soft Glow Filter for Veins -->
+    <filter id="veinGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Glowing Under-Strokes -->
+  <g stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.35" filter="url(#veinGlow)" fill="none">
+    <path d="M 677 665 L 675 710 L 681 755 L 678 805 L 682 860 L 679 915 L 683 965 " class="vein-path" />
+    <path d="M 237 700 L 320 706 L 430 709 L 550 712 L 675 710" class="vein-path" />
+    <path d="M 1142 710 L 1040 714 L 920 716 L 800 713 L 675 710" class="vein-path" />
+    <path d="M 312 887 L 410 878 L 520 869 L 682 860" class="vein-path" />
+    <path d="M 1034 874 L 930 870 L 810 864 L 682 860" class="vein-path" />
+    <path d="M 237 700 L 180 735 L 120 780 L 60 840 L 0 910" class="vein-path" />
+    <path d="M 1142 710 L 1210 745 L 1270 790 L 1320 845 L 1354 890" class="vein-path" />
+    <path d="M 312 887 L 240 915 L 150 945 L 80 977" class="vein-path" />
+    <path d="M 1034 874 L 1110 905 L 1200 940 L 1280 977" class="vein-path" />
+    <path d="M 682 860 L 610 900 L 520 945 L 470 977" class="vein-path" />
+    <path d="M 682 860 L 750 900 L 840 945 L 890 977" class="vein-path" />
+  </g>
+
+  <!-- Crisp Core Veins -->
+  <g stroke="var(--accent)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" fill="none">
+    <path d="M 677 665 L 675 710 L 681 755 L 678 805 L 682 860 L 679 915 L 683 965 " class="vein-path-core" />
+    <path d="M 237 700 L 320 706 L 430 709 L 550 712 L 675 710" class="vein-path-core" />
+    <path d="M 1142 710 L 1040 714 L 920 716 L 800 713 L 675 710" class="vein-path-core" />
+    <path d="M 312 887 L 410 878 L 520 869 L 682 860" class="vein-path-core" />
+    <path d="M 1034 874 L 930 870 L 810 864 L 682 860" class="vein-path-core" />
+    <path d="M 237 700 L 180 735 L 120 780 L 60 840 L 0 910" class="vein-path-core" />
+    <path d="M 1142 710 L 1210 745 L 1270 790 L 1320 845 L 1354 890" class="vein-path-core" />
+    <path d="M 312 887 L 240 915 L 150 945 L 80 977" class="vein-path-core" />
+    <path d="M 1034 874 L 1110 905 L 1200 940 L 1280 977" class="vein-path-core" />
+    <path d="M 682 860 L 610 900 L 520 945 L 470 977" class="vein-path-core" />
+    <path d="M 682 860 L 750 900 L 840 945 L 890 977" class="vein-path-core" />
+  </g>
+
+  <!-- Branch Junction Dots (r=2.5) -->
+  <g fill="var(--accent)" opacity="0.9">
+    <circle cx="320" cy="706" r="2.5" class="junction-dot" />
+    <circle cx="550" cy="712" r="2.5" class="junction-dot" />
+    <circle cx="1040" cy="714" r="2.5" class="junction-dot" />
+    <circle cx="800" cy="713" r="2.5" class="junction-dot" />
+    <circle cx="410" cy="878" r="2.5" class="junction-dot" />
+    <circle cx="930" cy="870" r="2.5" class="junction-dot" />
+    <circle cx="180" cy="735" r="2.5" class="junction-dot" />
+    <circle cx="1210" cy="745" r="2.5" class="junction-dot" />
+    <circle cx="675" cy="710" r="2.5" class="junction-dot" />
+    <circle cx="682" cy="860" r="2.5" class="junction-dot" />
+    <circle cx="610" cy="900" r="2.5" class="junction-dot" />
+    <circle cx="750" cy="900" r="2.5" class="junction-dot" />
+  </g>
+
+  <!-- Terminal Connector Dots (r=3 with r=8 soft glow) -->
+  <g class="terminal-dots">
+    <circle cx="237" cy="700" r="8" fill="var(--accent)" opacity="0.35" filter="url(#veinGlow)" />
+    <circle cx="237" cy="700" r="3" fill="var(--cream)" />
+    <circle cx="1142" cy="710" r="8" fill="var(--accent)" opacity="0.35" filter="url(#veinGlow)" />
+    <circle cx="1142" cy="710" r="3" fill="var(--cream)" />
+    <circle cx="312" cy="887" r="8" fill="var(--accent)" opacity="0.35" filter="url(#veinGlow)" />
+    <circle cx="312" cy="887" r="3" fill="var(--cream)" />
+    <circle cx="1034" cy="874" r="8" fill="var(--accent)" opacity="0.35" filter="url(#veinGlow)" />
+    <circle cx="1034" cy="874" r="3" fill="var(--cream)" />
+    <circle cx="683" cy="965" r="8" fill="var(--accent)" opacity="0.35" filter="url(#veinGlow)" />
+    <circle cx="683" cy="965" r="3" fill="var(--cream)" />
+  </g>
+</svg>
