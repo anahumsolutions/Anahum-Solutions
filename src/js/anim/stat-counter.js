@@ -1,18 +1,18 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * Stat Counter & Floating Card Physics Module (Section 7.1)
  * Animates numeral count-up and continuous floating physics unconditionally.
  */
 export function initStatCounter() {
-  const cardAccent = document.querySelector('.stat-card--accent');
-  const cardSurface = document.querySelector('.stat-card--surface');
-  const numberEl = document.querySelector('.stat-card--accent .stat-card__number');
+  const cardAccent = document.querySelector('.stat-card--accent')
+  const cardSurface = document.querySelector('.stat-card--surface')
+  const numberEl = document.querySelector('.stat-card--accent .stat-card__number')
 
-  if (!cardAccent || !cardSurface) return;
+  if (!cardAccent || !cardSurface) return
 
   // Staggered entrance from sides
   gsap.fromTo(
@@ -27,10 +27,10 @@ export function initStatCounter() {
       scrollTrigger: {
         trigger: cardAccent,
         start: 'top 88%',
-        toggleActions: 'play none none none'
-      }
-    }
-  );
+        toggleActions: 'play none none none',
+      },
+    },
+  )
 
   gsap.fromTo(
     cardSurface,
@@ -45,14 +45,14 @@ export function initStatCounter() {
       scrollTrigger: {
         trigger: cardSurface,
         start: 'top 88%',
-        toggleActions: 'play none none none'
-      }
-    }
-  );
+        toggleActions: 'play none none none',
+      },
+    },
+  )
 
   // Number Counter (0% -> 98%)
   if (numberEl) {
-    const counter = { val: 0 };
+    const counter = { val: 0 }
     ScrollTrigger.create({
       trigger: cardAccent,
       start: 'top 88%',
@@ -62,11 +62,11 @@ export function initStatCounter() {
           duration: 1.5,
           ease: 'power2.out',
           onUpdate: () => {
-            numberEl.textContent = `${Math.round(counter.val)}%`;
-          }
-        });
-      }
-    });
+            numberEl.textContent = `${Math.round(counter.val)}%`
+          },
+        })
+      },
+    })
   }
 
   // Continuous floating oscillation
@@ -75,8 +75,8 @@ export function initStatCounter() {
     duration: 3.0,
     repeat: -1,
     yoyo: true,
-    ease: 'sine.inOut'
-  });
+    ease: 'sine.inOut',
+  })
 
   gsap.to(cardSurface, {
     y: '-=8',
@@ -84,6 +84,6 @@ export function initStatCounter() {
     repeat: -1,
     yoyo: true,
     ease: 'sine.inOut',
-    delay: 0.4
-  });
+    delay: 0.4,
+  })
 }

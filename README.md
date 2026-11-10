@@ -1,104 +1,196 @@
-# anahum solutions — AI Agency Website
+# Anahum Solutions — AI Agency Website
 
-Official landing page for **anahum solutions** ("The quiet intelligence behind your brand"). Built with vanilla JavaScript, modern CSS architecture, GSAP animations, and Vite. Ready for GitHub and one-click Vercel deployment.
+**The quiet intelligence behind your brand.**
 
-Live Demo: [https://anahum-web-new.vercel.app](https://anahum-web-new.vercel.app)
+The official website of **Anahum Solutions**, an AI-powered digital agency building intelligent digital experiences, automation systems, and creative solutions for modern businesses.
+
+🌐 **Live Website:** [anahum-web-new.vercel.app](https://anahum-web-new.vercel.app)
 
 ---
 
-## 🚀 Quick Start
+## About the Project
 
-### 1. Prerequisites
-- Node.js `18+` (or `20+` recommended)
-- npm `9+`
+This repository contains the source code for the official Anahum Solutions website. It is designed to communicate the agency's services, brand identity, capabilities, and vision through a modern digital experience.
 
-### 2. Installation
+The website combines a carefully structured visual system, responsive layouts, and motion-driven interactions to create an elegant and engaging experience.
+
+## Services
+
+Anahum Solutions specializes in:
+
+- **AI Automation:** Intelligent workflows, AI agents, and business process automation.
+- **Web Development:** Modern, responsive, and high-performance websites.
+- **Application Development:** Custom web and software applications.
+- **AI-Powered Content Creation:** AI-generated visual content and creative assets for brands.
+- **Custom AI Solutions:** Tailored artificial intelligence solutions for business needs.
+
+## Technology Stack
+
+| Technology         | Purpose                                 |
+| ------------------ | --------------------------------------- |
+| HTML5              | Website structure                       |
+| CSS3               | Styling and responsive layouts          |
+| Vanilla JavaScript | Interactions and application logic      |
+| Vite               | Development server and production build |
+| GSAP               | Motion graphics and animations          |
+| Bootstrap 5.3      | UI and supporting components            |
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20 or later recommended
+- npm 9 or later
+
+### Installation
+
+Clone the repository:
+
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/anahum-web.git
-cd anahum-web
-
-# Install dependencies
-npm install
+git clone https://github.com/anahumsolutions/Anahum-Solutions.git
 ```
 
-### 3. Development Server
-Start the local development server with Hot Module Replacement (HMR):
+Navigate into the project:
+
+```bash
+cd Anahum-Solutions
+```
+
+Install dependencies:
+
+```bash
+npm ci
+```
+
+### Development
+
+Start the local development server:
+
 ```bash
 npm run dev
 ```
-Open `http://localhost:5173` in your browser.
 
-### 4. Production Build & Preview
+Open the local URL displayed in your terminal, usually:
+
+```text
+http://localhost:5173
+```
+
+### Production Build
+
+Generate an optimized production build:
+
 ```bash
-# Compile and optimize for production
 npm run build
+```
 
-# Preview production build locally
+Preview the production build locally:
+
+```bash
 npm run preview
 ```
 
----
+## Project Structure
 
-## 🛠 Project Structure
-
-```
-├── brand/               # Brand guidelines HTML & identity tokens
-├── evidence/            # Reference frames, measurements & hero design spec
-├── icons/               # SVG sprite definitions
-├── public/              # Static assets & placeholder photography
-├── scripts/             # Measurement & SVG generation automation scripts
+```text
+├── brand/                  # Brand guidelines and identity
+├── evidence/               # Reference frames and design specifications
+├── icons/                  # SVG icon resources
+├── public/                 # Static assets
+├── scripts/                # Automation and generation scripts
 ├── src/
 │   ├── css/
-│   │   ├── tokens.css       # Single source of truth for palette & spacing (Zero hex elsewhere!)
-│   │   ├── base.css         # Typography, reset, accessibility styles
-│   │   ├── layout.css       # Container & structural grid
-│   │   ├── components.css   # Buttons, cards, pills, icon tiles
-│   │   └── sections.css     # Section-specific styles (Hero, Services, Bento, Pricing, etc.)
+│   │   ├── tokens.css      # Design tokens and visual variables
+│   │   ├── base.css        # Typography and global styles
+│   │   ├── layout.css      # Structural layouts and grids
+│   │   ├── components.css  # Reusable UI components
+│   │   └── sections.css    # Page-specific styles
 │   ├── js/
-│   │   ├── anim/            # Modular GSAP animations (hero, tabs, counters, orbit, etc.)
-│   │   └── main.js          # App bootstrap & event listeners
-│   └── partials/            # Modular HTML partials (hero, header, services, footer, etc.)
-├── index.html           # Main entry point with Vite HTML partial injections
-├── package.json         # Pinned dependencies (Vite, GSAP, Bootstrap 5.3)
-├── vercel.json          # Production deployment configuration & cache headers
-├── THEMING.md           # Guide to swapping palettes, icons, and hero artwork
-├── OPEN_QUESTIONS.md    # Log of design decisions and resolved items
-└── MEASUREMENTS-hero.md # Stage units geometry and measurements spec
+│   │   ├── anim/           # Modular GSAP animations
+│   │   └── main.js         # Application entry point
+│   └── partials/           # Reusable HTML partials
+├── .github/
+│   └── workflows/          # GitHub Actions CI workflows
+├── .husky/                 # Git hooks
+├── index.html              # Main HTML entry point
+├── package.json            # Dependencies and scripts
+├── vercel.json             # Vercel deployment configuration
+├── README.md
+├── CONTRIBUTING.md
+├── THEMING.md
+└── ...
 ```
 
----
+## Design System & Customization
 
-## 🎨 Theming & Brand Customization
+The website follows a centralized design system to maintain visual consistency.
 
-- **Colors:** Defined strictly in `src/css/tokens.css`. No color literals (`#hex`) exist outside this file.
-- **Icons:** Unified sprite in `src/partials/sprite.html` and `icons/sprite.svg`. All icons use `currentColor`.
-- **Hero Scene:** Multi-layer planet and terrain stage scaled with uniform stage units (`--u`). Procedural SVGs can be regenerated via:
-  ```bash
-  python scripts/generate_hero_scene.py
-  ```
-For full instructions on changing colors, replacing photography, or retiming motion, refer to [`THEMING.md`](THEMING.md).
+- **Colors and design tokens:** Managed in `src/css/tokens.css`.
+- **Typography and global styles:** Managed in `src/css/base.css`.
+- **Layout:** Managed in `src/css/layout.css`.
+- **Reusable components:** Managed in `src/css/components.css`.
+- **Section styling:** Managed in `src/css/sections.css`.
+- **Animations:** Organized into modular files under `src/js/anim/`.
+- **Icons:** Shared SVG resources are maintained in the `icons/` and `src/partials/` directories.
 
----
+For detailed customization instructions, see [THEMING.md](THEMING.md).
 
-## ☁️ Deployment (Vercel)
+## Development Standards
 
-The repository includes a ready-to-deploy `vercel.json` configured for Vite with immutable asset caching.
+This repository follows consistent development standards to maintain code quality and collaboration.
 
-### Deploy via Vercel CLI
+- **Conventional Commits:** Commit messages must follow the Conventional Commits specification.
+- **Prettier:** Code formatting is standardized across the project.
+- **Husky:** Git hooks validate formatting and commit messages locally.
+- **GitHub Actions:** Automated checks run on pull requests targeting `main`.
+- **Protected Main Branch:** Direct updates to `main` are restricted to the repository owner.
+
+### Before Contributing
+
+All contributors must read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes.
+
+Contributions should be developed on separate branches and submitted through Pull Requests. Changes must pass the required automated checks before being merged.
+
+## Deployment
+
+The project is configured for deployment through Vercel.
+
+### Deploy using Vercel CLI
+
 ```bash
 npx vercel --prod
 ```
 
-### Deploy via GitHub
-1. Create a new repository on [GitHub](https://github.com/new).
-2. Push this codebase:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: initial anahum website codebase"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<repo-name>.git
-   git push -u origin main
-   ```
-3. Import the repository in [Vercel](https://vercel.com/new) — build settings will be automatically detected.
+### Deploy through GitHub
+
+1. Connect the GitHub repository to Vercel.
+2. Configure the project using Vite build settings.
+3. Set the production branch to `main`.
+4. Deploy the project.
+
+The included `vercel.json` contains the project's deployment and caching configuration.
+
+## Documentation
+
+| Document                               | Description                                 |
+| -------------------------------------- | ------------------------------------------- |
+| [CONTRIBUTING.md](CONTRIBUTING.md)     | Contribution rules and development workflow |
+| [THEMING.md](THEMING.md)               | Brand customization and visual system       |
+| [MANIFEST.md](MANIFEST.md)             | Project documentation and specifications    |
+| [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) | Design decisions and open items             |
+
+## License & Usage
+
+This repository contains proprietary website source code and brand assets belonging to Anahum Solutions.
+
+Public repository visibility does not grant permission to reuse, redistribute, or commercially exploit its contents. All rights are reserved by Anahum Solutions unless otherwise stated.
+
+---
+
+**Anahum Solutions**
+
+_Building intelligent digital experiences for modern businesses._
+
+Website: [https://anahum-web-new.vercel.app](https://anahum-web-new.vercel.app)
+
+GitHub: [https://github.com/anahumsolutions](https://github.com/anahumsolutions)

@@ -49,7 +49,11 @@
   line-height: 1;
   text-align: center;
   white-space: nowrap;
-  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
 }
 
 .btn:active {
@@ -144,7 +148,10 @@
   height: 54px;
   border-radius: var(--r-md);
   flex-shrink: 0;
-  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 
 .icon-tile--dark {
@@ -206,7 +213,10 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
-  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), visibility var(--dur-base);
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    visibility var(--dur-base);
 }
 
 .back-to-top.is-visible {

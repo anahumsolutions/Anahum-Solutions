@@ -6,10 +6,10 @@
 
 :root {
   /* Core Brand Colors */
-  --ember: #F93D0D;
+  --ember: #f93d0d;
   --maroon: #350600;
-  --cream: #FFFAEE;
-  --peach: #FFDDD5;
+  --cream: #fffaee;
+  --peach: #ffddd5;
 
   /* RGB Components for glows and alpha channel compositions */
   --ember-rgb: 249 61 13;
