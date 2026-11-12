@@ -27,11 +27,18 @@ body {
   color: var(--ink);
   background-color: var(--bg);
   overflow-x: hidden;
-  transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   margin-bottom: 0.5em;
   font-family: var(--font-display);
@@ -55,7 +62,9 @@ h3 {
 }
 
 /* Emphasis word styling inside headlines */
-h1 i, h2 i, h3 i,
+h1 i,
+h2 i,
+h3 i,
 .voice-word {
   font-family: var(--font-voice);
   font-style: italic;
@@ -73,22 +82,28 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  transition: opacity var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-button, input, textarea {
+button,
+input,
+textarea {
   font-family: inherit;
   font-size: inherit;
 }
@@ -125,4 +140,3 @@ button {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
-

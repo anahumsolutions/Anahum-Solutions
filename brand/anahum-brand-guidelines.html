@@ -1,145 +1,619 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>anahum — Brand Guidelines v2.0</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&family=Instrument+Serif:ital@0;1&display=swap">
-<style>
-:root{--ink:#350600;--paper:#FFFAEE;--ember:#F93D0D;--peach:#FFDDD5;--bg:#FFFAEE;--fg:#350600;--card:#fff;--line:rgba(53,6,0,.14);--mut:#7a5a52;
---A:'Anton',Impact,sans-serif;--S:'Instrument Serif',Georgia,serif;--I:'Inter',system-ui,sans-serif;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b0300;--fg:#FFFAEE;--card:#2a0600;--line:rgba(255,250,238,.16);--mut:#c9aaa0}}
-:root[data-theme="dark"]{--bg:#1b0300;--fg:#FFFAEE;--card:#2a0600;--line:rgba(255,250,238,.16);--mut:#c9aaa0}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--I)}
-.w{max-width:980px;margin:0 auto;padding:0 20px}
-section{padding:54px 0;border-top:1px solid var(--line)}
-.ey{font:600 11px var(--I);letter-spacing:.22em;text-transform:uppercase;color:var(--ember)}
-h2{font:400 clamp(38px,7vw,64px)/1 var(--A);text-transform:uppercase;margin:8px 0 14px}
-h2 i{font:italic 400 1.05em var(--S);text-transform:none;color:var(--ember)}
-h3{font:600 15px var(--I);margin:0 0 6px}
-p{max-width:640px;margin:0 0 12px}.m{color:var(--mut);font-size:14px}
-.g{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:22px}
-.c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.t{border-radius:14px;min-height:150px;display:flex;align-items:center;justify-content:center;padding:22px;border:1px solid var(--line)}
-.t svg{width:100%;max-width:300px;height:auto}.t.ic svg{max-width:110px}
-.od{background:var(--ink);color:var(--paper);--dot:#F93D0D}.ol{background:var(--paper);color:var(--ink);--dot:#F93D0D}
-.bk{background:#fff;color:#000;--dot:#000}.wh{background:#000;color:#fff;--dot:#fff}
-.hero{background:var(--ink);color:var(--paper);--dot:#F93D0D;padding:64px 0 54px}
-.hero svg{width:min(560px,100%);height:auto;display:block;margin:0 0 26px}.hero p{color:#e6cfc6}
-.sw{border-radius:14px;overflow:hidden;border:1px solid var(--line)}.sw .k{height:96px}.sw .n{padding:12px 14px;background:var(--card);font-size:13px}.sw b{display:block;font-size:15px}
-table{border-collapse:collapse;width:100%;font-size:14px;margin-top:14px}td,th{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
-.big{font:400 64px/1 var(--A)}.bigs{font:italic 400 64px/1 var(--S)}.bigi{font:600 56px/1 var(--I)}
-.hl{background:var(--ember);color:var(--paper);padding:0 .15em}
-.dash{border:2px dashed var(--fg);border-radius:18px;padding:12px 16px;font-size:14px;text-align:center}
-.ghost{font:italic 400 90px/1 var(--S);color:var(--fg);opacity:.9;white-space:nowrap}
-.post{aspect-ratio:3/4;border-radius:14px;position:relative;overflow:hidden;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
-.post .h{font:400 38px/.98 var(--A);text-transform:uppercase}.post .h i{font:italic 400 1.1em var(--S);text-transform:none}
-.post small{font:600 9px var(--I);letter-spacing:.2em;text-transform:uppercase}
-.p1{background:linear-gradient(160deg,#4a0d06,#1b0300);color:var(--paper)}.p1 .h{color:var(--ember);font-size:52px}
-.p2{background:radial-gradient(circle at 50% 28%,#F93D0D 0,#a52206 22%,#350600 52%,#000 90%);color:var(--paper)}
-.p3{background:var(--ember);color:var(--ink)}
-.note{background:var(--paper);color:var(--ink);padding:12px;transform:rotate(-4deg);font:400 26px/1 var(--A);text-transform:uppercase;align-self:flex-start}
-.do{border-left:3px solid var(--ember);padding-left:12px}.no{border-left:3px solid var(--fg);padding-left:12px;opacity:.85}
-pre{white-space:pre-wrap;word-break:break-word;background:var(--ink);color:#f2e3da;padding:16px;border-radius:12px;font-size:12.5px;margin:12px 0}
-footer{padding:30px 0;font-size:13px;color:var(--mut);border-top:1px solid var(--line)}
-</style></head><body>
-<svg width="0" height="0" style="position:absolute"><defs><g id="ic"><path d="M8.96 -8.96 L92.42 -163.04 L175.88 -8.96" fill="none" stroke="currentColor" stroke-width="17.92" stroke-linecap="round" stroke-linejoin="round"/><path d="M47.48 -8.96 L92.42 -92.42 L137.36 -8.96" fill="none" stroke="currentColor" stroke-width="17.92" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92.42" cy="-29.82" r="16.05" style="fill:var(--dot,#F93D0D)"/></g><g id="lk"><path d="M8.96 -8.96 L92.42 -163.04 L175.88 -8.96" fill="none" stroke="currentColor" stroke-width="17.92" stroke-linecap="round" stroke-linejoin="round"/><path d="M47.48 -8.96 L92.42 -92.42 L137.36 -8.96" fill="none" stroke="currentColor" stroke-width="17.92" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92.42" cy="-29.82" r="16.05" style="fill:var(--dot,#F93D0D)"/><path d="M212.89 -43.96V0H195.44V-75.03H211.95L212.15 -60.13Q215.17 -67.18 220.07 -71.14Q226.18 -75.97 235.37 -75.97Q243.09 -75.97 248.86 -72.68Q254.63 -69.4 257.82 -63.09Q261.01 -56.78 261.01 -47.72V0H243.56V-45.03Q243.56 -52.55 239.67 -56.85Q235.78 -61.14 228.93 -61.14Q224.3 -61.14 220.67 -59.13Q217.05 -57.11 214.97 -53.26Q212.89 -49.4 212.89 -43.96Z M300.47 1.54Q293.36 1.54 287.65 -1.04Q281.95 -3.62 278.66 -8.66Q275.37 -13.69 275.37 -21.07Q275.37 -27.45 277.76 -31.61Q280.14 -35.77 284.2 -38.26Q288.26 -40.74 293.36 -42.01Q298.46 -43.29 303.96 -43.83Q310.47 -44.56 314.57 -45.1Q318.66 -45.64 320.57 -46.85Q322.49 -48.05 322.49 -50.6V-50.94Q322.49 -54.63 321.01 -57.21Q319.53 -59.8 316.61 -61.17Q313.7 -62.55 309.4 -62.55Q305.04 -62.55 301.85 -61.21Q298.66 -59.87 296.65 -57.72Q294.63 -55.57 293.7 -53.09L277.52 -56.38Q279.74 -63.02 284.37 -67.35Q289 -71.68 295.41 -73.83Q301.82 -75.97 309.33 -75.97Q314.63 -75.97 320.04 -74.73Q325.44 -73.49 329.94 -70.54Q334.43 -67.58 337.19 -62.62Q339.94 -57.65 339.94 -50.13V0H323.23V-10.34H322.55Q320.88 -7.18 317.96 -4.46Q315.04 -1.74 310.71 -0.1Q306.38 1.54 300.47 1.54ZM304.97 -11.41Q310.41 -11.41 314.33 -13.56Q318.26 -15.7 320.44 -19.23Q322.62 -22.75 322.62 -26.91V-35.77Q321.75 -35.1 319.7 -34.5Q317.65 -33.89 315.14 -33.42Q312.62 -32.95 310.17 -32.62Q307.72 -32.28 306.04 -32.08Q302.15 -31.54 299 -30.34Q295.84 -29.13 294.06 -26.95Q292.29 -24.77 292.29 -21.28Q292.29 -18.05 293.93 -15.87Q295.57 -13.69 298.43 -12.55Q301.28 -11.41 304.97 -11.41Z M375.91 -43.96V0H358.46V-100H375.64V-61.21Q378.53 -67.52 383.09 -71.14Q389.2 -75.97 398.39 -75.97Q406.11 -75.97 411.92 -72.68Q417.72 -69.4 420.91 -63.09Q424.1 -56.78 424.1 -47.72V0H406.58V-45.03Q406.58 -52.55 402.69 -56.85Q398.8 -61.14 391.95 -61.14Q387.32 -61.14 383.7 -59.13Q380.07 -57.11 377.99 -53.26Q375.91 -49.4 375.91 -43.96Z M468.33 0.94Q460.61 0.94 454.8 -2.35Q449 -5.64 445.81 -11.98Q442.62 -18.32 442.62 -27.32V-75.03H460.07V-30Q460.07 -22.48 464 -18.19Q467.92 -13.89 474.77 -13.89Q479.4 -13.89 483.02 -15.91Q486.65 -17.92 488.7 -21.81Q490.74 -25.7 490.74 -31.07V-75.03H508.26V0H491.68L491.55 -14.97Q488.53 -7.79 483.49 -3.89Q477.32 0.94 468.33 0.94Z M526.78 0V-75.03H543.16L543.7 -60.81Q545.17 -64.97 547.59 -67.92Q550.94 -72.15 555.47 -74.19Q560 -76.24 564.97 -76.24Q573.09 -76.24 578.12 -71.14Q582.08 -67.05 584.23 -59.93Q585.78 -64.16 588.39 -67.32Q592.08 -71.74 597.22 -73.99Q602.35 -76.24 608.19 -76.24Q614.97 -76.24 620.34 -73.29Q625.71 -70.34 628.86 -64.66Q632.02 -58.99 632.02 -50.6V0H614.57V-47.92Q614.57 -54.9 610.74 -58.12Q606.92 -61.34 601.55 -61.34Q597.39 -61.34 594.3 -59.53Q591.21 -57.72 589.57 -54.53Q587.92 -51.34 587.92 -47.11V0H570.88V-48.72Q570.88 -54.43 567.32 -57.89Q563.76 -61.34 558.19 -61.34Q554.37 -61.34 551.18 -59.6Q547.99 -57.85 546.11 -54.43Q544.23 -51.01 544.23 -45.97V0Z" fill="currentColor"/></g></defs></svg>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>anahum — Brand Guidelines v2.0</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&family=Instrument+Serif:ital@0;1&display=swap"
+    />
+    <style>
+      :root {
+        --ink: #350600;
+        --paper: #fffaee;
+        --ember: #f93d0d;
+        --peach: #ffddd5;
+        --bg: #fffaee;
+        --fg: #350600;
+        --card: #fff;
+        --line: rgba(53, 6, 0, 0.14);
+        --mut: #7a5a52;
+        --A: 'Anton', Impact, sans-serif;
+        --S: 'Instrument Serif', Georgia, serif;
+        --I: 'Inter', system-ui, sans-serif;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --bg: #1b0300;
+          --fg: #fffaee;
+          --card: #2a0600;
+          --line: rgba(255, 250, 238, 0.16);
+          --mut: #c9aaa0;
+        }
+      }
+      :root[data-theme='dark'] {
+        --bg: #1b0300;
+        --fg: #fffaee;
+        --card: #2a0600;
+        --line: rgba(255, 250, 238, 0.16);
+        --mut: #c9aaa0;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font: 400 16px/1.6 var(--I);
+      }
+      .w {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      section {
+        padding: 54px 0;
+        border-top: 1px solid var(--line);
+      }
+      .ey {
+        font: 600 11px var(--I);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ember);
+      }
+      h2 {
+        font: 400 clamp(38px, 7vw, 64px)/1 var(--A);
+        text-transform: uppercase;
+        margin: 8px 0 14px;
+      }
+      h2 i {
+        font: italic 400 1.05em var(--S);
+        text-transform: none;
+        color: var(--ember);
+      }
+      h3 {
+        font: 600 15px var(--I);
+        margin: 0 0 6px;
+      }
+      p {
+        max-width: 640px;
+        margin: 0 0 12px;
+      }
+      .m {
+        color: var(--mut);
+        font-size: 14px;
+      }
+      .g {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        margin-top: 22px;
+      }
+      .c {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .t {
+        border-radius: 14px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 22px;
+        border: 1px solid var(--line);
+      }
+      .t svg {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+      .t.ic svg {
+        max-width: 110px;
+      }
+      .od {
+        background: var(--ink);
+        color: var(--paper);
+        --dot: #f93d0d;
+      }
+      .ol {
+        background: var(--paper);
+        color: var(--ink);
+        --dot: #f93d0d;
+      }
+      .bk {
+        background: #fff;
+        color: #000;
+        --dot: #000;
+      }
+      .wh {
+        background: #000;
+        color: #fff;
+        --dot: #fff;
+      }
+      .hero {
+        background: var(--ink);
+        color: var(--paper);
+        --dot: #f93d0d;
+        padding: 64px 0 54px;
+      }
+      .hero svg {
+        width: min(560px, 100%);
+        height: auto;
+        display: block;
+        margin: 0 0 26px;
+      }
+      .hero p {
+        color: #e6cfc6;
+      }
+      .sw {
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+      .sw .k {
+        height: 96px;
+      }
+      .sw .n {
+        padding: 12px 14px;
+        background: var(--card);
+        font-size: 13px;
+      }
+      .sw b {
+        display: block;
+        font-size: 15px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+        margin-top: 14px;
+      }
+      td,
+      th {
+        text-align: left;
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--line);
+      }
+      .big {
+        font: 400 64px/1 var(--A);
+      }
+      .bigs {
+        font: italic 400 64px/1 var(--S);
+      }
+      .bigi {
+        font: 600 56px/1 var(--I);
+      }
+      .hl {
+        background: var(--ember);
+        color: var(--paper);
+        padding: 0 0.15em;
+      }
+      .dash {
+        border: 2px dashed var(--fg);
+        border-radius: 18px;
+        padding: 12px 16px;
+        font-size: 14px;
+        text-align: center;
+      }
+      .ghost {
+        font: italic 400 90px/1 var(--S);
+        color: var(--fg);
+        opacity: 0.9;
+        white-space: nowrap;
+      }
+      .post {
+        aspect-ratio: 3/4;
+        border-radius: 14px;
+        position: relative;
+        overflow: hidden;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .post .h {
+        font: 400 38px/0.98 var(--A);
+        text-transform: uppercase;
+      }
+      .post .h i {
+        font: italic 400 1.1em var(--S);
+        text-transform: none;
+      }
+      .post small {
+        font: 600 9px var(--I);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .p1 {
+        background: linear-gradient(160deg, #4a0d06, #1b0300);
+        color: var(--paper);
+      }
+      .p1 .h {
+        color: var(--ember);
+        font-size: 52px;
+      }
+      .p2 {
+        background: radial-gradient(
+          circle at 50% 28%,
+          #f93d0d 0,
+          #a52206 22%,
+          #350600 52%,
+          #000 90%
+        );
+        color: var(--paper);
+      }
+      .p3 {
+        background: var(--ember);
+        color: var(--ink);
+      }
+      .note {
+        background: var(--paper);
+        color: var(--ink);
+        padding: 12px;
+        transform: rotate(-4deg);
+        font: 400 26px/1 var(--A);
+        text-transform: uppercase;
+        align-self: flex-start;
+      }
+      .do {
+        border-left: 3px solid var(--ember);
+        padding-left: 12px;
+      }
+      .no {
+        border-left: 3px solid var(--fg);
+        padding-left: 12px;
+        opacity: 0.85;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-break: break-word;
+        background: var(--ink);
+        color: #f2e3da;
+        padding: 16px;
+        border-radius: 12px;
+        font-size: 12.5px;
+        margin: 12px 0;
+      }
+      footer {
+        padding: 30px 0;
+        font-size: 13px;
+        color: var(--mut);
+        border-top: 1px solid var(--line);
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <g id="ic">
+          <path
+            d="M8.96 -8.96 L92.42 -163.04 L175.88 -8.96"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="17.92"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M47.48 -8.96 L92.42 -92.42 L137.36 -8.96"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="17.92"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <circle cx="92.42" cy="-29.82" r="16.05" style="fill: var(--dot, #f93d0d)" />
+        </g>
+        <g id="lk">
+          <path
+            d="M8.96 -8.96 L92.42 -163.04 L175.88 -8.96"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="17.92"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M47.48 -8.96 L92.42 -92.42 L137.36 -8.96"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="17.92"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <circle cx="92.42" cy="-29.82" r="16.05" style="fill: var(--dot, #f93d0d)" />
+          <path
+            d="M212.89 -43.96V0H195.44V-75.03H211.95L212.15 -60.13Q215.17 -67.18 220.07 -71.14Q226.18 -75.97 235.37 -75.97Q243.09 -75.97 248.86 -72.68Q254.63 -69.4 257.82 -63.09Q261.01 -56.78 261.01 -47.72V0H243.56V-45.03Q243.56 -52.55 239.67 -56.85Q235.78 -61.14 228.93 -61.14Q224.3 -61.14 220.67 -59.13Q217.05 -57.11 214.97 -53.26Q212.89 -49.4 212.89 -43.96Z M300.47 1.54Q293.36 1.54 287.65 -1.04Q281.95 -3.62 278.66 -8.66Q275.37 -13.69 275.37 -21.07Q275.37 -27.45 277.76 -31.61Q280.14 -35.77 284.2 -38.26Q288.26 -40.74 293.36 -42.01Q298.46 -43.29 303.96 -43.83Q310.47 -44.56 314.57 -45.1Q318.66 -45.64 320.57 -46.85Q322.49 -48.05 322.49 -50.6V-50.94Q322.49 -54.63 321.01 -57.21Q319.53 -59.8 316.61 -61.17Q313.7 -62.55 309.4 -62.55Q305.04 -62.55 301.85 -61.21Q298.66 -59.87 296.65 -57.72Q294.63 -55.57 293.7 -53.09L277.52 -56.38Q279.74 -63.02 284.37 -67.35Q289 -71.68 295.41 -73.83Q301.82 -75.97 309.33 -75.97Q314.63 -75.97 320.04 -74.73Q325.44 -73.49 329.94 -70.54Q334.43 -67.58 337.19 -62.62Q339.94 -57.65 339.94 -50.13V0H323.23V-10.34H322.55Q320.88 -7.18 317.96 -4.46Q315.04 -1.74 310.71 -0.1Q306.38 1.54 300.47 1.54ZM304.97 -11.41Q310.41 -11.41 314.33 -13.56Q318.26 -15.7 320.44 -19.23Q322.62 -22.75 322.62 -26.91V-35.77Q321.75 -35.1 319.7 -34.5Q317.65 -33.89 315.14 -33.42Q312.62 -32.95 310.17 -32.62Q307.72 -32.28 306.04 -32.08Q302.15 -31.54 299 -30.34Q295.84 -29.13 294.06 -26.95Q292.29 -24.77 292.29 -21.28Q292.29 -18.05 293.93 -15.87Q295.57 -13.69 298.43 -12.55Q301.28 -11.41 304.97 -11.41Z M375.91 -43.96V0H358.46V-100H375.64V-61.21Q378.53 -67.52 383.09 -71.14Q389.2 -75.97 398.39 -75.97Q406.11 -75.97 411.92 -72.68Q417.72 -69.4 420.91 -63.09Q424.1 -56.78 424.1 -47.72V0H406.58V-45.03Q406.58 -52.55 402.69 -56.85Q398.8 -61.14 391.95 -61.14Q387.32 -61.14 383.7 -59.13Q380.07 -57.11 377.99 -53.26Q375.91 -49.4 375.91 -43.96Z M468.33 0.94Q460.61 0.94 454.8 -2.35Q449 -5.64 445.81 -11.98Q442.62 -18.32 442.62 -27.32V-75.03H460.07V-30Q460.07 -22.48 464 -18.19Q467.92 -13.89 474.77 -13.89Q479.4 -13.89 483.02 -15.91Q486.65 -17.92 488.7 -21.81Q490.74 -25.7 490.74 -31.07V-75.03H508.26V0H491.68L491.55 -14.97Q488.53 -7.79 483.49 -3.89Q477.32 0.94 468.33 0.94Z M526.78 0V-75.03H543.16L543.7 -60.81Q545.17 -64.97 547.59 -67.92Q550.94 -72.15 555.47 -74.19Q560 -76.24 564.97 -76.24Q573.09 -76.24 578.12 -71.14Q582.08 -67.05 584.23 -59.93Q585.78 -64.16 588.39 -67.32Q592.08 -71.74 597.22 -73.99Q602.35 -76.24 608.19 -76.24Q614.97 -76.24 620.34 -73.29Q625.71 -70.34 628.86 -64.66Q632.02 -58.99 632.02 -50.6V0H614.57V-47.92Q614.57 -54.9 610.74 -58.12Q606.92 -61.34 601.55 -61.34Q597.39 -61.34 594.3 -59.53Q591.21 -57.72 589.57 -54.53Q587.92 -51.34 587.92 -47.11V0H570.88V-48.72Q570.88 -54.43 567.32 -57.89Q563.76 -61.34 558.19 -61.34Q554.37 -61.34 551.18 -59.6Q547.99 -57.85 546.11 -54.43Q544.23 -51.01 544.23 -45.97V0Z"
+            fill="currentColor"
+          />
+        </g>
+      </defs>
+    </svg>
 
-<header class="hero"><div class="w">
-<svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk"/></svg>
-<div class="ey">Brand Guidelines · v2.0</div>
-<h2 style="color:var(--paper)">The quiet intelligence <i>behind your brand</i></h2>
-<p>anahum solutions is an AI agency that helps modern businesses create, automate and grow: AI ad and social content, AI product visuals, workflow automation, AI agents, chatbots, and custom AI systems.</p>
-</div></header>
+    <header class="hero">
+      <div class="w">
+        <svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk" /></svg>
+        <div class="ey">Brand Guidelines · v2.0</div>
+        <h2 style="color: var(--paper)">The quiet intelligence <i>behind your brand</i></h2>
+        <p>
+          anahum solutions is an AI agency that helps modern businesses create, automate and grow:
+          AI ad and social content, AI product visuals, workflow automation, AI agents, chatbots,
+          and custom AI systems.
+        </p>
+      </div>
+    </header>
 
-<section><div class="w">
-<div class="ey">01 · Brand story</div><h2>Ana <i>+</i> hum</h2>
-<div class="g">
-<div class="c"><h3>ANA: the core</h3><p class="m">The central intelligence at the heart of a business. In the icon, it is the solid orange dot.</p></div>
-<div class="c"><h3>HUM: the quiet</h3><p class="m">A constant presence working in the background, like the low hum of a system. In the icon, it is the two rings around the core.</p></div>
-<div class="t od ic"><svg viewBox="0 -172 184.8 172" role="img" aria-label="anahum icon"><use href="#ic"/></svg></div>
-</div>
-<p style="margin-top:18px"><b>Say it like this:</b> "The solid core is the intelligence of your business. The rings are the hum: quiet, constant, always working."</p>
-</div></section>
+    <section>
+      <div class="w">
+        <div class="ey">01 · Brand story</div>
+        <h2>Ana <i>+</i> hum</h2>
+        <div class="g">
+          <div class="c">
+            <h3>ANA: the core</h3>
+            <p class="m">
+              The central intelligence at the heart of a business. In the icon, it is the solid
+              orange dot.
+            </p>
+          </div>
+          <div class="c">
+            <h3>HUM: the quiet</h3>
+            <p class="m">
+              A constant presence working in the background, like the low hum of a system. In the
+              icon, it is the two rings around the core.
+            </p>
+          </div>
+          <div class="t od ic">
+            <svg viewBox="0 -172 184.8 172" role="img" aria-label="anahum icon">
+              <use href="#ic" />
+            </svg>
+          </div>
+        </div>
+        <p style="margin-top: 18px">
+          <b>Say it like this:</b> "The solid core is the intelligence of your business. The rings
+          are the hum: quiet, constant, always working."
+        </p>
+      </div>
+    </section>
 
-<section><div class="w">
-<div class="ey">02 · Logo</div><h2>Primary <i>lockup</i></h2>
-<p>The lowercase "anahum", with the icon as the first letter. Always use the original vector files. Never redraw, retype or rebuild the logo.</p>
-<div class="g">
-<div class="t ol"><svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk"/></svg></div>
-<div class="t od"><svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk"/></svg></div>
-<div class="t bk"><svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk"/></svg></div>
-<div class="t wh"><svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk"/></svg></div>
-</div>
-<div class="g">
-<div class="t od ic"><svg viewBox="0 -172 184.8 172" role="img" aria-label="icon"><use href="#ic"/></svg></div>
-<div class="t ol ic"><svg viewBox="0 -172 184.8 172" role="img" aria-label="icon"><use href="#ic"/></svg></div>
-<div class="c"><h3>Colorways</h3><p class="m">Dark and light use cream or maroon letters with the orange dot. Black and white are one-color versions, dot included, for print and tight budgets.</p></div>
-<div class="c"><h3>Clear space and size</h3><p class="m">Keep clear space equal to the dot's diameter on all sides. Minimum width: 120 px for the lockup. Below that, use the icon alone (minimum 24 px).</p></div>
-</div>
-<div class="g">
-<div class="do"><h3>Do</h3><p class="m">Use the dark version on maroon, black and photos. Use the light version on cream and white. Use the white version on orange.</p></div>
-<div class="no"><h3>Don't</h3><p class="m">Stretch, rotate, recolor, outline, add shadows or effects, change the letter case, or place on busy backgrounds.</p></div>
-</div>
-</div></section>
+    <section>
+      <div class="w">
+        <div class="ey">02 · Logo</div>
+        <h2>Primary <i>lockup</i></h2>
+        <p>
+          The lowercase "anahum", with the icon as the first letter. Always use the original vector
+          files. Never redraw, retype or rebuild the logo.
+        </p>
+        <div class="g">
+          <div class="t ol">
+            <svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk" /></svg>
+          </div>
+          <div class="t od">
+            <svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk" /></svg>
+          </div>
+          <div class="t bk">
+            <svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk" /></svg>
+          </div>
+          <div class="t wh">
+            <svg viewBox="0 -172 632.0 175" role="img" aria-label="anahum"><use href="#lk" /></svg>
+          </div>
+        </div>
+        <div class="g">
+          <div class="t od ic">
+            <svg viewBox="0 -172 184.8 172" role="img" aria-label="icon"><use href="#ic" /></svg>
+          </div>
+          <div class="t ol ic">
+            <svg viewBox="0 -172 184.8 172" role="img" aria-label="icon"><use href="#ic" /></svg>
+          </div>
+          <div class="c">
+            <h3>Colorways</h3>
+            <p class="m">
+              Dark and light use cream or maroon letters with the orange dot. Black and white are
+              one-color versions, dot included, for print and tight budgets.
+            </p>
+          </div>
+          <div class="c">
+            <h3>Clear space and size</h3>
+            <p class="m">
+              Keep clear space equal to the dot's diameter on all sides. Minimum width: 120 px for
+              the lockup. Below that, use the icon alone (minimum 24 px).
+            </p>
+          </div>
+        </div>
+        <div class="g">
+          <div class="do">
+            <h3>Do</h3>
+            <p class="m">
+              Use the dark version on maroon, black and photos. Use the light version on cream and
+              white. Use the white version on orange.
+            </p>
+          </div>
+          <div class="no">
+            <h3>Don't</h3>
+            <p class="m">
+              Stretch, rotate, recolor, outline, add shadows or effects, change the letter case, or
+              place on busy backgrounds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section><div class="w">
-<div class="ey">03 · Color</div><h2>Palette</h2>
-<p>Maroon and cream carry about 85% of any design, Ember Orange about 10%, Peach Cream is an occasional soft accent. Maximum 3 colors per post. Gradients: maroon to black, or orange to peach.</p>
-<div class="g">
-<div class="sw"><div class="k" style="background:#F93D0D"></div><div class="n"><b>Ember Orange</b>#F93D0D · 249, 61, 13</div></div>
-<div class="sw"><div class="k" style="background:#350600"></div><div class="n"><b>Deep Maroon</b>#350600 · 53, 6, 0</div></div>
-<div class="sw"><div class="k" style="background:#FFFAEE"></div><div class="n"><b>Warm White</b>#FFFAEE · 255, 250, 238</div></div>
-<div class="sw"><div class="k" style="background:#FFDDD5"></div><div class="n"><b>Peach Cream</b>#FFDDD5 · 255, 221, 213</div></div>
-</div>
-<table><tr><th>Pair</th><th>Ratio</th><th>Use</th></tr>
-<tr><td>Warm White on Deep Maroon</td><td>≈ 17:1</td><td>All text</td></tr>
-<tr><td>Deep Maroon on Peach Cream</td><td>≈ 14:1</td><td>All text</td></tr>
-<tr><td>Ember Orange on Deep Maroon</td><td>≈ 4.8:1</td><td>Headlines, highlights</td></tr>
-<tr><td>Deep Maroon on Ember Orange</td><td>≈ 4.8:1</td><td>Small text on orange</td></tr>
-<tr><td>Warm White on Ember Orange</td><td>≈ 3.5:1</td><td>Large headlines only</td></tr></table>
-</div></section>
+    <section>
+      <div class="w">
+        <div class="ey">03 · Color</div>
+        <h2>Palette</h2>
+        <p>
+          Maroon and cream carry about 85% of any design, Ember Orange about 10%, Peach Cream is an
+          occasional soft accent. Maximum 3 colors per post. Gradients: maroon to black, or orange
+          to peach.
+        </p>
+        <div class="g">
+          <div class="sw">
+            <div class="k" style="background: #f93d0d"></div>
+            <div class="n"><b>Ember Orange</b>#F93D0D · 249, 61, 13</div>
+          </div>
+          <div class="sw">
+            <div class="k" style="background: #350600"></div>
+            <div class="n"><b>Deep Maroon</b>#350600 · 53, 6, 0</div>
+          </div>
+          <div class="sw">
+            <div class="k" style="background: #fffaee"></div>
+            <div class="n"><b>Warm White</b>#FFFAEE · 255, 250, 238</div>
+          </div>
+          <div class="sw">
+            <div class="k" style="background: #ffddd5"></div>
+            <div class="n"><b>Peach Cream</b>#FFDDD5 · 255, 221, 213</div>
+          </div>
+        </div>
+        <table>
+          <tr>
+            <th>Pair</th>
+            <th>Ratio</th>
+            <th>Use</th>
+          </tr>
+          <tr>
+            <td>Warm White on Deep Maroon</td>
+            <td>≈ 17:1</td>
+            <td>All text</td>
+          </tr>
+          <tr>
+            <td>Deep Maroon on Peach Cream</td>
+            <td>≈ 14:1</td>
+            <td>All text</td>
+          </tr>
+          <tr>
+            <td>Ember Orange on Deep Maroon</td>
+            <td>≈ 4.8:1</td>
+            <td>Headlines, highlights</td>
+          </tr>
+          <tr>
+            <td>Deep Maroon on Ember Orange</td>
+            <td>≈ 4.8:1</td>
+            <td>Small text on orange</td>
+          </tr>
+          <tr>
+            <td>Warm White on Ember Orange</td>
+            <td>≈ 3.5:1</td>
+            <td>Large headlines only</td>
+          </tr>
+        </table>
+      </div>
+    </section>
 
-<section><div class="w">
-<div class="ey">04 · Typography</div><h2>Three <i>fonts</i></h2>
-<div class="g">
-<div class="c"><div class="big">Aa</div><h3>Anton</h3><p class="m">Headlines. Uppercase, tight leading, very large.</p></div>
-<div class="c"><div class="bigs">Aa</div><h3>Instrument Serif Italic</h3><p class="m">Emphasized words and giant ghost words. Lowercase.</p></div>
-<div class="c"><div class="bigi">Aa</div><h3>Inter</h3><p class="m">Logo letters (SemiBold), labels, body (Regular), fine print (Light).</p></div>
-</div>
-<p class="m" style="margin-top:16px">Post scale at 1080 wide: headline 110 to 150 px · body 28 to 32 px · label 22 px, uppercase, 0.14em spacing. Headlines stay under 8 words.</p>
-</div></section>
+    <section>
+      <div class="w">
+        <div class="ey">04 · Typography</div>
+        <h2>Three <i>fonts</i></h2>
+        <div class="g">
+          <div class="c">
+            <div class="big">Aa</div>
+            <h3>Anton</h3>
+            <p class="m">Headlines. Uppercase, tight leading, very large.</p>
+          </div>
+          <div class="c">
+            <div class="bigs">Aa</div>
+            <h3>Instrument Serif Italic</h3>
+            <p class="m">Emphasized words and giant ghost words. Lowercase.</p>
+          </div>
+          <div class="c">
+            <div class="bigi">Aa</div>
+            <h3>Inter</h3>
+            <p class="m">Logo letters (SemiBold), labels, body (Regular), fine print (Light).</p>
+          </div>
+        </div>
+        <p class="m" style="margin-top: 16px">
+          Post scale at 1080 wide: headline 110 to 150 px · body 28 to 32 px · label 22 px,
+          uppercase, 0.14em spacing. Headlines stay under 8 words.
+        </p>
+      </div>
+    </section>
 
-<section><div class="w">
-<div class="ey">05 · Voice and graphic elements</div><h2>How we <i>sound</i> and look</h2>
-<p><b>Voice:</b> calm, confident, direct. Short sentences, one idea per slide, no hype, no jargon. Say what the work does for the business.</p>
-<div class="g">
-<div class="c"><h3>Highlight bar</h3><div class="big" style="font-size:40px">Stop <span class="hl">by hand</span></div></div>
-<div class="c"><h3>Caption box</h3><div class="dash"><b>Quietly working</b> behind the scenes</div></div>
-<div class="c"><h3>Ghost word</h3><div class="ghost" style="font-size:64px">quiet</div></div>
-</div>
-<p class="m" style="margin-top:14px">Photography: warm cinematic café light, 35mm film grain, wide-angle lens, maroon shadows, modern objects only. Avoid robots, brains, circuit boards, typewriters and neon blue or purple.</p>
-</div></section>
+    <section>
+      <div class="w">
+        <div class="ey">05 · Voice and graphic elements</div>
+        <h2>How we <i>sound</i> and look</h2>
+        <p>
+          <b>Voice:</b> calm, confident, direct. Short sentences, one idea per slide, no hype, no
+          jargon. Say what the work does for the business.
+        </p>
+        <div class="g">
+          <div class="c">
+            <h3>Highlight bar</h3>
+            <div class="big" style="font-size: 40px">Stop <span class="hl">by hand</span></div>
+          </div>
+          <div class="c">
+            <h3>Caption box</h3>
+            <div class="dash"><b>Quietly working</b> behind the scenes</div>
+          </div>
+          <div class="c">
+            <h3>Ghost word</h3>
+            <div class="ghost" style="font-size: 64px">quiet</div>
+          </div>
+        </div>
+        <p class="m" style="margin-top: 14px">
+          Photography: warm cinematic café light, 35mm film grain, wide-angle lens, maroon shadows,
+          modern objects only. Avoid robots, brains, circuit boards, typewriters and neon blue or
+          purple.
+        </p>
+      </div>
+    </section>
 
-<section><div class="w">
-<div class="ey">06 · Social system</div><h2>Three <i>looks</i></h2>
-<div class="g">
-<div class="post p1"><small>Cover</small><div class="h">Meet<br>anahum.</div><small>Create. Automate. Grow.</small></div>
-<div class="post p2"><small>Cinematic glow</small><div class="h">The <i>quiet</i><br>intelligence<br>behind your <i>brand.</i></div><small>AI content · Automation</small></div>
-<div class="post p3"><small>Collage</small><div class="note">Your work. On autopilot.</div><small>AI automation</small></div>
-</div>
-<p class="m" style="margin-top:14px">The cover and carousel use the icon-headed figure only on the first, second and last slides. Every other slide stays simple: headline, one object, one caption box. The real logo is always added afterwards from the vector files.</p>
-</div></section>
+    <section>
+      <div class="w">
+        <div class="ey">06 · Social system</div>
+        <h2>Three <i>looks</i></h2>
+        <div class="g">
+          <div class="post p1">
+            <small>Cover</small>
+            <div class="h">Meet<br />anahum.</div>
+            <small>Create. Automate. Grow.</small>
+          </div>
+          <div class="post p2">
+            <small>Cinematic glow</small>
+            <div class="h">The <i>quiet</i><br />intelligence<br />behind your <i>brand.</i></div>
+            <small>AI content · Automation</small>
+          </div>
+          <div class="post p3">
+            <small>Collage</small>
+            <div class="note">Your work. On autopilot.</div>
+            <small>AI automation</small>
+          </div>
+        </div>
+        <p class="m" style="margin-top: 14px">
+          The cover and carousel use the icon-headed figure only on the first, second and last
+          slides. Every other slide stays simple: headline, one object, one caption box. The real
+          logo is always added afterwards from the vector files.
+        </p>
+      </div>
+    </section>
 
-<section><div class="w">
-<div class="ey">07 · AI prompt kit</div><h2>Style <i>block</i></h2>
-<p>Paste at the top of every Flow image prompt, then add the slide.</p>
-<pre>Colors only: Ember Orange #F93D0D, Deep Maroon #350600, Warm White #FFFAEE, Peach Cream #FFDDD5. No blue, teal, green or purple.
+    <section>
+      <div class="w">
+        <div class="ey">07 · AI prompt kit</div>
+        <h2>Style <i>block</i></h2>
+        <p>Paste at the top of every Flow image prompt, then add the slide.</p>
+        <pre>
+Colors only: Ember Orange #F93D0D, Deep Maroon #350600, Warm White #FFFAEE, Peach Cream #FFDDD5. No blue, teal, green or purple.
 Headlines: tall condensed heavy sans in the style of Anton, UPPERCASE. Emphasis words: italic serif in the style of Instrument Serif Italic, lowercase. Labels and body: Inter.
 Warm cinematic 35mm film photography, wide-angle lens, fine grain, maroon shadows, cream highlights.
 Do not draw any logo. Do not copy words or objects from reference images. Spell all quoted text exactly. No digits unless quoted.</pre>
-<h3 style="margin-top:18px">Before you post</h3>
-<p class="m">1) Check every word. 2) Add the real logo from the vector files. 3) Check contrast and the 3:4 crop. 4) Keep the footer: Create. Automate. Grow.</p>
-</div></section>
-<footer><div class="w">anahum solutions · Brand Guidelines v2.0</div></footer>
-</body></html>
+        <h3 style="margin-top: 18px">Before you post</h3>
+        <p class="m">
+          1) Check every word. 2) Add the real logo from the vector files. 3) Check contrast and the
+          3:4 crop. 4) Keep the footer: Create. Automate. Grow.
+        </p>
+      </div>
+    </section>
+    <footer><div class="w">anahum solutions · Brand Guidelines v2.0</div></footer>
+  </body>
+</html>

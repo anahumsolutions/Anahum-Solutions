@@ -1,139 +1,140 @@
 <USER_REQUEST>
 Agent guide: build the landing page hero
 Step-by-step guide for the implementing AI agent · v1 · October 18, 2026 · Replaces section 7.0 of AGENT_BRIEF.md
+
 1. Mission and scope
-Build the hero (first screen) of the anahum website so that its composition, geometry and atmosphere match the reference image hero-reference.png, re-skinned to the anahum brand. This guide replaces section 7.0 ('Hero') of AGENT_BRIEF.md. Everything else in that brief (brand system, tokens, rules, pitfalls, QA) still applies. If this guide and the brand rules conflict, the brand rules win, unless the conflict is listed in section 4 with a decision.
-In scope: nav row, logo, headline, subcopy, two buttons, the planet-and-terrain scene, five service nodes with connectors, and their motion. Out of scope: the rest of the page.
+   Build the hero (first screen) of the anahum website so that its composition, geometry and atmosphere match the reference image hero-reference.png, re-skinned to the anahum brand. This guide replaces section 7.0 ('Hero') of AGENT_BRIEF.md. Everything else in that brief (brand system, tokens, rules, pitfalls, QA) still applies. If this guide and the brand rules conflict, the brand rules win, unless the conflict is listed in section 4 with a decision.
+   In scope: nav row, logo, headline, subcopy, two buttons, the planet-and-terrain scene, five service nodes with connectors, and their motion. Out of scope: the rest of the page.
 2. Evidence
-• hero-reference.png: 1504×1128. The gray margin is presentation background, not part of the design. The design is the rounded card at x 75 to 1429, y 75 to 1052, which is 1354×977 px. Every coordinate below is in this card space, in stage units (u), origin at the card's top-left corner. Crop first: Image.open(p).crop((75,75,1429,1052)).
-• Numbers marked fit or bin were computed by script from the image (circle fit, dot grid, color profile). Numbers marked read were taken from zoomed crops and are good to about ±5u. Re-measure anything you rely on.
-Not in the evidence (Unknown or Proposed): any animation or hover state, mobile layout, the source artwork layers (terrain, figure), the fonts used, and the page below the hero.
+   • hero-reference.png: 1504×1128. The gray margin is presentation background, not part of the design. The design is the rounded card at x 75 to 1429, y 75 to 1052, which is 1354×977 px. Every coordinate below is in this card space, in stage units (u), origin at the card's top-left corner. Crop first: Image.open(p).crop((75,75,1429,1052)).
+   • Numbers marked fit or bin were computed by script from the image (circle fit, dot grid, color profile). Numbers marked read were taken from zoomed crops and are good to about ±5u. Re-measure anything you rely on.
+   Not in the evidence (Unknown or Proposed): any animation or hover state, mobile layout, the source artwork layers (terrain, figure), the fonts used, and the page below the hero.
 3. Rules
-Label every fact Observed, Inferred, Unknown or Proposed (a design addition not in the evidence). Log Unknowns and decisions in OPEN_QUESTIONS.md.
-Do
-• Build the scene as separate layers (section 7) so each can be checked and swapped on its own.
-• Express every size and position in stage units (calc(N * var(--u))) so the scene scales as one piece.
-• Take colors only from tokens (color-mix() of token variables for intermediate tones). No new hex literals outside tokens.css.
-• Verify by measuring your own render with Playwright (section 11), never by eye alone.
-• Keep terrain and veins as static, build-time-generated SVG so the layout never shifts between loads.
-Don't
-• Don't embed, crop, paste or auto-trace pixels from the reference into the site. It is someone else's artwork and serves as a visual spec only. Author the SVG yourself from the anchor points in section 6.
-• Don't copy its text. Its subtitle contains a typo ('Scalded') and its headline is ungrammatical; neither belongs on the site.
-• Don't use the reference's yellow-gold, crimson or its brain icon (section 4).
-• Don't use a stock photo of a real person for the figure. Use an original SVG silhouette or a user-supplied asset.
-• Don't claim a pixel match. You can claim geometry matches within tolerance, because that is what you measure.
-• Don't ship a multi-megabyte background image.
+   Label every fact Observed, Inferred, Unknown or Proposed (a design addition not in the evidence). Log Unknowns and decisions in OPEN_QUESTIONS.md.
+   Do
+   • Build the scene as separate layers (section 7) so each can be checked and swapped on its own.
+   • Express every size and position in stage units (calc(N * var(--u))) so the scene scales as one piece.
+   • Take colors only from tokens (color-mix() of token variables for intermediate tones). No new hex literals outside tokens.css.
+   • Verify by measuring your own render with Playwright (section 11), never by eye alone.
+   • Keep terrain and veins as static, build-time-generated SVG so the layout never shifts between loads.
+   Don't
+   • Don't embed, crop, paste or auto-trace pixels from the reference into the site. It is someone else's artwork and serves as a visual spec only. Author the SVG yourself from the anchor points in section 6.
+   • Don't copy its text. Its subtitle contains a typo ('Scalded') and its headline is ungrammatical; neither belongs on the site.
+   • Don't use the reference's yellow-gold, crimson or its brain icon (section 4).
+   • Don't use a stock photo of a real person for the figure. Use an original SVG silhouette or a user-supplied asset.
+   • Don't claim a pixel match. You can claim geometry matches within tolerance, because that is what you measure.
+   • Don't ship a multi-megabyte background image.
 4. Brand reconciliation (decisions)
-Aspect
-Reference
-Brand rule
-Default decision (confirm with user)
-Palette
-Crimson sky, orange glow, yellow-gold rim, wine-black ground
-Only maroon, ember, cream, peach (plus the extended tones in the brief); no other hues
-Map by role: crimson to maroon/ember mixes, gold rim to peach with a cream edge, ground to maroon/black. See 7.2
-Gradient
-One continuous crimson > orange > gold ramp
-Only maroon to black and ember to peach are listed
-The sky ramp needs maroon > ember > peach. Treat it as an extension and ask. Fallback if rejected: flat ember sky with the ember-to-peach rim and a maroon-to-black ground
-Headline font
-Heavy mixed-case sans
-Anton uppercase, one italic serif emphasis word
-Anton plus Instrument Serif italic (section 8.3)
-Copy
-'AI That Builds You Grow' and similar
-Brand voice, short and calm
-Brand lines (section 8.3)
-Node icons
-Target, bolt, brain, puzzle, chart
-Brains, robots and circuit boards are banned
-Keep thin ember line icons; replace the brain with a non-brain glyph; confirm all five
-Imagery
-Lava-like glowing cracks on dark terrain
-Avoid circuit boards
-Keep organic, mostly shallow-angle veins; avoid right-angle traces
-Logo
-Sparkle plus letter-spaced 'AI AGENCY'
-Use the original anahum vectors only
-anahum lockup, cream version, at least 120px wide
-Right pill label
-'Log In'
-Not specified
-'Contact sales' (matches the main brief); confirm whether the site has a login
-Frame
-Rounded card on a gray margin
-Not specified
-Gray margin is not built. Hero is a full-width block with a 32u top-aligned radius on the bottom corners only if the user wants an inset card (ask)
-Header behavior
-This nav sits on the hero
-Main brief has a floating pill header
-This nav shows at the top; the floating pill header from the main brief appears after the user scrolls past 80% of the hero
+   Aspect
+   Reference
+   Brand rule
+   Default decision (confirm with user)
+   Palette
+   Crimson sky, orange glow, yellow-gold rim, wine-black ground
+   Only maroon, ember, cream, peach (plus the extended tones in the brief); no other hues
+   Map by role: crimson to maroon/ember mixes, gold rim to peach with a cream edge, ground to maroon/black. See 7.2
+   Gradient
+   One continuous crimson > orange > gold ramp
+   Only maroon to black and ember to peach are listed
+   The sky ramp needs maroon > ember > peach. Treat it as an extension and ask. Fallback if rejected: flat ember sky with the ember-to-peach rim and a maroon-to-black ground
+   Headline font
+   Heavy mixed-case sans
+   Anton uppercase, one italic serif emphasis word
+   Anton plus Instrument Serif italic (section 8.3)
+   Copy
+   'AI That Builds You Grow' and similar
+   Brand voice, short and calm
+   Brand lines (section 8.3)
+   Node icons
+   Target, bolt, brain, puzzle, chart
+   Brains, robots and circuit boards are banned
+   Keep thin ember line icons; replace the brain with a non-brain glyph; confirm all five
+   Imagery
+   Lava-like glowing cracks on dark terrain
+   Avoid circuit boards
+   Keep organic, mostly shallow-angle veins; avoid right-angle traces
+   Logo
+   Sparkle plus letter-spaced 'AI AGENCY'
+   Use the original anahum vectors only
+   anahum lockup, cream version, at least 120px wide
+   Right pill label
+   'Log In'
+   Not specified
+   'Contact sales' (matches the main brief); confirm whether the site has a login
+   Frame
+   Rounded card on a gray margin
+   Not specified
+   Gray margin is not built. Hero is a full-width block with a 32u top-aligned radius on the bottom corners only if the user wants an inset card (ask)
+   Header behavior
+   This nav sits on the hero
+   Main brief has a floating pill header
+   This nav shows at the top; the floating pill header from the main brief appears after the user scrolls past 80% of the hero
 5. Scaling model
-The reference is a fixed 1354×977 composition. Reproduce it as a stage that scales uniformly.
-.hero{container-type:inline-size;position:relative;overflow:hidden;background:var(--hero-ground)}
-.hero__stage{--u:min(calc(100cqw / 1354), calc(100svh / 977));
-  position:relative;margin-inline:auto;width:calc(1354 * var(--u));height:calc(977 * var(--u))}
-.hero{min-height:560px}
-• u is limited by the smaller of width and height, so on a 1920×992 screen the stage is about 1374×992 and centered; on a tall tablet the stage is width-limited.
-• Background layers (disk, halo, terrain, ground) are positioned against the stage but live in .hero, so they extend past the stage edges to the viewport edges. Terrain and ground must be at least 2× stage width.
-• UI layers (headline, buttons, nodes, connectors, figure) are anchored inside the stage. The nav pills are the exception: anchor them to the hero edges (left/right: calc(38 * var(--u))) so they do not float inward on wide screens.
-• Text floors: at small u proportional text becomes unreadable. Use max(12px, calc(N * var(--u))) for node subtitles, max(14px, …) for node titles and nav links. Position nodes by their connector x (left: X%; transform: translateX(-50%)) with auto width so a floored font cannot break the layout.
-• Compact layout (container width under 1100px) is a Proposed design decision: keep the sky, terrain and figure as the backdrop; hide connectors; show the five nodes as a 2-column grid (1 column under 520px) below the buttons; keep tap targets at least 44px.
-• Verify calc(100cqw / 1354) resolves as expected in a real browser before going further (log the computed --u in a test).
+   The reference is a fixed 1354×977 composition. Reproduce it as a stage that scales uniformly.
+   .hero{container-type:inline-size;position:relative;overflow:hidden;background:var(--hero-ground)}
+   .hero__stage{--u:min(calc(100cqw / 1354), calc(100svh / 977));
+   position:relative;margin-inline:auto;width:calc(1354 * var(--u));height:calc(977 * var(--u))}
+   .hero{min-height:560px}
+   • u is limited by the smaller of width and height, so on a 1920×992 screen the stage is about 1374×992 and centered; on a tall tablet the stage is width-limited.
+   • Background layers (disk, halo, terrain, ground) are positioned against the stage but live in .hero, so they extend past the stage edges to the viewport edges. Terrain and ground must be at least 2× stage width.
+   • UI layers (headline, buttons, nodes, connectors, figure) are anchored inside the stage. The nav pills are the exception: anchor them to the hero edges (left/right: calc(38 * var(--u))) so they do not float inward on wide screens.
+   • Text floors: at small u proportional text becomes unreadable. Use max(12px, calc(N * var(--u))) for node subtitles, max(14px, …) for node titles and nav links. Position nodes by their connector x (left: X%; transform: translateX(-50%)) with auto width so a floored font cannot break the layout.
+   • Compact layout (container width under 1100px) is a Proposed design decision: keep the sky, terrain and figure as the backdrop; hide connectors; show the five nodes as a 2-column grid (1 column under 520px) below the buttons; keep tap targets at least 44px.
+   • Verify calc(100cqw / 1354) resolves as expected in a real browser before going further (log the computed --u in a test).
 6. Geometry (stage units, card space)
-Element
-x
-y
-Size
-Notes
-Nav pill (links)
-38
-38
-296×47
-Full pill; four links, about 15px, weight 500, first link at x 61
-Logo group
-centered on 677
-center y 62
-about 199 wide
-Reference mark is a placeholder
-Right pill
-1158
-38
-158×47
-Bold label, about 15px
-Headline line 1
-centered on 677
-cap top 155, baseline 208
-width about 475
-Reference: sans 600 at about 77px, line pitch 86
-Headline line 2
-centered on 677
-baseline 295
-width about 335
-Second tone (paler)
-Subtitle
-centered on 677
-center y 340
-width about 382
-About 20px, light weight
-Button 1
-476
-388
-193×54
-Dark fill
-Button 2
-685
-388
-193×54
-Light fill; gap 16; group centered on 677
-Figure
-center x 675
-y 578 to 650
-about 40×72
-Floating human silhouette, arms slightly out
-Ridge line
-across
-y about 658 to 700
+   Element
+   x
+   y
+   Size
+   Notes
+   Nav pill (links)
+   38
+   38
+   296×47
+   Full pill; four links, about 15px, weight 500, first link at x 61
+   Logo group
+   centered on 677
+   center y 62
+   about 199 wide
+   Reference mark is a placeholder
+   Right pill
+   1158
+   38
+   158×47
+   Bold label, about 15px
+   Headline line 1
+   centered on 677
+   cap top 155, baseline 208
+   width about 475
+   Reference: sans 600 at about 77px, line pitch 86
+   Headline line 2
+   centered on 677
+   baseline 295
+   width about 335
+   Second tone (paler)
+   Subtitle
+   centered on 677
+   center y 340
+   width about 382
+   About 20px, light weight
+   Button 1
+   476
+   388
+   193×54
+   Dark fill
+   Button 2
+   685
+   388
+   193×54
+   Light fill; gap 16; group centered on 677
+   Figure
+   center x 675
+   y 578 to 650
+   about 40×72
+   Floating human silhouette, arms slightly out
+   Ridge line
+   across
+   y about 658 to 700
 
 Peaks near x 800 and 990; terrain fills to y 977
 Planet disk (fit, residual 2px): center (679, −597), radius 1066. Lowest rim point at y 469. The rim crosses the card's left and right edges at y about 224. The visible rim edge is hard (a sharp step from bright inside to dark outside). The disk top lies above the card.
@@ -170,8 +171,7 @@ Bottom center
 683
 965 (card bottom)
 Node style: radius about 8u, 1px bright border with an outer glow, dark translucent fill, line icon about 28u at left padding about 14u, title about 15.5u (weight 500), subtitle about 11.5u. Connector: 1px vertical line from the node's bottom edge to a glowing dot (radius about 3u with a soft halo of about 8u) that sits on a vein.
-Veins (Observed, approximate): thin glowing polylines on the terrain. A central spine runs from about (677, 665) below the figure to (683, 965), with small zigzag kinks. A long near-horizontal vein runs from the top-left connector end toward the spine at about y 705 to 715; a mirrored one comes from the top-right. Other veins fan toward the lower corners at shallow angles. Exact branch layout is Unknown; section 9 says how to author it.
-7. Layers (back to front)
+Veins (Observed, approximate): thin glowing polylines on the terrain. A central spine runs from about (677, 665) below the figure to (683, 965), with small zigzag kinks. A long near-horizontal vein runs from the top-left connector end toward the spine at about y 705 to 715; a mirrored one comes from the top-right. Other veins fan toward the lower corners at shallow angles. Exact branch layout is Unknown; section 9 says how to author it. 7. Layers (back to front)
 Index 0 is the back. Use position:absolute and aria-hidden='true' for all decorative layers.
 Z
 Layer
@@ -208,16 +208,16 @@ content
 Nav, headline, subtitle, buttons, nodes
 7.1 Disk, halo, dots and horizon (CSS skeleton)
 .hero__disk{position:absolute;width:calc(2132*var(--u));aspect-ratio:1;border-radius:50%;
-  left:calc(50% + (679 - 677 - 1066)*var(--u));top:calc((-597 - 1066)*var(--u));
-  background:radial-gradient(circle closest-side, /* stops from 7.2 */)}
+left:calc(50% + (679 - 677 - 1066)*var(--u));top:calc((-597 - 1066)*var(--u));
+background:radial-gradient(circle closest-side, /* stops from 7.2 */)}
 .hero__halo{width:calc(2240*var(--u));aspect-ratio:1;border-radius:50%;/* same center as the disk */
-  background:radial-gradient(circle closest-side,transparent 94%,
-    color-mix(in srgb,var(--ember) 30%,transparent) 95.2%,transparent 100%)}
+background:radial-gradient(circle closest-side,transparent 94%,
+color-mix(in srgb,var(--ember) 30%,transparent) 95.2%,transparent 100%)}
 .hero__dots{inset:0;clip-path:circle(calc(1066*var(--u)) at calc(50% + 2*var(--u)) calc(-597*var(--u)));
-  background-image:radial-gradient(circle,color-mix(in srgb,var(--cream) 55%,transparent) 0 calc(1.2*var(--u)),transparent calc(1.7*var(--u)));
-  background-size:calc(14*var(--u)) calc(14*var(--u))}
+background-image:radial-gradient(circle,color-mix(in srgb,var(--cream) 55%,transparent) 0 calc(1.2*var(--u)),transparent calc(1.7*var(--u)));
+background-size:calc(14*var(--u)) calc(14*var(--u))}
 .hero__horizon{background:radial-gradient(ellipse calc(560*var(--u)) calc(300*var(--u)) at 50% calc(600*var(--u)),
-  color-mix(in srgb,var(--ember) 60%,transparent),transparent 70%)}
+color-mix(in srgb,var(--ember) 60%,transparent),transparent 70%)}
 The disk is wider than the stage, so position these layers inside .hero__stage but let them overflow; .hero clips them. Check that left places the disk center at stage x 679.
 7.2 Glow ramp
 t is distance from the disk center divided by 1066, so it equals the gradient's percentage position with closest-side. Reference colors are for verification only. Build the brand version from token mixes.
@@ -254,8 +254,7 @@ var(--peach), with a 1px cream highlight at the edge
 above 1.0
 #9F041A fading to #860015
 transparent (ground shows through)
-The reference brightens slowly from 0.55 to 0.80, quickly from 0.80 to 0.90, then climbs to the rim. Keep that shape (slow, then fast, then a bright edge).
-8. Components
+The reference brightens slowly from 0.55 to 0.80, quickly from 0.80 to 0.90, then climbs to the rim. Keep that shape (slow, then fast, then a bright edge). 8. Components
 8.1 Nav and logo
 Two glass pills (links on the left, one CTA on the right) and the logo centered. Pill: full radius, fill rgba(maroon, .40) with backdrop-filter: blur(12px), 1px border cream at 18%, cream text. The reference uses lighter frosted pills; the maroon tint is needed because cream on ember is only 3.5:1 for small text. Links: Inter 500. Logo: the extracted anahum lockup (cream version), at least 120px wide. <nav aria-label='Primary'> with real links; the right pill is a link.
 8.2 Buttons
@@ -393,6 +392,7 @@ Median color by t (side regions, text and UI masked out): 0.55 #8A0216; 0.625 #9
 The current local time is: 2026-10-18T14:58:19+05:00.
 
 The user has uploaded 1 image(s):
+
 - C:/Users/Hasan_asif64/.gemini/antigravity/brain/ffe35d17-a114-4cd4-a752-53fc81b0a928/.user_uploaded/media_1792317494453_14f8d251.jpg
-You can embed this image in an artifact if you need the USER to review it.
-</ADDITIONAL_METADATA>
+  You can embed this image in an artifact if you need the USER to review it.
+  </ADDITIONAL_METADATA>

@@ -1,7 +1,7 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * Blur-To-Sharp Reveal Animation Module
@@ -9,18 +9,18 @@ gsap.registerPlugin(ScrollTrigger);
  * Runs unconditionally.
  */
 export function initBlurReveal() {
-  const elements = document.querySelectorAll('[data-anim="blur-reveal"]');
-  if (!elements.length) return;
+  const elements = document.querySelectorAll('[data-anim="blur-reveal"]')
+  if (!elements.length) return
 
   elements.forEach((el) => {
-    const delay = parseFloat(el.getAttribute('data-delay')) || 0;
+    const delay = parseFloat(el.getAttribute('data-delay')) || 0
 
     gsap.fromTo(
       el,
       {
         opacity: 0,
         y: 50,
-        filter: 'blur(14px)'
+        filter: 'blur(14px)',
       },
       {
         opacity: 1,
@@ -30,14 +30,14 @@ export function initBlurReveal() {
         delay: delay,
         ease: 'power3.out',
         onComplete: () => {
-          el.style.filter = '';
+          el.style.filter = ''
         },
         scrollTrigger: {
           trigger: el,
           start: 'top 85%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
+          toggleActions: 'play none none none',
+        },
+      },
+    )
+  })
 }
