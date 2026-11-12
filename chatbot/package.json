@@ -1,0 +1,14 @@
+{
+  "name": "anahum-chatbot",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Self-contained chatbot for the anahum website: embeddable widget + serverless chat API.",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "dev": "node dev/server.js",
+    "dev:mock": "CHATBOT_MOCK=1 node dev/server.js"
+  }
+}
