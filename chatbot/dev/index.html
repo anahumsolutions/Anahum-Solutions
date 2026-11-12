@@ -1,27 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>anahum chatbot: test page</title>
-  <!-- The site's real design tokens, so the widget is themed exactly as on the site -->
-  <link rel="stylesheet" href="/site-tokens.css">
-  <style>
-    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); }
-    main { max-width: 640px; margin: 0 auto; padding: 96px 24px; }
-    h1 { font-family: var(--font-display); font-size: 48px; font-weight: 400; margin: 0 0 16px; }
-    p { color: var(--muted); }
-    button { font: inherit; padding: 12px 20px; border-radius: var(--r-btn); border: 0; background: var(--dark); color: var(--on-dark); cursor: pointer; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Chatbot test page</h1>
-    <p>This page only exists to try the widget on its own. The chat button is at the bottom of the screen.</p>
-    <button type="button" onclick="window.anahumChatbot.open()">Open chat from page</button>
-  </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>anahum chatbot: test page</title>
+    <!-- The site's real design tokens, so the widget is themed exactly as on the site -->
+    <link rel="stylesheet" href="/site-tokens.css" />
+    <style>
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+      }
+      main {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 96px 24px;
+      }
+      h1 {
+        font-family: var(--font-display);
+        font-size: 48px;
+        font-weight: 400;
+        margin: 0 0 16px;
+      }
+      p {
+        color: var(--muted);
+      }
+      button {
+        font: inherit;
+        padding: 12px 20px;
+        border-radius: var(--r-btn);
+        border: 0;
+        background: var(--dark);
+        color: var(--on-dark);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Chatbot test page</h1>
+      <p>
+        This page only exists to try the widget on its own. The chat button is at the bottom of the
+        screen.
+      </p>
+      <button type="button" onclick="window.anahumChatbot.open()">Open chat from page</button>
+    </main>
 
-  <!-- This is the exact tag you add to the real site -->
-  <script src="/chatbot.js" defer></script>
-</body>
+    <!-- This is the exact tag you add to the real site -->
+    <script src="/chatbot.js" defer></script>
+  </body>
 </html>

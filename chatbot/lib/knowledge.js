@@ -69,7 +69,7 @@ HOW TO GET IN TOUCH
   buttons.
 - public email address: anahumsolutions@gmail.com and phone number :+92 315 4755627.
 
-`.trim();
+`.trim()
 
 export const SYSTEM_PROMPT = `
 You are the website assistant for anahum solutions, an AI agency. You talk to
@@ -106,4 +106,4 @@ RULES
 
 KNOWLEDGE
 ${KNOWLEDGE}
-`.trim();
+`.trim()
