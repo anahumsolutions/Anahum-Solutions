@@ -55,12 +55,12 @@ Replace the domain with your chatbot deployment. The widget finds its CSS and AP
 
 Optional attributes on that tag:
 
-| Attribute | Purpose | Default |
-|---|---|---|
+| Attribute       | Purpose                  | Default                            |
+| --------------- | ------------------------ | ---------------------------------- |
 | `data-endpoint` | Full URL of the chat API | `/api/chat` on the script's domain |
-| `data-title` | Panel title | `anahum assistant` |
-| `data-greeting` | First message | Short welcome line |
-| `data-position` | `right` or `left` | `right` |
+| `data-title`    | Panel title              | `anahum assistant`                 |
+| `data-greeting` | First message            | Short welcome line                 |
+| `data-position` | `right` or `left`        | `right`                            |
 
 From your own buttons you can call `window.anahumChatbot.open()`, for example on "Book a call".
 
