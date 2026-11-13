@@ -1,0 +1,183 @@
+<section class="hero" id="hero" data-section="hero">
+  <!-- Layer 0: Ground base color (fallback behind the video) -->
+  <div class="hero__ground" aria-hidden="true"></div>
+
+  <!-- Layer 1: Video background (poster shows first, video fades in when playing) -->
+  <div class="hero__media" aria-hidden="true">
+    <img
+      class="hero__poster"
+      src="/hero/hero-poster.jpg"
+      alt=""
+      width="1920"
+      height="1072"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <video
+      class="hero__video"
+      id="heroVideo"
+      poster="/hero/hero-poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      disablepictureinpicture
+      tabindex="-1"
+    >
+      <source src="/hero/hero-lava.webm" type="video/webm" />
+      <source src="/hero/hero-lava.mp4" type="video/mp4" />
+    </video>
+    <!-- Dark scrim keeps text readable over the bright sun -->
+    <div class="hero__scrim"></div>
+  </div>
+
+  <!-- Stage: Scales uniformly with --u (nav, headline, buttons, service nodes) -->
+  <div class="hero__stage">
+    <div class="hero__content">
+      <!-- Nav Row -->
+      <header class="hero__nav" role="navigation" aria-label="Hero Navigation">
+        <!-- Left Nav Pill -->
+        <nav class="hero__nav-pill" aria-label="Primary">
+          <a href="#hero" class="hero__nav-link">Home</a>
+          <a href="#services" class="hero__nav-link">Services</a>
+          <a href="#works" class="hero__nav-link">Work</a>
+          <a href="#what-we-do" class="hero__nav-link">About Us</a>
+        </nav>
+
+        <!-- Centered Logo Group -->
+        <a href="#hero" class="hero__logo" aria-label="anahum solutions home">
+          <svg viewBox="0 -172 632.0 175" role="img" aria-hidden="true">
+            <use href="#lk"></use>
+          </svg>
+        </a>
+
+        <!-- Right Nav Pill -->
+        <div class="hero__nav-right">
+          <a href="#pricing" class="hero__nav-pill hero__nav-pill--cta"> Contact sales </a>
+        </div>
+      </header>
+
+      <!-- Center Headline Block -->
+      <div class="hero__text-block" data-anim="hero-text">
+        <h1 class="hero__title">
+          <span class="l1">Your work.</span><br />
+          <span class="l2">On <em>autopilot</em></span>
+        </h1>
+        <p class="hero__subtitle">The quiet intelligence behind your brand.</p>
+        <div class="hero__actions">
+          <a href="#pricing" class="btn hero__btn hero__btn--primary"> Book a call </a>
+          <a href="#services" class="btn hero__btn hero__btn--secondary"> Our services </a>
+        </div>
+      </div>
+
+      <!-- 5 Service Nodes -->
+      <ul class="hero__nodes" aria-label="Core Services">
+        <!-- Node 1: Top Left -->
+        <li
+          class="hero__node hero__node--top-left"
+          style="
+            left: calc(135 * var(--u));
+            top: calc(568 * var(--u));
+            width: calc(187 * var(--u));
+            height: calc(59 * var(--u));
+          "
+        >
+          <a href="#services" class="hero__node-card">
+            <div class="hero__node-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sparkles"></use></svg>
+            </div>
+            <div class="hero__node-text">
+              <strong class="hero__node-title">AI content</strong>
+              <span class="hero__node-sub">Ads and social</span>
+            </div>
+          </a>
+        </li>
+
+        <!-- Node 2: Top Right -->
+        <li
+          class="hero__node hero__node--top-right"
+          style="
+            left: calc(1051 * var(--u));
+            top: calc(572 * var(--u));
+            width: calc(181 * var(--u));
+            height: calc(58 * var(--u));
+          "
+        >
+          <a href="#services" class="hero__node-card">
+            <div class="hero__node-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-visuals"></use></svg>
+            </div>
+            <div class="hero__node-text">
+              <strong class="hero__node-title">AI visuals</strong>
+              <span class="hero__node-sub">Product imagery</span>
+            </div>
+          </a>
+        </li>
+
+        <!-- Node 3: Middle Left -->
+        <li
+          class="hero__node hero__node--mid-left"
+          style="
+            left: calc(215 * var(--u));
+            top: calc(775 * var(--u));
+            width: calc(177 * var(--u));
+            height: calc(58 * var(--u));
+          "
+        >
+          <a href="#services" class="hero__node-card">
+            <div class="hero__node-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-bolt"></use></svg>
+            </div>
+            <div class="hero__node-text">
+              <strong class="hero__node-title">Automation</strong>
+              <span class="hero__node-sub">Workflows that run</span>
+            </div>
+          </a>
+        </li>
+
+        <!-- Node 4: Middle Right -->
+        <li
+          class="hero__node hero__node--mid-right"
+          style="
+            left: calc(939 * var(--u));
+            top: calc(775 * var(--u));
+            width: calc(176 * var(--u));
+            height: calc(58 * var(--u));
+          "
+        >
+          <a href="#services" class="hero__node-card">
+            <div class="hero__node-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-chat"></use></svg>
+            </div>
+            <div class="hero__node-text">
+              <strong class="hero__node-title">AI agents</strong>
+              <span class="hero__node-sub">Chatbots that work</span>
+            </div>
+          </a>
+        </li>
+
+        <!-- Node 5: Bottom Center -->
+        <li
+          class="hero__node hero__node--bottom-center"
+          style="
+            left: calc(571 * var(--u));
+            top: calc(838 * var(--u));
+            width: calc(211 * var(--u));
+            height: calc(60 * var(--u));
+          "
+        >
+          <a href="#services" class="hero__node-card">
+            <div class="hero__node-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sliders"></use></svg>
+            </div>
+            <div class="hero__node-text">
+              <strong class="hero__node-title">Custom AI</strong>
+              <span class="hero__node-sub">Built for your team</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
