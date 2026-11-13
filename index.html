@@ -52,7 +52,15 @@
 
     <!-- Site Footer (Frozen Structure) -->
     <load ="src/partials/footer.html" />
+    <!-- Chatbot Widget -->
+<script
+  src="http://localhost:3100/chatbot.js"
+  data-endpoint="http://localhost:3100/api/chat"
+  defer
+></script>
 
+<!-- Application & Animation Runtime -->
+<script type="module" src="/src/js/main.js"></script>
     <!-- Back to Top Fixed Button -->
     <button type="button" class="back-to-top" id="backToTop" aria-label="Scroll to top of page">
       <svg viewBox="0 0 24 24" aria-hidden="true">
