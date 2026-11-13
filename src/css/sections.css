@@ -2011,7 +2011,11 @@
         color-mix(in srgb, var(--maroon) 72%, transparent),
         transparent 100%
       ),
-      linear-gradient(to bottom, color-mix(in srgb, var(--maroon) 65%, transparent), transparent 55%),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--maroon) 65%, transparent),
+        transparent 55%
+      ),
       linear-gradient(to top, color-mix(in srgb, var(--maroon) 60%, transparent), transparent 30%);
   }
 }
@@ -2049,4 +2053,3 @@
     transition: none;
   }
 }
-
