@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 import { initHeroEntrance } from './anim/hero-entrance.js'
+import { initHeroVideo } from './anim/hero-video.js'
 import { initMenu } from './anim/menu.js'
 import { initFadeUp } from './anim/fade-up.js'
 import { initBlurReveal } from './anim/blur-reveal.js'
@@ -23,6 +24,7 @@ import { initBackToTop } from './anim/back-to-top.js'
 function initApp() {
   // 1. Hero Load Entrance (fires immediately)
   initHeroEntrance()
+  initHeroVideo()
 
   // 2. Interactive Components
   initMenu()

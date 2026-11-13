@@ -1,42 +1,39 @@
 <section class="hero" id="hero" data-section="hero">
-  <!-- Layer 0: Ground Base Color -->
+  <!-- Layer 0: Ground base color (fallback behind the video) -->
   <div class="hero__ground" aria-hidden="true"></div>
 
-  <!-- Stage: Scales uniformly with --u -->
+  <!-- Layer 1: Video background (poster shows first, video fades in when playing) -->
+  <div class="hero__media" aria-hidden="true">
+    <img
+      class="hero__poster"
+      src="/hero/hero-poster.jpg"
+      alt=""
+      width="1920"
+      height="1072"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <video
+      class="hero__video"
+      id="heroVideo"
+      poster="/hero/hero-poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      disablepictureinpicture
+      tabindex="-1"
+    >
+      <source src="/hero/hero-lava.webm" type="video/webm" />
+      <source src="/hero/hero-lava.mp4" type="video/mp4" />
+    </video>
+    <!-- Dark scrim keeps text readable over the bright sun -->
+    <div class="hero__scrim"></div>
+  </div>
+
+  <!-- Stage: Scales uniformly with --u (nav, headline, buttons, service nodes) -->
   <div class="hero__stage">
-    <!-- Layer 1: Soft Outer Halo -->
-    <div class="hero__halo" aria-hidden="true"></div>
-
-    <!-- Layer 2: Planet Disk -->
-    <div class="hero__disk" aria-hidden="true"></div>
-
-    <!-- Layer 3: Dot Lattice Grid -->
-    <div class="hero__dots" aria-hidden="true"></div>
-
-    <!-- Layer 4: Warm Horizon Glow -->
-    <div class="hero__horizon" aria-hidden="true"></div>
-
-    <!-- Layer 5: Dark Ridge Terrain Silhouette -->
-    <div class="hero__terrain" aria-hidden="true">
-      <load ="src/partials/hero-terrain.svg" />
-    </div>
-
-    <!-- Layer 6: Glowing Vein Paths & Junction Dots -->
-    <div class="hero__veins" aria-hidden="true">
-      <load ="src/partials/hero-veins.svg" />
-    </div>
-
-    <!-- Layer 7: Floating Human Silhouette -->
-    <div class="hero__figure" aria-hidden="true">
-      <load ="src/partials/hero-figure.svg" />
-    </div>
-
-    <!-- Layer 8: Connector Lines -->
-    <div class="hero__links" aria-hidden="true">
-      <load ="src/partials/hero-links.svg" />
-    </div>
-
-    <!-- Layer 9: UI Content (Nav, Headline, Buttons, 5 Service Nodes) -->
     <div class="hero__content">
       <!-- Nav Row -->
       <header class="hero__nav" role="navigation" aria-label="Hero Navigation">
