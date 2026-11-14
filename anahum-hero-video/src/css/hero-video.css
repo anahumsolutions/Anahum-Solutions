@@ -1,0 +1,133 @@
+/* ==========================================================================
+   HERO VIDEO BACKGROUND
+   Paste at the end of section "7.0 Hero Section" in sections.css
+   (or import as its own file after sections.css).
+   Colors come from tokens.css only.
+   ========================================================================== */
+
+/* The coded planet/terrain layers are gone from hero.html, so these old
+   rules are now unused and can be deleted from sections.css:
+   .hero__halo  .hero__disk  .hero__dots  .hero__horizon
+   .hero__terrain  .hero__veins  .hero__figure  .hero__links          */
+
+/* Video sits above the ground color, below the stage */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__poster,
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Keeps the mountain and lava visible when the screen crops the sides/top */
+  object-position: 50% 78%;
+  display: block;
+}
+
+/* Video fades in over the poster once it is actually playing */
+.hero__video {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-out);
+}
+
+.hero__video.is-playing {
+  opacity: 1;
+}
+
+/* Readability scrim: dark behind the headline, soft darkening top and bottom */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 48% 30% at 50% 27%,
+      color-mix(in srgb, var(--maroon) 62%, transparent),
+      transparent 100%
+    ),
+    linear-gradient(to bottom, color-mix(in srgb, var(--maroon) 55%, transparent), transparent 36%),
+    linear-gradient(to top, color-mix(in srgb, var(--maroon) 60%, transparent), transparent 28%);
+}
+
+/* Stage (nav, headline, nodes) always above the video */
+.hero__stage {
+  z-index: 2;
+}
+
+/* Headline gets a soft shadow so it holds up on the bright sun */
+.hero__title {
+  text-shadow: 0 2px 24px color-mix(in srgb, var(--maroon) 55%, transparent);
+}
+
+/* Service nodes: no connector lines anymore, so give the cards a slightly
+   stronger glow to feel anchored to the scene */
+.hero__node-card {
+  box-shadow:
+    0 0 calc(14 * var(--u)) color-mix(in srgb, var(--ember) 45%, transparent),
+    0 calc(6 * var(--u)) calc(20 * var(--u)) color-mix(in srgb, var(--maroon) 60%, transparent);
+}
+
+/* Small screens: show the lava scene under the headline, lighter scrim */
+@media (max-width: 1100px) {
+  .hero__poster,
+  .hero__video {
+    object-position: 50% 85%;
+  }
+
+  /* Headline sits over the bright sun on phones/tablets: use a stronger,
+     wider scrim there */
+  .hero__scrim {
+    background:
+      radial-gradient(
+        ellipse 95% 38% at 50% 30%,
+        color-mix(in srgb, var(--maroon) 72%, transparent),
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--maroon) 65%, transparent),
+        transparent 55%
+      ),
+      linear-gradient(to top, color-mix(in srgb, var(--maroon) 60%, transparent), transparent 30%);
+  }
+}
+
+/* Phones: compact 2-column service cards so the lava scene stays visible
+   (loads after sections.css, so it overrides the single-column rule) */
+@media (max-width: 520px) {
+  .hero__nodes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .hero__node:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .hero__node-card {
+    padding: 10px 12px;
+    min-height: 48px;
+    gap: 10px;
+  }
+
+  .hero__node-sub {
+    display: none;
+  }
+
+  .hero__nodes {
+    margin-top: 8px;
+  }
+}
+
+/* Reduced motion: the video is paused by hero-video.js; keep the poster look */
+@media (prefers-reduced-motion: reduce) {
+  .hero__video {
+    transition: none;
+  }
+}
