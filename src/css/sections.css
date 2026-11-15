@@ -422,11 +422,25 @@
   top: calc(38 * var(--u));
   left: calc(38 * var(--u));
   right: calc(38 * var(--u));
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   pointer-events: auto;
   z-index: 10;
+}
+
+.hero__nav > .hero__nav-pill:not(.hero__nav-pill--cta) {
+  grid-column: 1;
+}
+
+.hero__logo {
+  grid-column: 2;
+}
+
+.hero__nav-right {
+  grid-column: 3;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hero__nav-pill {
@@ -462,6 +476,7 @@
 }
 
 .hero__logo {
+  grid-column: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -518,7 +533,7 @@
 .hero__title {
   font-family: var(--font-display);
   text-transform: uppercase;
-  line-height: 0.95;
+  line-height: 0.88;
   letter-spacing: -0.01em;
   margin: 0 auto;
   color: var(--cream);
@@ -552,7 +567,10 @@
   color: var(--peach);
   margin-top: calc(18 * var(--u));
   margin-bottom: calc(26 * var(--u));
-  text-shadow: 0 2px 10px rgb(var(--maroon-rgb) / 0.85);
+  text-shadow:
+    0 2px 10px rgb(var(--maroon-rgb) / 0.85),
+    0 1px 4px rgb(var(--maroon-rgb) / 0.9),
+    0 0 24px rgb(var(--maroon-rgb) / 0.6);
 }
 
 .hero__actions {
@@ -625,6 +643,20 @@
 .hero__node {
   position: absolute;
   pointer-events: auto;
+}
+
+/* On wide screens: let each card size to its content, overriding inline widths */
+@media (min-width: 1101px) {
+  .hero__node {
+    width: auto !important;
+  }
+
+  .hero__node-card {
+    width: auto;
+    min-width: calc(140 * var(--u));
+    white-space: nowrap;
+    padding-right: calc(20 * var(--u));
+  }
 }
 
 .hero__node-card {
@@ -725,6 +757,9 @@
     padding: 0 20px;
     width: 100%;
     margin-bottom: 60px;
+    /* Keep 3-col grid so logo stays centred when the left pill is hidden */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
   }
 
   .hero__text-block {
@@ -775,12 +810,21 @@
     display: none;
   }
 
-  .hero__nav {
-    justify-content: space-between;
-  }
-
   .hero__nodes {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Fix 390px sideways scroll: at very small viewports the --u floor (0.6px)
+   can produce elements slightly wider than the viewport. Remove the floor
+   so elements fall back to their min-width values instead. */
+@media (max-width: 400px) {
+  .hero {
+    overflow-x: clip;
+  }
+
+  .hero__stage {
+    --u: calc(100vw / 1354);
   }
 }
 
