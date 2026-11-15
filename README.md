@@ -28,19 +28,19 @@ Anahum Solutions specializes in:
 
 ## Technology Stack
 
-| Technology | Purpose |
-|---|---|
-| HTML5 | Website structure |
-| CSS3 | Styling and responsive layouts |
-| Vanilla JavaScript | Website interactions and application logic |
-| Vite | Development server and production build |
-| GSAP | Motion graphics and animations |
-| Bootstrap 5.3 | UI and supporting components |
-| Google Gemini API | AI-powered chatbot responses |
-| Node.js | Chatbot API runtime |
-| Vercel Serverless Functions | Chatbot backend deployment |
-| Shadow DOM | Isolated chatbot widget interface |
-| Session Storage | Conversation history during the browser session |
+| Technology                  | Purpose                                         |
+| --------------------------- | ----------------------------------------------- |
+| HTML5                       | Website structure                               |
+| CSS3                        | Styling and responsive layouts                  |
+| Vanilla JavaScript          | Website interactions and application logic      |
+| Vite                        | Development server and production build         |
+| GSAP                        | Motion graphics and animations                  |
+| Bootstrap 5.3               | UI and supporting components                    |
+| Google Gemini API           | AI-powered chatbot responses                    |
+| Node.js                     | Chatbot API runtime                             |
+| Vercel Serverless Functions | Chatbot backend deployment                      |
+| Shadow DOM                  | Isolated chatbot widget interface               |
+| Session Storage             | Conversation history during the browser session |
 
 ## Getting Started
 
@@ -284,9 +284,9 @@ Mock mode is intended for local UI testing and does not represent production AI 
 
 The chatbot backend requires the following environment variables:
 
-| Variable | Description |
-|---|---|
-| `GEMINI_API_KEY` | Google Gemini API key used for AI responses |
+| Variable          | Description                                         |
+| ----------------- | --------------------------------------------------- |
+| `GEMINI_API_KEY`  | Google Gemini API key used for AI responses         |
 | `ALLOWED_ORIGINS` | Website origins permitted to access the chatbot API |
 
 **Security:** The Gemini API key is stored in server-side environment variables and must never be exposed in frontend JavaScript or committed to the repository.
@@ -321,10 +321,7 @@ The deployed chatbot provides the widget assets and API endpoint.
 The chatbot is integrated into the main website through a single script tag in the root `index.html` file, immediately before the closing `</body>` tag.
 
 ```html
-<script
-  src="https://anahum-chatbot.vercel.app/chatbot.js"
-  defer
-></script>
+<script src="https://anahum-chatbot.vercel.app/chatbot.js" defer></script>
 ```
 
 Replace the example domain with the actual chatbot deployment URL.
@@ -335,12 +332,12 @@ The widget automatically resolves its CSS and API endpoint from its deployment d
 
 The chatbot supports the following script attributes:
 
-| Attribute | Purpose | Default |
-|---|---|---|
-| `data-endpoint` | Full URL of the chat API | `/api/chat` on the script's domain |
-| `data-title` | Chat panel title | `anahum assistant` |
-| `data-greeting` | Initial welcome message | Default welcome message |
-| `data-position` | Widget position (`right` or `left`) | `right` |
+| Attribute       | Purpose                             | Default                            |
+| --------------- | ----------------------------------- | ---------------------------------- |
+| `data-endpoint` | Full URL of the chat API            | `/api/chat` on the script's domain |
+| `data-title`    | Chat panel title                    | `anahum assistant`                 |
+| `data-greeting` | Initial welcome message             | Default welcome message            |
+| `data-position` | Widget position (`right` or `left`) | `right`                            |
 
 Example:
 
@@ -356,7 +353,7 @@ Example:
 The chatbot also exposes a JavaScript interface that allows website buttons to open the chat panel programmatically:
 
 ```javascript
-window.anahumChatbot.open();
+window.anahumChatbot.open()
 ```
 
 This can be used to connect existing website buttons, such as **Book a Call**, with the chatbot experience.
@@ -406,10 +403,10 @@ Contributions should be developed on separate branches and submitted through Pul
 
 The main website and chatbot backend use separate Vercel deployments.
 
-| Component | Deployment | Purpose |
-|---|---|---|
-| Main Website | Vercel | Hosts the Anahum Solutions website |
-| Chatbot Backend | Vercel | Hosts chatbot widget assets and serverless API |
+| Component       | Deployment | Purpose                                        |
+| --------------- | ---------- | ---------------------------------------------- |
+| Main Website    | Vercel     | Hosts the Anahum Solutions website             |
+| Chatbot Backend | Vercel     | Hosts chatbot widget assets and serverless API |
 
 ### Main Website Deployment
 
@@ -436,12 +433,12 @@ This separation keeps chatbot functionality independent while allowing it to ope
 
 ## Documentation
 
-| Document | Description |
-|---|---|
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules and development workflow |
-| [THEMING.md](THEMING.md) | Brand customization and visual system |
-| [MANIFEST.md](MANIFEST.md) | Project documentation and specifications |
-| [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) | Design decisions and open items |
+| Document                               | Description                                 |
+| -------------------------------------- | ------------------------------------------- |
+| [CONTRIBUTING.md](CONTRIBUTING.md)     | Contribution rules and development workflow |
+| [THEMING.md](THEMING.md)               | Brand customization and visual system       |
+| [MANIFEST.md](MANIFEST.md)             | Project documentation and specifications    |
+| [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) | Design decisions and open items             |
 
 ## License & Usage
 
@@ -453,7 +450,7 @@ Public repository visibility does not grant permission to reuse, redistribute, o
 
 **Anahum Solutions**
 
-*Building intelligent digital experiences for modern businesses.*
+_Building intelligent digital experiences for modern businesses._
 
 Website: [anahum-web-new.vercel.app](https://anahum-web-new.vercel.app)
 
