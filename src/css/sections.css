@@ -996,23 +996,11 @@
 }
 
 .about-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-top: 20px;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 4px;
-  transition:
-    gap var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out);
+  margin-top: 0;
 }
 
 .about-link:hover {
   gap: 12px;
-  transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------
@@ -1067,7 +1055,7 @@
 
 .service-row__title {
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--muted);
   transition: color var(--dur-fast) var(--ease-out);
@@ -1136,7 +1124,8 @@
 
 .services-glass-panel__title {
   color: var(--on-dark);
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
