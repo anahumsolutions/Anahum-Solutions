@@ -4,7 +4,7 @@
 
 The official website of **Anahum Solutions**, an AI-powered digital agency building intelligent digital experiences, automation systems, and creative solutions for modern businesses.
 
-🌐 **Live Website:** [anahum-web-new.vercel.app](https://anahum-web-new.vercel.app)
+🌐 **Live Website:** [anahum-solutions.vercel.app](https://anahum-solutions.vercel.app)
 
 ---
 
