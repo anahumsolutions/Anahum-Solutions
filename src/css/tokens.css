@@ -55,6 +55,14 @@
   --section-pad-y: clamp(70px, 7vw, 120px);
   --gutter: 24px;
 
+  /* Section Tint (alternating section background) */
+  --section-tint: color-mix(in srgb, var(--peach) 35%, var(--bg));
+
+  /* Elevation Shadows (built from --maroon-rgb, no colour literals) */
+  --shadow-sm: 0 2px 8px rgb(var(--maroon-rgb) / 0.06);
+  --shadow-md: 0 8px 24px rgb(var(--maroon-rgb) / 0.1);
+  --shadow-lg: 0 16px 48px rgb(var(--maroon-rgb) / 0.14);
+
   /* Motion & Easing */
   --dur-fast: 0.2s;
   --dur-base: 0.35s;
