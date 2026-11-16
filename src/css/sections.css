@@ -243,6 +243,83 @@
 }
 
 /* --------------------------------------------------------------------------
+   SHARED SECTION HEADING SYSTEM
+   Eyebrow pill-badge → H2 → optional intro paragraph, all left-aligned.
+   48px gap before section content.
+   -------------------------------------------------------------------------- */
+.section-heading {
+  margin-bottom: 48px;
+}
+
+.section-heading .pill-badge {
+  margin-bottom: 16px;
+}
+
+.section-heading h2,
+.section-heading .section-title {
+  font-size: clamp(36px, 4.5vw, 60px);
+  margin-bottom: 0;
+}
+
+.section-heading .section-intro {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.6;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+/* Shared card title size */
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Shared section background alternation */
+.what-we-do,
+.process-section {
+  background-color: var(--section-tint);
+}
+
+.works-section,
+.services-section,
+.pricing-section {
+  background-color: var(--bg);
+}
+
+/* Uniform H2 size for all 5 light sections */
+.what-we-do h2,
+.works-section h2,
+.services-section h2,
+.process-section h2,
+.pricing-section h2 {
+  font-size: clamp(36px, 4.5vw, 60px);
+}
+
+/* Shared card hover: lift -4px, duration base */
+.work-card,
+.process-card,
+.pricing-card {
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.work-card:hover,
+.process-card:hover,
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Shared image scale on hover */
+.work-card:hover .work-card__image,
+.what-we-do__photo-box:hover img {
+  transform: scale(1.03);
+}
+
+/* --------------------------------------------------------------------------
    7.0 Hero Section (Planet & Terrain Scene)
    -------------------------------------------------------------------------- */
 .hero {
@@ -832,7 +909,7 @@
    7.1 What We Do Section
    -------------------------------------------------------------------------- */
 .what-we-do {
-  background-color: var(--bg);
+  background-color: var(--section-tint);
 }
 
 .what-we-do__media-wrap {
@@ -845,22 +922,25 @@
   height: 420px;
   border-radius: var(--r-card);
   overflow: hidden;
-  box-shadow: 0 16px 40px rgb(var(--maroon-rgb) / 0.08);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
 }
 
 .what-we-do__photo-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
 .stat-card {
   position: absolute;
   padding: 24px;
-  border-radius: var(--r-lg);
-  box-shadow: 0 12px 36px rgb(var(--maroon-rgb) / 0.12);
+  border-radius: var(--r-card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
   z-index: 2;
-  transition: transform var(--dur-fast) var(--ease-out);
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
 .stat-card:hover {
@@ -916,16 +996,7 @@
 }
 
 .about-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-top: 20px;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 4px;
-  transition: gap var(--dur-fast) var(--ease-out);
+  margin-top: 0;
 }
 
 .about-link:hover {
@@ -984,7 +1055,7 @@
 
 .service-row__title {
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--muted);
   transition: color var(--dur-fast) var(--ease-out);
@@ -1018,7 +1089,8 @@
   height: 520px;
   border-radius: var(--r-card);
   overflow: hidden;
-  box-shadow: 0 20px 48px rgb(var(--maroon-rgb) / 0.1);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
 }
 
 .service-display-image {
@@ -1052,7 +1124,8 @@
 
 .services-glass-panel__title {
   color: var(--on-dark);
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -1254,6 +1327,8 @@
 .work-card {
   display: flex;
   flex-direction: column;
+  border-radius: var(--r-card);
+  overflow: hidden;
 }
 
 .work-card__meta {
@@ -1281,7 +1356,9 @@
   aspect-ratio: 16 / 11;
   border-radius: var(--r-card);
   overflow: hidden;
+  border: 1px solid var(--line);
   background-color: var(--dark);
+  box-shadow: var(--shadow-md);
 }
 
 .work-card__image {
@@ -1335,11 +1412,11 @@
    7.5 Working Process Section
    -------------------------------------------------------------------------- */
 .process-section {
-  background-color: var(--bg);
+  background-color: var(--section-tint);
 }
 
 .process-heading-reveal {
-  font-size: clamp(38px, 4.5vw, 60px);
+  font-size: clamp(36px, 4.5vw, 60px);
   margin-bottom: 48px;
 }
 
@@ -1373,15 +1450,16 @@
   justify-content: space-between;
   min-height: 380px;
   position: relative;
-  box-shadow: 0 8px 30px rgb(var(--maroon-rgb) / 0.06);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
   transition:
     transform var(--dur-base) var(--ease-out),
     box-shadow var(--dur-base) var(--ease-out);
 }
 
 .process-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgb(var(--maroon-rgb) / 0.12);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Alternating Card Colors */
@@ -1655,7 +1733,7 @@
 }
 
 .pricing-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 48px;
 }
 
@@ -1711,7 +1789,8 @@
 .pricing-card {
   border-radius: var(--r-card);
   overflow: hidden;
-  box-shadow: 0 16px 40px rgb(var(--maroon-rgb) / 0.08);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
 }
