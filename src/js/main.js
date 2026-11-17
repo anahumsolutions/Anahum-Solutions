@@ -16,6 +16,7 @@ import { initPanelScale } from './anim/panel-scale.js'
 import { initPricingToggle } from './anim/pricing-toggle.js'
 import { initOrbit } from './anim/orbit.js'
 import { initBackToTop } from './anim/back-to-top.js'
+import { initContactForm } from './contact-form.js'
 
 /**
  * Application Bootstrap & Animation Registry
@@ -31,6 +32,7 @@ function initApp() {
   initServicesTabs()
   initPricingToggle()
   initBackToTop()
+  initContactForm()
 
   // 3. ScrollTrigger & Physics Modules
   initStatCounter()
