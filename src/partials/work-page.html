@@ -1,0 +1,788 @@
+<!-- =========================================================
+     WORK PAGE PARTIAL
+     ========================================================= -->
+
+<!-- Lightbox dialog -->
+<dialog id="lightbox" class="lightbox" aria-label="Image viewer">
+  <div class="lightbox__inner">
+    <button type="button" class="lightbox__close" aria-label="Close image viewer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
+    <button type="button" class="lightbox__prev" aria-label="Previous image">&#8592;</button>
+    <img class="lightbox__img" src="" alt="" decoding="async" />
+    <button type="button" class="lightbox__next" aria-label="Next image">&#8594;</button>
+  </div>
+</dialog>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section class="work-page__hero section-spacing">
+  <div class="container-custom">
+    <div class="section-heading" data-anim="fade-up">
+      <div class="pill-badge">
+        <span class="pill-badge__dot"></span>
+        Our Work
+      </div>
+      <h1>Our work, <i class="voice-word">by service</i></h1>
+      <p class="work-page__intro">Real projects, built for real businesses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FILTER BAR
+     ========================================================= -->
+<div class="work-filter container-custom" role="group" aria-label="Filter projects by service">
+  <button type="button" class="work-filter__btn" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" class="work-filter__btn" data-filter="custom" aria-pressed="false">
+    Custom AI Systems
+  </button>
+  <button type="button" class="work-filter__btn" data-filter="fashion" aria-pressed="false">
+    AI Fashion Shoots
+  </button>
+  <button type="button" class="work-filter__btn" data-filter="agents" aria-pressed="false">
+    AI Agents
+  </button>
+</div>
+
+<!-- =========================================================
+     GROUP 1 — Custom AI Systems
+     ========================================================= -->
+<section class="work-group section-spacing" data-group="custom">
+  <div class="container-custom">
+    <h2 class="work-group__title" data-anim="fade-up">Custom AI Systems</h2>
+
+    <!-- Project 1: Feed Push Monitor -->
+    <article class="work-project" id="feed-push-monitor" data-anim="blur-reveal" data-delay="0.05">
+      <div class="work-project__text">
+        <div class="work-project__meta">
+          <span class="work-project__tag">Built for Eastern Dairies</span>
+          <div class="chips-row">
+            <span class="chip">Cameras</span>
+            <span class="chip">Live alerts</span>
+            <span class="chip">Dashboard</span>
+          </div>
+        </div>
+        <h3 class="work-project__title">Feed Push Monitor</h3>
+        <p class="work-project__summary">Cameras and AI check that every cow can reach her feed.</p>
+
+        <div class="work-project__blocks">
+          <div class="work-project__block">
+            <h4>The problem</h4>
+            <p>
+              Cows push their feed out of reach as they eat. Workers have to push it back, and if
+              they miss it, cows eat less and give less milk.
+            </p>
+          </div>
+          <div class="work-project__block">
+            <h4>What we built</h4>
+            <p>
+              AI watches the feed lanes through cameras. If feed stays out of reach for more than 15
+              minutes, the farm head gets an alert with a photo as proof.
+            </p>
+          </div>
+          <div class="work-project__block">
+            <h4>What the client gets</h4>
+            <p>
+              A live screen showing every shed and how fast workers respond. Owners see what's
+              happening without walking every lane.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-project__media">
+        <div class="work-gallery" data-layout="landscape">
+          <p class="work-gallery__caption">From our visit to Eastern Dairies</p>
+
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image: Feed lane"
+              data-full="/work/eastern-dairies/dairy-shed-feed-lane.webp"
+            >
+              <img
+                src="/work/eastern-dairies/dairy-shed-feed-lane-sm.webp"
+                srcset="
+                  /work/eastern-dairies/dairy-shed-feed-lane-sm.webp  800w,
+                  /work/eastern-dairies/dairy-shed-feed-lane.webp    1600w
+                "
+                sizes="(min-width: 992px) 25vw, 50vw"
+                width="800"
+                height="600"
+                alt="Cows feeding along the fence in a covered dairy shed while a worker pushes feed back down the lane"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image: Cows eating"
+              data-full="/work/eastern-dairies/dairy-cows-eating.webp"
+            >
+              <img
+                src="/work/eastern-dairies/dairy-cows-eating-sm.webp"
+                srcset="
+                  /work/eastern-dairies/dairy-cows-eating-sm.webp  640w,
+                  /work/eastern-dairies/dairy-cows-eating.webp    1280w
+                "
+                sizes="(min-width: 992px) 25vw, 50vw"
+                width="640"
+                height="480"
+                alt="Cows eating from the feed lane under bright shed lights"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image: Calves"
+              data-full="/work/eastern-dairies/dairy-calves.webp"
+            >
+              <img
+                src="/work/eastern-dairies/dairy-calves-sm.webp"
+                srcset="
+                  /work/eastern-dairies/dairy-calves-sm.webp  600w,
+                  /work/eastern-dairies/dairy-calves.webp    1200w
+                "
+                sizes="(min-width: 992px) 25vw, 50vw"
+                width="600"
+                height="800"
+                alt="Calves resting in a pen at the dairy farm"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 2: Dairy Data Analyst -->
+    <article class="work-project" id="dairy-data-analyst" data-anim="blur-reveal" data-delay="0.1">
+      <div class="work-project__text">
+        <div class="work-project__meta">
+          <span class="work-project__tag">Built for Eastern Dairies</span>
+          <div class="chips-row">
+            <span class="chip">Plain-language questions</span>
+            <span class="chip">Early warnings</span>
+          </div>
+        </div>
+        <h3 class="work-project__title">Dairy Data Analyst</h3>
+        <p class="work-project__summary">Ask your herd data a question in plain English.</p>
+
+        <div class="work-project__blocks">
+          <div class="work-project__block">
+            <h4>The problem</h4>
+            <p>
+              The farm's records system is powerful, but staff need special commands to get answers
+              from it.
+            </p>
+          </div>
+          <div class="work-project__block">
+            <h4>What we built</h4>
+            <p>
+              Staff type a normal question, such as "Which cows need attention this week?", and get
+              a clear answer.
+            </p>
+          </div>
+          <div class="work-project__block">
+            <h4>What the client gets</h4>
+            <p>
+              Quick answers on milk, breeding and health, plus early warnings about trends and risks
+              based on the farm's own history.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-project__media work-project__media--single">
+        <img
+          src="/work/covers/work-dairy-analyst.webp"
+          srcset="
+            /work/covers/work-dairy-analyst-sm.webp  576w,
+            /work/covers/work-dairy-analyst.webp    1152w
+          "
+          sizes="(min-width: 992px) 50vw, 100vw"
+          width="1152"
+          height="864"
+          alt="A milk bottle beside rising cream columns with an orange sphere on the tallest"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- =========================================================
+     GROUP 2 — AI Fashion Shoots
+     ========================================================= -->
+<section class="work-group section-spacing" data-group="fashion">
+  <div class="container-custom">
+    <h2 class="work-group__title" data-anim="fade-up">AI Fashion Shoots</h2>
+
+    <!-- Project 3: Women's Fashion Shoots -->
+    <article
+      class="work-project"
+      id="womens-fashion-shoots"
+      data-anim="blur-reveal"
+      data-delay="0.05"
+    >
+      <div class="work-project__text">
+        <div class="work-project__meta">
+          <div class="chips-row">
+            <span class="chip">Models</span>
+            <span class="chip">Lookbooks</span>
+            <span class="chip">Reels</span>
+          </div>
+        </div>
+        <h3 class="work-project__title">Women's Fashion Shoots</h3>
+        <p class="work-project__summary">Studio-quality model shoots, made with AI.</p>
+        <p class="work-project__desc">
+          Realistic photos and reels of female models wearing a brand's outfits, with no studio, no
+          travel and no booking costs.
+        </p>
+        <a
+          href="https://www.instagram.com/solasbynoor/"
+          class="btn btn--outline"
+          target="_blank"
+          rel="noopener noreferrer"
+          >See more on Instagram</a
+        >
+      </div>
+
+      <div class="work-project__media">
+        <div class="work-gallery work-gallery--landscape" data-layout="landscape">
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-01-cover.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-01-cover-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-01-cover-sm.webp  800w,
+                  /work/fashion-women/fashion-women-01-cover.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model in a light blue hoodie and gold head chain resting her chin on her hand in the desert at sunset"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-02.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-02-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-02-sm.webp  800w,
+                  /work/fashion-women/fashion-women-02.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model reclining on a sand dune in an olive draped dress"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-03.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-03-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-03-sm.webp  800w,
+                  /work/fashion-women/fashion-women-03.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model in a flowing olive gown standing on a dune crest at sunset"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-04.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-04-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-04-sm.webp  800w,
+                  /work/fashion-women/fashion-women-04.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model in an olive puffer jacket standing in an ancient temple hall"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-05.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-05-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-05-sm.webp  800w,
+                  /work/fashion-women/fashion-women-05.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model in an olive hoodie lying on an Egyptian rug on desert sand, seen from above"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-06.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-06-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-06-sm.webp  800w,
+                  /work/fashion-women/fashion-women-06.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model in a cream hoodie and gold collar crouching in front of a black SUV with the pyramids behind"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-07.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-07-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-07-sm.webp  800w,
+                  /work/fashion-women/fashion-women-07.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model in a cream hoodie leaning out of an SUV window with the pyramids behind"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-08.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-08-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-08-sm.webp  800w,
+                  /work/fashion-women/fashion-women-08.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Close-up portrait of a model with gold leaf makeup and a gold head chain"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-women/fashion-women-09.webp"
+            >
+              <img
+                src="/work/fashion-women/fashion-women-09-sm.webp"
+                srcset="
+                  /work/fashion-women/fashion-women-09-sm.webp  800w,
+                  /work/fashion-women/fashion-women-09.webp    1600w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="800"
+                height="447"
+                alt="Model in a blue hoodie standing in front of a large setting sun in the desert"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 4: Men's Fashion Shoots -->
+    <article class="work-project" id="mens-fashion-shoots" data-anim="blur-reveal" data-delay="0.1">
+      <div class="work-project__text">
+        <div class="work-project__meta">
+          <div class="chips-row">
+            <span class="chip">Menswear</span>
+            <span class="chip">Fabric detail</span>
+            <span class="chip">Reels</span>
+          </div>
+        </div>
+        <h3 class="work-project__title">Men's Fashion Shoots</h3>
+        <p class="work-project__summary">Menswear shoots with a real photographic feel.</p>
+        <p class="work-project__desc">
+          Realistic photos and reels of male models for clothing and fabric brands, with the colours
+          and fabric details kept true to the real product.
+        </p>
+        <a
+          href="https://www.instagram.com/bilaaal.ai/"
+          class="btn btn--outline"
+          target="_blank"
+          rel="noopener noreferrer"
+          >See more on Instagram</a
+        >
+      </div>
+
+      <div class="work-project__media">
+        <div class="work-gallery work-gallery--portrait" data-layout="portrait">
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-01-cover.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-01-cover-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-01-cover-sm.webp  600w,
+                  /work/fashion-men/fashion-men-01-cover.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Model in a charcoal hoodie and white trousers seated on a black block among stacked black crates"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-02.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-02-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-02-sm.webp  600w,
+                  /work/fashion-men/fashion-men-02.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="800"
+                alt="Model in glasses looking up at the camera, lying among black crates"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-03.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-03-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-03-sm.webp  600w,
+                  /work/fashion-men/fashion-men-03.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Model in a charcoal hoodie and white trousers walking between stacked black crates"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-04.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-04-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-04-sm.webp  600w,
+                  /work/fashion-men/fashion-men-04.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Back view of a charcoal hoodie with a printed list down one side"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-05.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-05-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-05-sm.webp  600w,
+                  /work/fashion-men/fashion-men-05.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Model in a taupe button-up shirt lit by a red spotlight against a red curtain"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-06.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-06-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-06-sm.webp  600w,
+                  /work/fashion-men/fashion-men-06.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Model in a taupe shirt and trousers seated on a black leather chair in front of a red curtain"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-07.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-07-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-07-sm.webp  600w,
+                  /work/fashion-men/fashion-men-07.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Model in a black graphic hoodie pulling up the hood against a corrugated metal wall"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-08.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-08-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-08-sm.webp  600w,
+                  /work/fashion-men/fashion-men-08.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Model in a black graphic hoodie and baggy black trousers leaning on a blue metal shutter at night"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="work-gallery__item">
+            <button
+              type="button"
+              aria-label="View full image"
+              data-full="/work/fashion-men/fashion-men-09.webp"
+            >
+              <img
+                src="/work/fashion-men/fashion-men-09-sm.webp"
+                srcset="
+                  /work/fashion-men/fashion-men-09-sm.webp  600w,
+                  /work/fashion-men/fashion-men-09.webp    1200w
+                "
+                sizes="(min-width: 992px) 16vw, 50vw"
+                width="600"
+                height="804"
+                alt="Model in a black graphic hoodie standing on a loading dock in front of a metal shutter"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- =========================================================
+     GROUP 3 — AI Agents
+     ========================================================= -->
+<section class="work-group section-spacing" data-group="agents">
+  <div class="container-custom">
+    <h2 class="work-group__title" data-anim="fade-up">AI Agents</h2>
+
+    <!-- Project 5: AI Sales Operations Agent -->
+    <article
+      class="work-project"
+      id="ai-sales-operations-agent"
+      data-anim="blur-reveal"
+      data-delay="0.05"
+    >
+      <div class="work-project__text">
+        <div class="work-project__meta">
+          <div class="chips-row">
+            <span class="chip">Finds quiet deals</span>
+            <span class="chip">Writes follow-ups</span>
+            <span class="chip">Approval before risky actions</span>
+          </div>
+        </div>
+        <h3 class="work-project__title">AI Sales Operations Agent</h3>
+        <p class="work-project__summary">An AI teammate for your sales team.</p>
+        <p class="work-project__desc">
+          It acts like an extra team member for sales. It connects to your customer list in HubSpot,
+          spots deals that have gone quiet, and suggests what to do next. It writes follow-up
+          messages and helps keep your records up to date. Anything risky waits for a person to
+          approve it, and every action is saved so you can always see what happened. Each team
+          member only sees what they should.
+        </p>
+      </div>
+
+      <div class="work-project__media work-project__media--single">
+        <img
+          src="/work/covers/work-salesops.webp"
+          srcset="/work/covers/work-salesops-sm.webp 576w, /work/covers/work-salesops.webp 1152w"
+          sizes="(min-width: 992px) 50vw, 100vw"
+          width="1152"
+          height="864"
+          alt="A row of cream chess pawns on a maroon lane with an orange sphere glowing above"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </article>
+
+    <!-- Project 6: AI Revenue Operations Engine -->
+    <article
+      class="work-project"
+      id="ai-revenue-operations-engine"
+      data-anim="blur-reveal"
+      data-delay="0.1"
+    >
+      <div class="work-project__text">
+        <div class="work-project__meta">
+          <div class="chips-row">
+            <span class="chip">Lead finding</span>
+            <span class="chip">Personal drafts</span>
+            <span class="chip">You approve every message</span>
+          </div>
+        </div>
+        <h3 class="work-project__title">AI Revenue Operations Engine</h3>
+        <p class="work-project__summary">
+          Finds the right customers and writes the first message for you.
+        </p>
+        <p class="work-project__desc">
+          It researches possible customers, works out which ones are the best fit, and drafts a
+          personal message for each. A person always approves a message before anything is sent.
+        </p>
+      </div>
+
+      <div class="work-project__media work-project__media--single">
+        <img
+          src="/work/covers/work-revenue.webp"
+          srcset="/work/covers/work-revenue-sm.webp 576w, /work/covers/work-revenue.webp 1152w"
+          sizes="(min-width: 992px) 50vw, 100vw"
+          width="1152"
+          height="864"
+          alt="Cream spheres falling through a maroon funnel with one orange sphere coming out"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- =========================================================
+     CLOSING CALL-TO-ACTION (the only dark panel)
+     ========================================================= -->
+<section class="work-cta">
+  <div class="container-custom">
+    <div class="work-cta__inner">
+      <h2 class="work-cta__heading" data-anim="fade-up">
+        Want something like this for your business?
+      </h2>
+      <div class="work-cta__actions">
+        <a
+          href="https://wa.me/923154755627?text=Hi%20anahum%2C%20I%27d%20like%20to%20book%20a%20call"
+          class="btn btn--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Book a call</a
+        >
+        <a href="/#contact" class="btn btn--ghost">Contact us</a>
+      </div>
+    </div>
+  </div>
+</section>

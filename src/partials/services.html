@@ -23,9 +23,9 @@
           aria-controls="panel-service-0"
           data-service-index="0"
           data-title="AI Workflow Automation"
-          data-desc="Connect core enterprise tools into synchronized autonomous pipelines that execute tasks with zero manual latency."
-          data-chip1="Orchestration"
-          data-chip2="Zero-Latency"
+          data-desc="Boring jobs done for you, automatically. We connect the tools you already use, so messages, forms, reports and reminders move by themselves. Your team spends less time on copy-and-paste and more time on real work."
+          data-chip1="Saves time"
+          data-chip2="Fewer mistakes"
         >
           <div class="service-row__left">
             <span class="service-row__index">01</span>
@@ -49,9 +49,9 @@
           aria-controls="panel-service-1"
           data-service-index="1"
           data-title="AI Product Visuals"
-          data-desc="Studio-quality synthetic photography, video rendering, and commercial campaigns generated in hours instead of weeks."
-          data-chip1="Commercial 4K"
-          data-chip2="Brand Consistency"
+          data-desc="Fashion and product photos, without the studio. We create realistic model shoots and product pictures that look professionally shot, in a few days instead of weeks. Perfect for clothing, jewellery and beauty brands."
+          data-chip1="Looks real"
+          data-chip2="Ready for ads"
         >
           <div class="service-row__left">
             <span class="service-row__index">02</span>
@@ -74,10 +74,10 @@
           aria-selected="false"
           aria-controls="panel-service-2"
           data-service-index="2"
-          data-title="Autonomous Agents & Chatbots"
-          data-desc="Conversational intelligence systems that resolve complex customer journeys and manage tier-one inquiries with human poise."
-          data-chip1="24/7 Triage"
-          data-chip2="Multi-Agent"
+          data-title="AI Agents &amp; Chatbots"
+          data-desc="A helper that works while you sleep. It answers customer questions, follows up with leads and handles routine tasks any time of day. When a real person is needed, it passes the job to your team."
+          data-chip1="Always available"
+          data-chip2="Hands off to your team"
         >
           <div class="service-row__left">
             <span class="service-row__index">03</span>
@@ -101,9 +101,9 @@
           aria-controls="panel-service-3"
           data-service-index="3"
           data-title="Custom AI Systems"
-          data-desc="Fine-tuned models, local vector stores, and private AI infrastructure customized to your proprietary business knowledge."
-          data-chip1="Proprietary RAG"
-          data-chip2="On-Premise / Cloud"
+          data-desc="Built for your business, not off the shelf. Tell us the problem you face every day, and we build a system that solves it, using your own data, cameras or records."
+          data-chip1="Made for you"
+          data-chip2="Works with your data"
         >
           <div class="service-row__left">
             <span class="service-row__index">04</span>
@@ -121,32 +121,58 @@
       <!-- Right: Stacked Crossfading Images with Frosted Glass Panel -->
       <div class="services-display" id="servicesDisplay">
         <img
-          src="/assets/services-1.jpg"
-          alt="AI Workflow Automation"
+          src="/services/service-automation.webp"
+          srcset="
+            /services/service-automation-sm.webp  576w,
+            /services/service-automation.webp    1152w
+          "
+          sizes="(min-width: 992px) 50vw, 100vw"
+          width="1152"
+          height="864"
+          alt="An orange sphere rolling along a marble run of maroon rails and cream gears"
           class="service-display-image is-active"
           data-index="0"
           loading="eager"
+          decoding="async"
         />
         <img
-          src="/assets/services-2.jpg"
-          alt="AI Product Visuals"
+          src="/services/service-product-visuals.webp"
+          srcset="
+            /services/service-product-visuals-sm.webp  576w,
+            /services/service-product-visuals.webp    1152w
+          "
+          sizes="(min-width: 992px) 50vw, 100vw"
+          width="1152"
+          height="864"
+          alt="A model in a cream suit posing against a maroon backdrop while a photographer shoots her, lit by a glowing orange paper lantern"
           class="service-display-image"
           data-index="1"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
         />
         <img
-          src="/assets/services-3.jpg"
-          alt="AI Agents and Chatbots"
+          src="/services/service-agents.webp"
+          srcset="/services/service-agents-sm.webp 576w, /services/service-agents.webp 1152w"
+          sizes="(min-width: 992px) 50vw, 100vw"
+          width="1152"
+          height="864"
+          alt="Two cream speech-bubble sculptures linked by a thin thread of orange light"
           class="service-display-image"
           data-index="2"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
         />
         <img
-          src="/assets/services-4.jpg"
-          alt="Custom AI Systems"
+          src="/services/service-custom.webp"
+          srcset="/services/service-custom-sm.webp 576w, /services/service-custom.webp 1152w"
+          sizes="(min-width: 992px) 50vw, 100vw"
+          width="1152"
+          height="864"
+          alt="A cream custom-shaped block fitting into a lattice of maroon blocks above an orange glow"
           class="service-display-image"
           data-index="3"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
         />
 
         <!-- Frosted Glass Overlay Panel -->
@@ -158,12 +184,13 @@
         >
           <h3 class="services-glass-panel__title" id="glassTitle">AI Workflow Automation</h3>
           <p class="services-glass-panel__desc" id="glassDesc">
-            Connect core enterprise tools into synchronized autonomous pipelines that execute tasks
-            with zero manual latency.
+            Boring jobs done for you, automatically. We connect the tools you already use, so
+            messages, forms, reports and reminders move by themselves. Your team spends less time on
+            copy-and-paste and more time on real work.
           </p>
           <div class="chips-row">
-            <span class="chip" id="glassChip1">Orchestration</span>
-            <span class="chip" id="glassChip2">Zero-Latency</span>
+            <span class="chip" id="glassChip1">Saves time</span>
+            <span class="chip" id="glassChip2">Fewer mistakes</span>
           </div>
         </div>
       </div>
