@@ -2005,7 +2005,7 @@
 }
 
 .footer-col a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .newsletter-input {
@@ -2303,7 +2303,7 @@
 }
 
 .faq-question:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .faq-chevron {
@@ -2484,7 +2484,7 @@
 }
 
 .form-status--success {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .form-status--error {
@@ -2635,7 +2635,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 4px;
 }
 
@@ -2972,4 +2972,59 @@
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY ADDITIONS
+   ========================================================================== */
+
+/* --- Skip Link (Step 1) --- */
+/* Visually hidden until focused; appears top-left above the floating header */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 20px;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--r-btn);
+  border: 2px solid var(--ink);
+  text-decoration: none;
+  transition: top var(--dur-fast);
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Tap Targets (Step 3) --- */
+/* Work filter buttons: computed height can fall below 44px; enforce minimum */
+.work-filter__btn {
+  min-height: 44px;
+}
+
+/* Lightbox buttons: currently 40×40; bump to 44×44 */
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* --- Reduced Motion (Step 5) --- */
+/* When prefers-reduced-motion is active, JS adds .reduce-motion on <html>.
+   Force all animated data-anim elements to their final visible state so
+   nothing stays invisible or blurred. */
+.reduce-motion [data-anim] {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+  animation: none !important;
 }

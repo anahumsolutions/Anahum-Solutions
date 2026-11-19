@@ -3,8 +3,6 @@
    Reads variables from tokens.css only. Zero color literals allowed.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
-
 *,
 *::before,
 *::after {

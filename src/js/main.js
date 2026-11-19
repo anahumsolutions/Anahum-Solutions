@@ -23,6 +23,16 @@ import { initContactForm } from './contact-form.js'
  * Starts animations unconditionally without blocking on font promises.
  */
 function initApp() {
+  // Respect prefers-reduced-motion: skip all animations when active
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('reduce-motion')
+    // Still init non-animation modules
+    initMenu()
+    initBackToTop()
+    initContactForm()
+    return
+  }
+
   // 1. Hero Load Entrance (fires immediately)
   initHeroEntrance()
   initHeroVideo()
