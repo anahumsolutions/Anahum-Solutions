@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         work: fileURLToPath(new URL('./work.html', import.meta.url)),
+        notFound: fileURLToPath(new URL('./404.html', import.meta.url)),
       },
     },
   },

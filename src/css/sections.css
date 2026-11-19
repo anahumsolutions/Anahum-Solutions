@@ -2926,3 +2926,50 @@
 .process-section .process-grid + .section-intro {
   margin-top: var(--space-lg, 32px);
 }
+
+/* ==========================================================================
+   404 page
+   ========================================================================== */
+
+.not-found-page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.not-found {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  padding-top: calc(var(--scroll-offset, 110px) + var(--section-pad-y));
+  padding-bottom: var(--section-pad-y);
+  text-align: center;
+}
+
+.not-found .container-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.not-found .section-intro {
+  max-width: 480px;
+  margin-bottom: 2rem;
+  color: var(--muted);
+}
+
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
