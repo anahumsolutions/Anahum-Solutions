@@ -1,0 +1,68 @@
+# Anahum image pack
+
+All files are WebP (quality 80, metadata removed). Drop the `public/` folder into the repo root so paths become `/services/...` and `/work/...`.
+
+Each image has a full-size file and a `-sm` half-size file (for phones and thumbnails).
+
+Left out on purpose: the dairy photo with the child.
+
+| File                                                                   | Size (px) | KB  | Alt text                                                                                                                        |
+| ---------------------------------------------------------------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------- |
+| public/work/fashion-women/fashion-women-01-cover.webp                  | 1600×893  | 65  | Model in a light blue hoodie and gold head chain resting her chin on her hand in the desert at sunset                           |
+| public/work/fashion-women/fashion-women-01-cover-sm.webp               | 800×447   | 22  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-02.webp                        | 1600×893  | 122 | Model reclining on a sand dune in an olive draped dress                                                                         |
+| public/work/fashion-women/fashion-women-02-sm.webp                     | 800×447   | 43  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-03.webp                        | 1600×893  | 65  | Model in a flowing olive gown standing on a dune crest at sunset                                                                |
+| public/work/fashion-women/fashion-women-03-sm.webp                     | 800×447   | 24  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-04.webp                        | 1600×893  | 119 | Model in an olive puffer jacket standing in an ancient temple hall                                                              |
+| public/work/fashion-women/fashion-women-04-sm.webp                     | 800×447   | 43  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-05.webp                        | 1600×893  | 317 | Model in an olive hoodie lying on an Egyptian rug on desert sand, seen from above                                               |
+| public/work/fashion-women/fashion-women-05-sm.webp                     | 800×447   | 83  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-06.webp                        | 1600×893  | 145 | Model in a cream hoodie and gold collar crouching in front of a black SUV with the pyramids behind                              |
+| public/work/fashion-women/fashion-women-06-sm.webp                     | 800×447   | 44  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-07.webp                        | 1600×893  | 74  | Model in a cream hoodie leaning out of an SUV window with the pyramids behind                                                   |
+| public/work/fashion-women/fashion-women-07-sm.webp                     | 800×447   | 29  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-08.webp                        | 1600×893  | 67  | Close-up portrait of a model with gold leaf makeup and a gold head chain                                                        |
+| public/work/fashion-women/fashion-women-08-sm.webp                     | 800×447   | 24  | (small version of the above)                                                                                                    |
+| public/work/fashion-women/fashion-women-09.webp                        | 1600×893  | 50  | Model in a blue hoodie standing in front of a large setting sun in the desert                                                   |
+| public/work/fashion-women/fashion-women-09-sm.webp                     | 800×447   | 18  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-01-cover.webp                      | 1200×1607 | 158 | Model in a charcoal hoodie and white trousers seated on a black block among stacked black crates                                |
+| public/work/fashion-men/fashion-men-01-cover-sm.webp                   | 600×804   | 50  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-02.webp                            | 1200×1600 | 193 | Model in glasses looking up at the camera, lying among black crates                                                             |
+| public/work/fashion-men/fashion-men-02-sm.webp                         | 600×800   | 62  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-03.webp                            | 1200×1607 | 137 | Model in a charcoal hoodie and white trousers walking between stacked black crates                                              |
+| public/work/fashion-men/fashion-men-03-sm.webp                         | 600×804   | 44  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-04.webp                            | 1200×1607 | 228 | Back view of a charcoal hoodie with a printed list down one side                                                                |
+| public/work/fashion-men/fashion-men-04-sm.webp                         | 600×804   | 64  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-05.webp                            | 1200×1607 | 101 | Model in a taupe button-up shirt lit by a red spotlight against a red curtain                                                   |
+| public/work/fashion-men/fashion-men-05-sm.webp                         | 600×804   | 22  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-06.webp                            | 1200×1607 | 119 | Model in a taupe shirt and trousers seated on a black leather chair in front of a red curtain                                   |
+| public/work/fashion-men/fashion-men-06-sm.webp                         | 600×804   | 30  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-07.webp                            | 1200×1607 | 184 | Model in a black graphic hoodie pulling up the hood against a corrugated metal wall                                             |
+| public/work/fashion-men/fashion-men-07-sm.webp                         | 600×804   | 66  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-08.webp                            | 1200×1607 | 331 | Model in a black graphic hoodie and baggy black trousers leaning on a blue metal shutter at night                               |
+| public/work/fashion-men/fashion-men-08-sm.webp                         | 600×804   | 86  | (small version of the above)                                                                                                    |
+| public/work/fashion-men/fashion-men-09.webp                            | 1200×1607 | 254 | Model in a black graphic hoodie standing on a loading dock in front of a metal shutter                                          |
+| public/work/fashion-men/fashion-men-09-sm.webp                         | 600×804   | 76  | (small version of the above)                                                                                                    |
+| public/services/service-agents.webp                                    | 1152×864  | 36  | Two cream speech-bubble sculptures linked by a thin thread of orange light                                                      |
+| public/services/service-agents-sm.webp                                 | 576×432   | 12  | (small version of the above)                                                                                                    |
+| public/services/service-automation.webp                                | 1152×864  | 36  | An orange sphere rolling along a marble run of maroon rails and cream gears                                                     |
+| public/services/service-automation-sm.webp                             | 576×432   | 15  | (small version of the above)                                                                                                    |
+| public/services/service-custom.webp                                    | 1152×864  | 56  | A cream custom-shaped block fitting into a lattice of maroon blocks above an orange glow                                        |
+| public/services/service-custom-sm.webp                                 | 576×432   | 17  | (small version of the above)                                                                                                    |
+| public/work/covers/work-dairy-analyst.webp                             | 1152×864  | 19  | A milk bottle beside rising cream columns with an orange sphere on the tallest                                                  |
+| public/work/covers/work-dairy-analyst-sm.webp                          | 576×432   | 6   | (small version of the above)                                                                                                    |
+| public/work/covers/work-revenue.webp                                   | 1152×864  | 28  | Cream spheres falling through a maroon funnel with one orange sphere coming out                                                 |
+| public/work/covers/work-revenue-sm.webp                                | 576×432   | 10  | (small version of the above)                                                                                                    |
+| public/work/covers/work-salesops.webp                                  | 1152×864  | 28  | A row of cream chess pawns on a maroon lane with an orange sphere glowing above                                                 |
+| public/work/covers/work-salesops-sm.webp                               | 576×432   | 11  | (small version of the above)                                                                                                    |
+| public/work/eastern-dairies/dairy-shed-feed-lane.webp                  | 1600×1200 | 213 | Cows feeding along the fence in a covered dairy shed while a worker pushes feed back down the lane                              |
+| public/work/eastern-dairies/dairy-shed-feed-lane-sm.webp               | 800×600   | 80  | (small version of the above)                                                                                                    |
+| public/work/eastern-dairies/dairy-cows-eating.webp                     | 1280×960  | 162 | Cows eating from the feed lane under bright shed lights                                                                         |
+| public/work/eastern-dairies/dairy-cows-eating-sm.webp                  | 640×480   | 54  | (small version of the above)                                                                                                    |
+| public/work/eastern-dairies/dairy-calves.webp                          | 1200×1600 | 292 | Calves resting in a pen at the dairy farm                                                                                       |
+| public/work/eastern-dairies/dairy-calves-sm.webp                       | 600×800   | 112 | (small version of the above)                                                                                                    |
+| public/work/eastern-dairies/optional/dairy-worker-feed-pushing.webp    | 1200×1600 | 134 | Worker pushing feed back along the feed lane with a wiper (face visible, use only with permission)                              |
+| public/work/eastern-dairies/optional/dairy-worker-feed-pushing-sm.webp | 600×800   | 56  | (small version of the above)                                                                                                    |
+| public/services/service-product-visuals.webp                           | 1152×864  | 42  | A model in a cream suit posing against a maroon backdrop while a photographer shoots her, lit by a glowing orange paper lantern |
+| public/services/service-product-visuals-sm.webp                        | 576×432   | 17  | (small version of the above)                                                                                                    |
