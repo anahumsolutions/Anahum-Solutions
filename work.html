@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our work — anahum</title>
+    <meta
+      name="description"
+      content="Real AI projects by anahum: custom AI systems, AI fashion shoots and AI agents."
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -172 184.8 172'><circle cx='92.42' cy='-29.82' r='45' fill='%23F93D0D'/></svg>"
+    />
+
+    <!-- Bootstrap 5.3 Reboot & Grid only (No Bootstrap components) -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-grid.min.css" />
+
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="/src/css/tokens.css" />
+    <link rel="stylesheet" href="/src/css/base.css" />
+    <link rel="stylesheet" href="/src/css/layout.css" />
+    <link rel="stylesheet" href="/src/css/components.css" />
+    <link rel="stylesheet" href="/src/css/sections.css" />
+  </head>
+  <body>
+    <!-- Inline SVG Sprite -->
+    <load ="src/partials/sprite.html" />
+
+    <!-- Floating Header & Navigation -->
+    <load ="src/partials/header.html" />
+
+    <!-- Main Content Flow -->
+    <main id="mainContent" class="work-page">
+      <load ="src/partials/work-page.html" />
+    </main>
+
+    <!-- Site Footer (Frozen Structure) -->
+    <load ="src/partials/footer.html" />
+
+    <!-- Back to Top Fixed Button -->
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Scroll to top of page">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <use href="#icon-arrow-up"></use>
+      </svg>
+    </button>
+
+    <!-- Work Page Runtime -->
+    <script type="module" src="/src/js/work-page.js"></script>
+  </body>
+</html>
