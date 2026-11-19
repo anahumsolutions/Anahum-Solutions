@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anahum-solutions.vercel.app/sitemap.xml

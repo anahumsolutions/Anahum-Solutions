@@ -23,6 +23,7 @@
   --accent: var(--ember);
   --on-accent: var(--maroon);
   --muted: #7a5a52;
+  --accent-text: #c42d05;
   --line: rgba(53, 6, 0, 0.14);
 
   /* Dark Theme Surfaces */

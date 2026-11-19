@@ -118,6 +118,16 @@ function initLightbox() {
 // Bootstrap
 // ---------------------------------------------------------------------------
 function initApp() {
+  // Respect prefers-reduced-motion: skip scroll animations when active
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('reduce-motion')
+    initMenu()
+    initBackToTop()
+    initFilter()
+    initLightbox()
+    return
+  }
+
   initMenu()
   initFadeUp()
   initBlurReveal()

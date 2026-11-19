@@ -9,11 +9,75 @@
       content="anahum solutions is an AI agency that helps modern businesses create, automate and grow: AI ad and social content, AI product visuals, workflow automation, AI agents, chatbots, and custom AI systems."
     />
 
-    <!-- Favicon -->
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#350600" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://anahum-solutions.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="anahum" />
+    <meta property="og:title" content="anahum — The quiet intelligence behind your brand" />
+    <meta
+      property="og:description"
+      content="anahum solutions is an AI agency that helps modern businesses create, automate and grow: AI ad and social content, AI product visuals, workflow automation, AI agents, chatbots, and custom AI systems."
+    />
+    <meta property="og:url" content="https://anahum-solutions.vercel.app/" />
+    <meta property="og:image" content="https://anahum-solutions.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="anahum: your work, on autopilot" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="anahum — The quiet intelligence behind your brand" />
+    <meta
+      name="twitter:description"
+      content="anahum solutions is an AI agency that helps modern businesses create, automate and grow: AI ad and social content, AI product visuals, workflow automation, AI agents, chatbots, and custom AI systems."
+    />
+    <meta name="twitter:image" content="https://anahum-solutions.vercel.app/og-image.jpg" />
+
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "anahum",
+        "alternateName": "Anahum Solutions",
+        "url": "https://anahum-solutions.vercel.app",
+        "logo": "https://anahum-solutions.vercel.app/icon-512.png",
+        "email": "anahumsolutions@gmail.com",
+        "sameAs": [
+          "https://www.instagram.com/anahum.solutions",
+          "https://www.linkedin.com/company/anahum-solutions",
+          "https://www.facebook.com/profile.php?id=61596873171203"
+        ]
+      }
+    </script>
+
+    <!-- Vercel Web Analytics -->
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          ;(window.vaq = window.vaq || []).push(arguments)
+        }
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -172 184.8 172'><circle cx='92.42' cy='-29.82' r='45' fill='%23F93D0D'/></svg>"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
     />
 
     <!-- Bootstrap 5.3 Reboot & Grid only (No Bootstrap components) -->
@@ -28,6 +92,7 @@
     <link rel="stylesheet" href="/src/css/sections.css" />
   </head>
   <body>
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
     <!-- Inline SVG Sprite -->
     <load ="src/partials/sprite.html" />
 
@@ -62,8 +127,6 @@
       defer
     ></script>
 
-    <!-- Application & Animation Runtime -->
-    <script type="module" src="/src/js/main.js"></script>
     <!-- Back to Top Fixed Button -->
     <button type="button" class="back-to-top" id="backToTop" aria-label="Scroll to top of page">
       <svg viewBox="0 0 24 24" aria-hidden="true">
