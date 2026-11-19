@@ -2921,3 +2921,8 @@
   justify-content: center;
   margin-top: 48px;
 }
+
+/* Spacing: timeline note below process grid */
+.process-section .process-grid + .section-intro {
+  margin-top: var(--space-lg, 32px);
+}
