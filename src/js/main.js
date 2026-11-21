@@ -13,6 +13,7 @@ import { initWordBlur } from './anim/word-blur.js'
 import { initStatCounter } from './anim/stat-counter.js'
 import { initServicesTabs } from './anim/services-tabs.js'
 import { initPanelScale } from './anim/panel-scale.js'
+import { initLogo3D } from './anim/logo-3d.js'
 import { initPricingToggle } from './anim/pricing-toggle.js'
 import { initOrbit } from './anim/orbit.js'
 import { initBackToTop } from './anim/back-to-top.js'
@@ -51,6 +52,7 @@ function initApp() {
   initWordBlur()
   initPanelScale()
   initOrbit()
+  initLogo3D()
 
   // 4. Force trigger refreshes
   setTimeout(() => ScrollTrigger.refresh(), 150)

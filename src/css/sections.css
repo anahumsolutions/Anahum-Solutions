@@ -1,10 +1,10 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    SECTIONS STYLES
    All colors read from tokens.css only. Zero color literals allowed.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Anchor scroll offset — keeps sections clear of the floating header
+   Anchor scroll offset â€” keeps sections clear of the floating header
    -------------------------------------------------------------------------- */
 :root {
   --scroll-offset: 110px;
@@ -244,7 +244,7 @@
 
 /* --------------------------------------------------------------------------
    SHARED SECTION HEADING SYSTEM
-   Eyebrow pill-badge → H2 → optional intro paragraph, all left-aligned.
+   Eyebrow pill-badge â†’ H2 â†’ optional intro paragraph, all left-aligned.
    48px gap before section content.
    -------------------------------------------------------------------------- */
 .section-heading {
@@ -506,6 +506,17 @@
   z-index: 10;
 }
 
+@media (min-width: 1101px) {
+  .hero__nav {
+    --nav-edge: clamp(20px, 2.5vw, 40px);
+    left: calc(var(--nav-edge) - (100cqw - 1354 * var(--u)) / 2);
+    right: calc(var(--nav-edge) - (100cqw - 1354 * var(--u)) / 2);
+  }
+  .hero__nav > .hero__nav-pill:not(.hero__nav-pill--cta) {
+    justify-self: start;
+  }
+}
+
 .hero__nav > .hero__nav-pill:not(.hero__nav-pill--cta) {
   grid-column: 1;
 }
@@ -550,6 +561,31 @@
 .hero__nav-link:hover,
 .hero__nav-link:focus-visible {
   color: var(--accent);
+}
+
+.hero__nav-link--contact {
+  height: calc(34 * var(--u));
+  min-height: 34px;
+  padding: 0 16px;
+  border-radius: var(--r-pill);
+  background: var(--ember);
+  color: var(--cream);
+  font-weight: 600;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--ember) 45%, transparent);
+  transition:
+    box-shadow var(--dur-fast),
+    transform var(--dur-fast);
+}
+.hero__nav-link--contact:hover,
+.hero__nav-link--contact:focus-visible {
+  color: var(--cream);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--ember) 70%, transparent);
+  transform: translateY(-1px);
+}
+@media (max-width: 900px) {
+  .hero__nav-link--contact {
+    display: none;
+  }
 }
 
 .hero__logo {
@@ -654,6 +690,11 @@
   display: flex;
   justify-content: center;
   gap: calc(16 * var(--u));
+}
+
+/* Hero centre buttons hidden; markup kept so they can be restored */
+.hero__actions {
+  display: none;
 }
 
 .hero__btn {
@@ -2217,7 +2258,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   About — three-column card grid
+   About â€” three-column card grid
    -------------------------------------------------------------------------- */
 .about-cards {
   display: grid;
@@ -2262,7 +2303,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   FAQ — native details/summary cards
+   FAQ â€” native details/summary cards
    -------------------------------------------------------------------------- */
 .faq-list {
   display: flex;
@@ -2331,7 +2372,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Contact — two-column layout
+   Contact â€” two-column layout
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
@@ -2882,7 +2923,7 @@
 }
 
 /* ==========================================================================
-   SELECTED WORKS — stretched link, portrait modifier, view-all wrapper
+   SELECTED WORKS â€” stretched link, portrait modifier, view-all wrapper
    ========================================================================== */
 
 /* Stretched link: make entire .work-card clickable via the title <a> */
@@ -3009,7 +3050,7 @@
   min-height: 44px;
 }
 
-/* Lightbox buttons: currently 40×40; bump to 44×44 */
+/* Lightbox buttons: currently 40Ã—40; bump to 44Ã—44 */
 .lightbox__close,
 .lightbox__prev,
 .lightbox__next {
@@ -3027,4 +3068,114 @@
   filter: none !important;
   transition: none !important;
   animation: none !important;
+}
+
+/* ==========================================================================
+   What We Do logo draw
+   ========================================================================== */
+.logo-draw {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 420px;
+}
+
+.logo-draw__svg {
+  display: block;
+  width: 380px;
+  max-width: 80%;
+  height: auto;
+  overflow: visible;
+  color: var(--maroon);
+}
+
+.logo-draw__dot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (max-width: 640px) {
+  .logo-draw {
+    height: 300px;
+  }
+  .logo-draw__svg {
+    width: 260px;
+  }
+}
+
+/* ==========================================================================
+   What We Do logo 3D
+   ========================================================================== */
+.logo-3d {
+  position: relative;
+  width: 100%;
+  height: 480px;
+}
+
+/* Fallback: invisible by default; shows only when WebGL fails (is-fallback) */
+.logo-3d__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Stop any CSS animations/transitions inside the fallback */
+.logo-3d__fallback *,
+.logo-3d__fallback *::before,
+.logo-3d__fallback *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Show fallback when WebGL is unavailable */
+.logo-3d.is-fallback .logo-3d__fallback {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.logo-3d__stage {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.logo-3d.is-ready .logo-3d__stage {
+  opacity: 1;
+}
+
+.logo-3d__stage.is-dragging {
+  cursor: grabbing;
+}
+
+.logo-3d__stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .logo-3d {
+    height: 340px;
+  }
+}
+
+/* Reduced motion: show fallback, hide stage — no JS required */
+@media (prefers-reduced-motion: reduce) {
+  .logo-3d__fallback {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .logo-3d__stage {
+    display: none;
+  }
 }
