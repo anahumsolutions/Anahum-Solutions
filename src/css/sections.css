@@ -3103,3 +3103,79 @@
     width: 260px;
   }
 }
+
+/* ==========================================================================
+   What We Do logo 3D
+   ========================================================================== */
+.logo-3d {
+  position: relative;
+  width: 100%;
+  height: 480px;
+}
+
+/* Fallback: invisible by default; shows only when WebGL fails (is-fallback) */
+.logo-3d__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Stop any CSS animations/transitions inside the fallback */
+.logo-3d__fallback *,
+.logo-3d__fallback *::before,
+.logo-3d__fallback *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Show fallback when WebGL is unavailable */
+.logo-3d.is-fallback .logo-3d__fallback {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.logo-3d__stage {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.logo-3d.is-ready .logo-3d__stage {
+  opacity: 1;
+}
+
+.logo-3d__stage.is-dragging {
+  cursor: grabbing;
+}
+
+.logo-3d__stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .logo-3d {
+    height: 340px;
+  }
+}
+
+/* Reduced motion: show fallback, hide stage — no JS required */
+@media (prefers-reduced-motion: reduce) {
+  .logo-3d__fallback {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .logo-3d__stage {
+    display: none;
+  }
+}
