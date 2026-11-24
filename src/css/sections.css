@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    SECTIONS STYLES
    All colors read from tokens.css only. Zero color literals allowed.
    ========================================================================== */
@@ -343,6 +343,7 @@
 
 .hero__stage {
   --u: min(calc(100cqw / 1354), calc(100svh / 977));
+  --cu: calc(1.47 * var(--u));
   position: relative;
   margin-inline: auto;
   width: calc(1354 * var(--u));
@@ -564,23 +565,11 @@
 }
 
 .hero__nav-link--contact {
-  height: calc(34 * var(--u));
-  min-height: 34px;
-  padding: 0 16px;
-  border-radius: var(--r-pill);
-  background: var(--ember);
   color: var(--cream);
-  font-weight: 600;
-  box-shadow: 0 0 14px color-mix(in srgb, var(--ember) 45%, transparent);
-  transition:
-    box-shadow var(--dur-fast),
-    transform var(--dur-fast);
 }
 .hero__nav-link--contact:hover,
 .hero__nav-link--contact:focus-visible {
-  color: var(--cream);
-  box-shadow: 0 0 22px color-mix(in srgb, var(--ember) 70%, transparent);
-  transform: translateY(-1px);
+  color: var(--accent);
 }
 @media (max-width: 900px) {
   .hero__nav-link--contact {
@@ -3177,5 +3166,201 @@
 
   .logo-3d__stage {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Hero service boxes: line endpoints and dark glass cards
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Part B2: Dark glass card style — all screen sizes
+   (must come last so it overrides the earlier glow rules for hero__node-card)
+   -------------------------------------------------------------------------- */
+
+/* --- Card base --- */
+.hero__node-card {
+  border-radius: 9999px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(10 * var(--cu));
+  padding: 0 calc(14 * var(--cu));
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, white 13%, transparent),
+      color-mix(in srgb, white 4%, transparent)
+    ),
+    color-mix(in srgb, color-mix(in srgb, var(--maroon) 55%, black) 58%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid color-mix(in srgb, var(--cream) 24%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 20%, transparent),
+    0 14px 30px color-mix(in srgb, black 45%, transparent);
+  color: var(--cream);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: visible;
+}
+
+/* --- Hover / focus-visible --- */
+.hero__node-card:hover,
+.hero__node-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--peach) 70%, var(--ember)) 65%,
+    transparent
+  );
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, white 13%, transparent),
+      color-mix(in srgb, white 4%, transparent)
+    ),
+    color-mix(in srgb, color-mix(in srgb, var(--maroon) 55%, black) 58%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 20%, transparent),
+    0 20px 40px color-mix(in srgb, black 52%, transparent);
+}
+
+.hero__node-card:focus-visible {
+  outline: 2px solid var(--peach);
+  outline-offset: 4px;
+}
+
+/* --- Icon --- */
+.hero__node-icon {
+  background: none;
+  background-image: none;
+  padding: 0;
+  color: var(--peach);
+  width: max(calc(20 * var(--cu)), 18px);
+  height: max(calc(20 * var(--cu)), 18px);
+  flex-shrink: 0;
+}
+
+.hero__node-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* --- Text block --- */
+.hero__node-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.hero__node-title {
+  font-size: max(calc(13 * var(--cu)), 13px);
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.hero__node-sub {
+  font-size: max(calc(11 * var(--cu)), 11px);
+  color: color-mix(in srgb, var(--cream) 72%, transparent);
+  white-space: nowrap;
+}
+
+/* --- Arrow --- */
+.hero__node-arrow {
+  width: max(calc(14 * var(--cu)), 14px);
+  height: max(calc(14 * var(--cu)), 14px);
+  margin-left: auto;
+  fill: none;
+  stroke: var(--peach);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  translate: calc(-6 * var(--cu)) 0;
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero__node-card:hover .hero__node-arrow,
+.hero__node-card:focus-visible .hero__node-arrow {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* --- Mobile (≤ 1100px): use pixel padding --- */
+@media (max-width: 1100px) {
+  .hero__node-card {
+    padding: 12px 16px;
+  }
+  .hero__node-arrow {
+    display: none;
+  }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .hero__node-card {
+    transition: none;
+  }
+  .hero__node-arrow {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Part B1: Endpoint positioning — wide screens only (≥ 1101px)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1101px) {
+  /* Shared geometry computed once on the stage so all five nodes reuse it */
+  .hero__stage {
+    /* --cu: one "card unit" = 1.47 × --u; scaling this scales all card sizes */
+    --cu: calc(1.47 * var(--u));
+    /* Video frame: covers the hero, centred horizontally, anchored at 78% vertically */
+    --_vfw: max(100cqw, calc(100svh * 1920 / 1072));
+    --_vfh: calc(var(--_vfw) * 1072 / 1920);
+    --_hoff: calc((100cqw - var(--_vfw)) / 2);
+    --_voff: calc((100svh - var(--_vfh)) * 0.78);
+    /* Stage bounding box in hero coords */
+    --_stage-w: calc(1354 * var(--u));
+    --_stage-h: calc(977 * var(--u));
+    --_stage-left: calc((100cqw - var(--_stage-w)) / 2);
+    --_stage-top: calc((100svh - var(--_stage-h)) / 2);
+    /* Card half-height for bottom clamp (21cu = half of 42cu card height) */
+    --_card-half-h: calc(21 * var(--cu));
+  }
+
+  /* Each node becomes a zero-size anchor point */
+  .hero__node {
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute;
+    /* Default drift offsets for the cursor push-away JS task */
+    --dx: 0px;
+    --dy: 0px;
+    left: calc(var(--_hoff) + var(--ax) * var(--_vfw) - var(--_stage-left));
+    top: clamp(
+      0px,
+      calc(var(--_voff) + var(--ay) * var(--_vfh) - var(--_stage-top)),
+      calc(100svh - var(--_stage-top) - var(--_card-half-h) - 24px)
+    );
+  }
+
+  /* Card is centred on the anchor point; fixed width pill, text on one line */
+  .hero__node-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(42 * var(--cu));
+    width: calc(190 * var(--cu));
+    white-space: nowrap;
+    /* Centre the card on the anchor; --dx/--dy let JS nudge it */
+    translate: calc(-50% + var(--dx)) calc(-50% + var(--dy));
   }
 }
