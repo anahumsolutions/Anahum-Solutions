@@ -36,6 +36,46 @@
 }
 
 /* 2. Buttons */
+
+/* --- Glass Button Variables --- */
+
+/* Light version: for cream / light-background sections */
+:root {
+  /* Primary glass frame */
+  --gb-frame-bg:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.7), rgb(255 255 255 / 0.35)),
+    rgb(var(--cream, 255 250 238) / 0.4);
+  --gb-frame-border: rgb(var(--maroon-rgb) / 0.14);
+  --gb-frame-hi: rgb(255 255 255 / 0.95);
+  --gb-frame-lo: rgb(var(--maroon-rgb) / 0.08);
+  --gb-frame-shadow: 0 8px 20px rgb(var(--maroon-rgb) / 0.14);
+  --gb-hover-border: rgb(var(--ember-rgb) / 0.45);
+  --gb-core: var(--ember);
+  --gb-core-text: var(--cream);
+
+  /* Secondary always-dark glass */
+  --gb-dark-bg:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.13), rgb(255 255 255 / 0.04)),
+    color-mix(in srgb, var(--maroon) 55%, black) 58%;
+  --gb-dark-border: rgb(255 255 255 / 0.24);
+  --gb-dark-hi: rgb(255 255 255 / 0.2);
+  --gb-dark-shadow: 0 14px 30px rgb(0 0 0 / 0.45);
+  --gb-dark-hover-border: rgb(color-mix(in srgb, var(--peach) 70%, var(--ember)) / 0.65);
+}
+
+/* Dark version: for dark-background sections */
+.hero,
+.bento-panel {
+  --gb-frame-bg:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.13) 0%, rgb(255 255 255 / 0.04) 100%),
+    rgb(color-mix(in srgb, var(--maroon) 55%, black) / 0.58);
+  --gb-frame-border: rgb(255 255 255 / 0.24);
+  --gb-frame-hi: rgb(255 255 255 / 0.2);
+  --gb-frame-lo: rgb(0 0 0 / 0.35);
+  --gb-frame-shadow: 0 14px 30px rgb(0 0 0 / 0.45);
+  --gb-hover-border: rgb(color-mix(in srgb, var(--peach) 70%, var(--ember)) / 0.65);
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -69,56 +109,93 @@
   outline-offset: 2px;
 }
 
-/* Primary: ember background, maroon text */
+/* Primary: glass frame with orange core pill */
 .btn--primary {
-  background-color: var(--accent);
-  color: var(--on-accent);
+  position: relative;
+  isolation: isolate;
+  height: 56px;
+  padding: 0 34px;
+  border-radius: var(--r-pill);
+  background: var(--gb-frame-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-frame-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-frame-hi),
+    inset 0 -1px 0 var(--gb-frame-lo),
+    var(--gb-frame-shadow);
+  color: var(--gb-core-text);
+  font-weight: 600;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
 }
 
-.btn--primary:hover {
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: var(--r-pill);
+  background: var(--gb-core);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.28),
+    inset 0 -1px 0 rgb(0 0 0 / 0.12);
+  z-index: -1;
+  transform: translate(var(--gb-cx, 0px), var(--gb-cy, 0px));
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgb(var(--ember-rgb) / 0.35);
-  opacity: 0.93;
+  border-color: var(--gb-hover-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-frame-hi),
+    inset 0 -1px 0 var(--gb-frame-lo),
+    var(--gb-frame-shadow);
 }
 
-/* Dark: maroon background, cream text */
-.btn--dark {
-  background-color: var(--dark);
-  color: var(--on-dark);
+.btn--primary:hover::before {
+  background: color-mix(in srgb, var(--gb-core) 94%, white 6%);
 }
 
-.btn--dark:hover {
+/* Dark / Ghost / Outline: plain dark smoked glass */
+.btn--dark,
+.btn--ghost,
+.btn--outline {
+  height: 48px;
+  border-radius: var(--r-pill);
+  background: var(--gb-dark-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-dark-border);
+  border-style: solid;
+  box-shadow:
+    inset 0 1px 0 var(--gb-dark-hi),
+    var(--gb-dark-shadow);
+  color: var(--cream);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.btn--dark:hover,
+.btn--dark:focus-visible,
+.btn--ghost:hover,
+.btn--ghost:focus-visible,
+.btn--outline:hover,
+.btn--outline:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgb(var(--ember-rgb) / 0.25);
-  opacity: 0.93;
-}
-
-/* Ghost: transparent, 1px maroon border */
-.btn--ghost {
-  background-color: transparent;
-  color: var(--ink);
-  border: 1px solid var(--ink);
-}
-
-.btn--ghost:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgb(var(--ember-rgb) / 0.2);
-  background-color: var(--soft);
+  border-color: var(--gb-dark-hover-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-dark-hi),
+    0 20px 40px rgb(0 0 0 / 0.52);
 }
 
 /* Legacy modifier kept for backward compat */
 .btn--pill {
   border-radius: var(--r-pill);
-}
-
-.btn--outline {
-  border: 1px solid var(--line);
-  color: var(--ink);
-  background-color: transparent;
-}
-
-.btn--outline:hover {
-  background-color: var(--soft);
 }
 
 /* 3. The Split Button (Section 7.9 & Newsletter) */
@@ -229,21 +306,28 @@
   right: 24px;
   width: 48px;
   height: 48px;
-  background-color: var(--accent);
+  background: var(--gb-dark-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   color: var(--cream);
-  border-radius: var(--r-sm);
+  border-radius: 50%;
+  border: 1px solid var(--gb-dark-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-dark-hi),
+    var(--gb-dark-shadow);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
-  box-shadow: 0 4px 16px rgb(var(--ember-rgb) / 0.3);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
   transition:
     opacity var(--dur-base) var(--ease-out),
     transform var(--dur-base) var(--ease-out),
-    visibility var(--dur-base);
+    visibility var(--dur-base),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
 }
 
 .back-to-top.is-visible {
@@ -254,7 +338,10 @@
 
 .back-to-top:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgb(var(--ember-rgb) / 0.45);
+  border-color: var(--gb-dark-hover-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-dark-hi),
+    0 20px 40px rgb(0 0 0 / 0.52);
 }
 
 .back-to-top svg {
@@ -278,4 +365,19 @@
   inset: 0;
   background: radial-gradient(circle at 50% 30%, rgb(var(--ember-rgb) / 0.15) 0%, transparent 70%);
   pointer-events: none;
+}
+
+/* 8. Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary,
+  .btn--dark,
+  .btn--ghost,
+  .btn--outline,
+  .back-to-top {
+    transition:
+      border-color var(--dur-fast) var(--ease-out),
+      box-shadow var(--dur-fast) var(--ease-out),
+      opacity var(--dur-fast) var(--ease-out),
+      visibility var(--dur-base);
+  }
 }

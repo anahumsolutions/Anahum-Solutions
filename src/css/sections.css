@@ -77,22 +77,29 @@
   gap: 12px;
 }
 
+/* 4. Header menu button — light frosted glass circle */
 .site-header__menu-btn {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--surface);
-  border: 1px solid var(--line);
+  background: var(--gb-frame-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-frame-border);
+  box-shadow: inset 0 1px 0 var(--gb-frame-hi);
   color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all var(--dur-fast) var(--ease-out);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
 }
 
 .site-header__menu-btn:hover {
-  background-color: var(--soft);
+  border-color: var(--gb-hover-border);
+  transform: translateY(-2px);
 }
 
 .site-header__menu-btn[aria-expanded='true'] {
@@ -106,22 +113,57 @@
   height: 20px;
 }
 
+/* 2. Header Book a Call — primary glass (light version; header is cream) */
 .site-header__cta {
+  position: relative;
+  isolation: isolate;
   height: 44px;
   padding: 0 20px;
   border-radius: var(--r-pill);
-  background-color: var(--accent);
-  color: var(--on-accent);
+  background: var(--gb-frame-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-frame-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-frame-hi),
+    inset 0 -1px 0 var(--gb-frame-lo),
+    var(--gb-frame-shadow);
+  color: var(--gb-core-text);
   font-size: 14px;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity var(--dur-fast) var(--ease-out);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.site-header__cta::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: var(--r-pill);
+  background: var(--gb-core);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.28),
+    inset 0 -1px 0 rgb(0 0 0 / 0.12);
+  z-index: -1;
+  transform: translate(var(--gb-cx, 0px), var(--gb-cy, 0px));
 }
 
 .site-header__cta:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  border-color: var(--gb-hover-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-frame-hi),
+    inset 0 -1px 0 var(--gb-frame-lo),
+    var(--gb-frame-shadow);
+}
+
+.site-header__cta:hover::before {
+  background: color-mix(in srgb, var(--gb-core) 94%, white 6%);
 }
 
 /* Header Dropdown Menu */
@@ -601,22 +643,60 @@
   fill: currentColor;
 }
 
+/* 1. Hero Book a Call — primary glass (dark version via .hero context) */
 .hero__nav-pill--cta {
+  position: relative;
+  isolation: isolate;
+  height: 56px;
+  padding: 0 calc(24 * var(--u));
+  border-radius: var(--r-pill);
+  background: var(--gb-frame-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-frame-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-frame-hi),
+    inset 0 -1px 0 var(--gb-frame-lo),
+    var(--gb-frame-shadow);
+  color: var(--gb-core-text);
   font-family: var(--font-body);
   font-size: max(14px, calc(15 * var(--u)));
-  font-weight: 700;
-  color: var(--cream);
+  font-weight: 600;
   text-decoration: none;
-  padding: 0 calc(24 * var(--u));
-  transition: all var(--dur-fast) var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.hero__nav-pill--cta::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: var(--r-pill);
+  background: var(--gb-core);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.28),
+    inset 0 -1px 0 rgb(0 0 0 / 0.12);
+  z-index: -1;
+  transform: translate(var(--gb-cx, 0px), var(--gb-cy, 0px));
 }
 
 .hero__nav-pill--cta:hover,
 .hero__nav-pill--cta:focus-visible {
-  background: color-mix(in srgb, var(--maroon) 65%, transparent);
-  border-color: var(--cream);
-  color: var(--cream);
-  box-shadow: 0 0 16px color-mix(in srgb, var(--ember) 35%, transparent);
+  transform: translateY(-2px);
+  border-color: var(--gb-hover-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-frame-hi),
+    inset 0 -1px 0 var(--gb-frame-lo),
+    var(--gb-frame-shadow);
+}
+
+.hero__nav-pill--cta:hover::before {
+  background: color-mix(in srgb, var(--gb-core) 94%, white 6%);
 }
 
 /* Headline & Text Block */
@@ -704,9 +784,9 @@
     box-shadow var(--dur-fast) var(--ease-out);
 }
 
+/* 3. Hidden hero buttons — remove ember glow only */
 .hero__btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px color-mix(in srgb, var(--ember) 35%, transparent);
 }
 
 .hero__btn:focus-visible {
@@ -1025,6 +1105,7 @@
   margin: 10px 0;
 }
 
+/* 8. About link — inherits secondary dark glass from components.css; remove conflicts */
 .about-link {
   margin-top: 0;
 }
@@ -1767,11 +1848,15 @@
   margin-bottom: 48px;
 }
 
+/* 5. Pricing toggle — light frosted glass track, dark active segment */
 .pricing-toggle-wrap {
   display: inline-flex;
   align-items: center;
-  background-color: var(--surface);
-  border: 1px solid var(--line);
+  background: var(--gb-frame-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-frame-border);
+  box-shadow: inset 0 1px 0 var(--gb-frame-hi);
   border-radius: var(--r-pill);
   padding: 4px;
   margin-top: 24px;
@@ -1782,14 +1867,24 @@
   border-radius: var(--r-pill);
   font-size: 14px;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--ink);
   cursor: pointer;
-  transition: all var(--dur-fast) var(--ease-out);
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
 }
 
 .pricing-toggle-btn.is-active {
-  background-color: var(--dark);
-  color: var(--on-dark);
+  background: var(--gb-dark-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-dark-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-dark-hi),
+    var(--gb-dark-shadow);
+  color: var(--cream);
 }
 
 .pricing-badge {
@@ -1968,22 +2063,28 @@
   gap: 7px;
 }
 
+/* 7. Footer social buttons — light frosted glass (footer is light/surface) */
 .social-btn {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  border: 1px solid var(--line);
+  background: var(--gb-frame-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-frame-border);
+  box-shadow: inset 0 1px 0 var(--gb-frame-hi);
   color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--dur-fast) var(--ease-out);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
 }
 
 .social-btn:hover {
-  background-color: var(--soft);
-  color: var(--accent);
-  border-color: var(--accent);
+  border-color: var(--gb-hover-border);
+  transform: translateY(-2px);
 }
 
 .social-btn svg {
@@ -2560,31 +2661,40 @@
   padding-bottom: 48px;
 }
 
+/* 6. Work filters — light frosted glass pills */
 .work-filter__btn {
   padding: 10px 20px;
   border-radius: var(--r-pill);
-  border: 1px solid var(--line);
-  background-color: transparent;
+  background: var(--gb-frame-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gb-frame-border);
+  box-shadow: inset 0 1px 0 var(--gb-frame-hi);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition:
-    background-color var(--dur-fast) var(--ease-out),
-    color var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out);
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 
 .work-filter__btn:hover {
-  background-color: var(--soft);
-  border-color: var(--accent);
+  border-color: var(--gb-hover-border);
+  transform: translateY(-2px);
 }
 
 .work-filter__btn[aria-pressed='true'] {
-  background-color: var(--accent);
-  color: var(--on-accent);
-  border-color: var(--accent);
+  background: var(--gb-dark-bg);
+  border: 1px solid var(--gb-dark-border);
+  box-shadow:
+    inset 0 1px 0 var(--gb-dark-hi),
+    var(--gb-dark-shadow);
+  color: var(--cream);
 }
 
 .work-filter__btn:focus-visible {
@@ -3310,6 +3420,20 @@
   }
   .hero__node-arrow {
     transition: none;
+  }
+}
+
+/* 10. Glass buttons: strip transform transitions under reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero__nav-pill--cta,
+  .site-header__cta,
+  .site-header__menu-btn,
+  .pricing-toggle-btn,
+  .work-filter__btn,
+  .social-btn {
+    transition:
+      border-color var(--dur-fast) var(--ease-out),
+      box-shadow var(--dur-fast) var(--ease-out);
   }
 }
 
