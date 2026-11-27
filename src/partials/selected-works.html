@@ -1,228 +1,244 @@
 <section class="works-section section-spacing" id="works" data-section="selected-works">
+  <!-- Section Header -->
   <div class="container-custom">
-    <!-- Header with Stacked Display Heading -->
     <div class="works-header section-heading" data-anim="fade-up">
-      <div>
+      <div class="works-header__left">
         <div class="pill-badge">
           <span class="pill-badge__dot"></span>
           Selected Works
         </div>
         <h2>Featured <i class="voice-word">deployments</i></h2>
       </div>
-    </div>
-
-    <!-- 2-Column Grid -->
-    <div class="works-grid">
-      <!-- Project 1: Feed Push Monitor -->
-      <article class="work-card" data-anim="blur-reveal" data-delay="0.1">
-        <div class="work-card__meta">
-          <div>
-            <span class="work-card__tag">Custom AI Systems</span>
-            <h3 class="work-card__title">
-              <a class="work-card__link" href="/work.html#feed-push-monitor">Feed Push Monitor</a>
-            </h3>
-          </div>
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <use href="#icon-arrow-up-right"></use>
-          </svg>
+      <div class="works-header__meta" aria-live="polite">
+        <span class="works-counter" id="worksCounter">01 / 06</span>
+        <div class="works-progress-track" aria-hidden="true">
+          <div class="works-progress-bar" id="worksProgressBar"></div>
         </div>
-        <div class="work-card__image-box">
-          <img
-            src="/work/eastern-dairies/dairy-shed-feed-lane.webp"
-            srcset="
-              /work/eastern-dairies/dairy-shed-feed-lane-sm.webp  800w,
-              /work/eastern-dairies/dairy-shed-feed-lane.webp    1600w
-            "
-            sizes="(min-width: 992px) 50vw, 100vw"
-            width="1600"
-            height="1200"
-            alt="Cows feeding along the fence in a covered dairy shed while a worker pushes feed back down the lane"
-            class="work-card__image"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="work-card__overlay" aria-hidden="true">
-            <span class="work-card__icon">+</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 2: Dairy Data Analyst -->
-      <article class="work-card" data-anim="blur-reveal" data-delay="0.2">
-        <div class="work-card__meta">
-          <div>
-            <span class="work-card__tag">Custom AI Systems</span>
-            <h3 class="work-card__title">
-              <a class="work-card__link" href="/work.html#dairy-data-analyst">Dairy Data Analyst</a>
-            </h3>
-          </div>
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <use href="#icon-arrow-up-right"></use>
-          </svg>
-        </div>
-        <div class="work-card__image-box">
-          <img
-            src="/work/covers/work-dairy-analyst.webp"
-            srcset="
-              /work/covers/work-dairy-analyst-sm.webp  576w,
-              /work/covers/work-dairy-analyst.webp    1152w
-            "
-            sizes="(min-width: 992px) 50vw, 100vw"
-            width="1152"
-            height="864"
-            alt="A milk bottle beside rising cream columns with an orange sphere on the tallest"
-            class="work-card__image"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="work-card__overlay" aria-hidden="true">
-            <span class="work-card__icon">+</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 3: Women's Fashion Shoots -->
-      <article class="work-card" data-anim="blur-reveal" data-delay="0.1">
-        <div class="work-card__meta">
-          <div>
-            <span class="work-card__tag">AI Fashion Shoots</span>
-            <h3 class="work-card__title">
-              <a class="work-card__link" href="/work.html#womens-fashion-shoots"
-                >Women's Fashion Shoots</a
-              >
-            </h3>
-          </div>
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <use href="#icon-arrow-up-right"></use>
-          </svg>
-        </div>
-        <div class="work-card__image-box">
-          <img
-            src="/work/fashion-women/fashion-women-01-cover.webp"
-            srcset="
-              /work/fashion-women/fashion-women-01-cover-sm.webp  800w,
-              /work/fashion-women/fashion-women-01-cover.webp    1600w
-            "
-            sizes="(min-width: 992px) 50vw, 100vw"
-            width="1600"
-            height="893"
-            alt="Model in a light blue hoodie and gold head chain resting her chin on her hand in the desert at sunset"
-            class="work-card__image"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="work-card__overlay" aria-hidden="true">
-            <span class="work-card__icon">+</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 4: Men's Fashion Shoots -->
-      <article class="work-card" data-anim="blur-reveal" data-delay="0.2">
-        <div class="work-card__meta">
-          <div>
-            <span class="work-card__tag">AI Fashion Shoots</span>
-            <h3 class="work-card__title">
-              <a class="work-card__link" href="/work.html#mens-fashion-shoots"
-                >Men's Fashion Shoots</a
-              >
-            </h3>
-          </div>
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <use href="#icon-arrow-up-right"></use>
-          </svg>
-        </div>
-        <div class="work-card__image-box">
-          <img
-            src="/work/fashion-men/fashion-men-01-cover.webp"
-            srcset="
-              /work/fashion-men/fashion-men-01-cover-sm.webp  600w,
-              /work/fashion-men/fashion-men-01-cover.webp    1200w
-            "
-            sizes="(min-width: 992px) 50vw, 100vw"
-            width="1200"
-            height="1607"
-            alt="Model in a charcoal hoodie and white trousers seated on a black block among stacked black crates"
-            class="work-card__image work-card__image--portrait"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="work-card__overlay" aria-hidden="true">
-            <span class="work-card__icon">+</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 5: AI Sales Operations Agent -->
-      <article class="work-card" data-anim="blur-reveal" data-delay="0.1">
-        <div class="work-card__meta">
-          <div>
-            <span class="work-card__tag">AI Agents</span>
-            <h3 class="work-card__title">
-              <a class="work-card__link" href="/work.html#ai-sales-operations-agent"
-                >AI Sales Operations Agent</a
-              >
-            </h3>
-          </div>
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <use href="#icon-arrow-up-right"></use>
-          </svg>
-        </div>
-        <div class="work-card__image-box">
-          <img
-            src="/work/covers/work-salesops.webp"
-            srcset="/work/covers/work-salesops-sm.webp 576w, /work/covers/work-salesops.webp 1152w"
-            sizes="(min-width: 992px) 50vw, 100vw"
-            width="1152"
-            height="864"
-            alt="A row of cream chess pawns on a maroon lane with an orange sphere glowing above"
-            class="work-card__image"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="work-card__overlay" aria-hidden="true">
-            <span class="work-card__icon">+</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 6: AI Revenue Operations Engine -->
-      <article class="work-card" data-anim="blur-reveal" data-delay="0.2">
-        <div class="work-card__meta">
-          <div>
-            <span class="work-card__tag">AI Agents</span>
-            <h3 class="work-card__title">
-              <a class="work-card__link" href="/work.html#ai-revenue-operations-engine"
-                >AI Revenue Operations Engine</a
-              >
-            </h3>
-          </div>
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <use href="#icon-arrow-up-right"></use>
-          </svg>
-        </div>
-        <div class="work-card__image-box">
-          <img
-            src="/work/covers/work-revenue.webp"
-            srcset="/work/covers/work-revenue-sm.webp 576w, /work/covers/work-revenue.webp 1152w"
-            sizes="(min-width: 992px) 50vw, 100vw"
-            width="1152"
-            height="864"
-            alt="Cream spheres falling through a maroon funnel with one orange sphere coming out"
-            class="work-card__image"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="work-card__overlay" aria-hidden="true">
-            <span class="work-card__icon">+</span>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <!-- View all work CTA -->
-    <div class="works-view-all" data-anim="fade-up">
-      <a class="btn btn--primary btn--pill" href="/work.html">View all work</a>
+      </div>
     </div>
   </div>
+
+  <!-- Horizontal Gallery Track (full-width, aligned to container gutter via CSS) -->
+  <div class="works-track-wrap" id="worksTrackWrap">
+    <div class="works-track" id="worksTrack">
+      <!-- Card 1: Feed Push Monitor -->
+      <article class="sw-card" data-index="0">
+        <a
+          class="sw-card__link"
+          href="/work.html#feed-push-monitor"
+          aria-label="Feed Push Monitor — Custom AI Systems"
+        >
+          <div class="sw-card__media">
+            <img
+              src="/work/eastern-dairies/dairy-shed-feed-lane.webp"
+              srcset="
+                /work/eastern-dairies/dairy-shed-feed-lane-sm.webp  800w,
+                /work/eastern-dairies/dairy-shed-feed-lane.webp    1600w
+              "
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 55vw, 80vw"
+              width="1600"
+              height="1200"
+              alt="Cows feeding along the fence in a covered dairy shed while a worker pushes feed back down the lane"
+              class="sw-card__img"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="sw-card__glare" aria-hidden="true"></span>
+            <div class="sw-card__outcome">
+              <span class="sw-card__outcome-text"
+                >Cameras and AI check that every cow can reach her feed</span
+              >
+              <span class="sw-card__sub">Built for Eastern Dairies</span>
+            </div>
+          </div>
+          <span class="sw-card__pill">Custom AI Systems</span>
+          <span class="sw-card__badge" aria-hidden="true">+</span>
+          <h3 class="sw-card__title">Feed Push Monitor</h3>
+        </a>
+      </article>
+
+      <!-- Card 2: Dairy Data Analyst -->
+      <article class="sw-card" data-index="1">
+        <a
+          class="sw-card__link"
+          href="/work.html#dairy-data-analyst"
+          aria-label="Dairy Data Analyst — Custom AI Systems"
+        >
+          <div class="sw-card__media">
+            <img
+              src="/work/covers/work-dairy-analyst.webp"
+              srcset="
+                /work/covers/work-dairy-analyst-sm.webp  576w,
+                /work/covers/work-dairy-analyst.webp    1152w
+              "
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 55vw, 80vw"
+              width="1152"
+              height="864"
+              alt="A milk bottle beside rising cream columns with an orange sphere on the tallest"
+              class="sw-card__img"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="sw-card__glare" aria-hidden="true"></span>
+            <div class="sw-card__outcome">
+              <span class="sw-card__outcome-text"
+                >Ask your herd data a question in plain English</span
+              >
+              <span class="sw-card__sub">Built for Eastern Dairies</span>
+            </div>
+          </div>
+          <span class="sw-card__pill">Custom AI Systems</span>
+          <span class="sw-card__badge" aria-hidden="true">+</span>
+          <h3 class="sw-card__title">Dairy Data Analyst</h3>
+        </a>
+      </article>
+
+      <!-- Card 3: Women's Fashion Shoots -->
+      <article class="sw-card" data-index="2">
+        <a
+          class="sw-card__link"
+          href="/work.html#womens-fashion-shoots"
+          aria-label="Women's Fashion Shoots — AI Fashion Shoots"
+        >
+          <div class="sw-card__media">
+            <img
+              src="/work/fashion-women/fashion-women-01-cover.webp"
+              srcset="
+                /work/fashion-women/fashion-women-01-cover-sm.webp  800w,
+                /work/fashion-women/fashion-women-01-cover.webp    1600w
+              "
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 55vw, 80vw"
+              width="1600"
+              height="893"
+              alt="Model in a light blue hoodie and gold head chain resting her chin on her hand in the desert at sunset"
+              class="sw-card__img"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="sw-card__glare" aria-hidden="true"></span>
+            <div class="sw-card__outcome">
+              <span class="sw-card__outcome-text">Studio-quality model shoots, made with AI</span>
+              <span class="sw-card__sub">Models · Lookbooks · Reels</span>
+            </div>
+          </div>
+          <span class="sw-card__pill">AI Fashion Shoots</span>
+          <span class="sw-card__badge" aria-hidden="true">+</span>
+          <h3 class="sw-card__title">Women's Fashion Shoots</h3>
+        </a>
+      </article>
+
+      <!-- Card 4: Men's Fashion Shoots -->
+      <article class="sw-card" data-index="3">
+        <a
+          class="sw-card__link"
+          href="/work.html#mens-fashion-shoots"
+          aria-label="Men's Fashion Shoots — AI Fashion Shoots"
+        >
+          <div class="sw-card__media">
+            <img
+              src="/work/fashion-men/fashion-men-01-cover.webp"
+              srcset="
+                /work/fashion-men/fashion-men-01-cover-sm.webp  600w,
+                /work/fashion-men/fashion-men-01-cover.webp    1200w
+              "
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 55vw, 80vw"
+              width="1200"
+              height="1607"
+              alt="Model in a charcoal hoodie and white trousers seated on a black block among stacked black crates"
+              class="sw-card__img sw-card__img--portrait"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="sw-card__glare" aria-hidden="true"></span>
+            <div class="sw-card__outcome">
+              <span class="sw-card__outcome-text"
+                >Menswear shoots with a real photographic feel</span
+              >
+              <span class="sw-card__sub">Menswear · Fabric detail · Reels</span>
+            </div>
+          </div>
+          <span class="sw-card__pill">AI Fashion Shoots</span>
+          <span class="sw-card__badge" aria-hidden="true">+</span>
+          <h3 class="sw-card__title">Men's Fashion Shoots</h3>
+        </a>
+      </article>
+
+      <!-- Card 5: AI Sales Operations Agent -->
+      <article class="sw-card" data-index="4">
+        <a
+          class="sw-card__link"
+          href="/work.html#ai-sales-operations-agent"
+          aria-label="AI Sales Operations Agent — AI Agents"
+        >
+          <div class="sw-card__media">
+            <img
+              src="/work/covers/work-salesops.webp"
+              srcset="
+                /work/covers/work-salesops-sm.webp  576w,
+                /work/covers/work-salesops.webp    1152w
+              "
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 55vw, 80vw"
+              width="1152"
+              height="864"
+              alt="A row of cream chess pawns on a maroon lane with an orange sphere glowing above"
+              class="sw-card__img"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="sw-card__glare" aria-hidden="true"></span>
+            <div class="sw-card__outcome">
+              <span class="sw-card__outcome-text">An AI teammate for your sales team</span>
+              <span class="sw-card__sub">HubSpot · Quiet deals · Follow-ups</span>
+            </div>
+          </div>
+          <span class="sw-card__pill">AI Agents</span>
+          <span class="sw-card__badge" aria-hidden="true">+</span>
+          <h3 class="sw-card__title">AI Sales Operations Agent</h3>
+        </a>
+      </article>
+
+      <!-- Card 6: AI Revenue Operations Engine -->
+      <article class="sw-card" data-index="5">
+        <a
+          class="sw-card__link"
+          href="/work.html#ai-revenue-operations-engine"
+          aria-label="AI Revenue Operations Engine — AI Agents"
+        >
+          <div class="sw-card__media">
+            <img
+              src="/work/covers/work-revenue.webp"
+              srcset="/work/covers/work-revenue-sm.webp 576w, /work/covers/work-revenue.webp 1152w"
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 55vw, 80vw"
+              width="1152"
+              height="864"
+              alt="Cream spheres falling through a maroon funnel with one orange sphere coming out"
+              class="sw-card__img"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="sw-card__glare" aria-hidden="true"></span>
+            <div class="sw-card__outcome">
+              <span class="sw-card__outcome-text"
+                >Finds the right customers and writes the first message</span
+              >
+              <span class="sw-card__sub">Lead finding · Human-approved drafts</span>
+            </div>
+          </div>
+          <span class="sw-card__pill">AI Agents</span>
+          <span class="sw-card__badge" aria-hidden="true">+</span>
+          <h3 class="sw-card__title">AI Revenue Operations Engine</h3>
+        </a>
+      </article>
+
+      <!-- End-cap -->
+      <div class="works-endcap">
+        <p class="works-endcap__line">Six deployments. One studio.</p>
+        <a class="btn btn--primary btn--pill js-works-cta" href="/work.html">
+          <span class="gb-core"><span class="gb-core-label">View all work</span></span>
+        </a>
+      </div>
+    </div>
+    <!-- /.works-track -->
+  </div>
+  <!-- /.works-track-wrap -->
 </section>

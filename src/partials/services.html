@@ -10,9 +10,14 @@
     </div>
 
     <!-- 2-Column Grid -->
-    <div class="grid-2 align-stretch">
+    <div class="grid-2 services-grid">
       <!-- Left: 4 Service Rows -->
-      <div class="services-list" role="tablist" aria-label="Services List">
+      <div
+        class="services-list"
+        role="tablist"
+        aria-label="Services List"
+        aria-orientation="vertical"
+      >
         <!-- Row 01 -->
         <div
           class="service-row is-active"
@@ -20,12 +25,14 @@
           tabindex="0"
           id="tab-service-0"
           aria-selected="true"
-          aria-controls="panel-service-0"
+          aria-controls="servicesGlassPanel"
           data-service-index="0"
           data-title="AI Workflow Automation"
           data-desc="Boring jobs done for you, automatically. We connect the tools you already use, so messages, forms, reports and reminders move by themselves. Your team spends less time on copy-and-paste and more time on real work."
           data-chip1="Saves time"
           data-chip2="Fewer mistakes"
+          data-cta-href="#contact"
+          data-cta-label="Ask about automation"
         >
           <div class="service-row__left">
             <span class="service-row__index">01</span>
@@ -34,7 +41,13 @@
             </div>
             <span class="service-row__title">AI Workflow Automation</span>
           </div>
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <svg
+            class="service-row__arrow"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            aria-hidden="true"
+          >
             <use href="#icon-arrow-right"></use>
           </svg>
         </div>
@@ -43,15 +56,17 @@
         <div
           class="service-row"
           role="tab"
-          tabindex="0"
+          tabindex="-1"
           id="tab-service-1"
           aria-selected="false"
-          aria-controls="panel-service-1"
+          aria-controls="servicesGlassPanel"
           data-service-index="1"
           data-title="AI Product Visuals"
           data-desc="Fashion and product photos, without the studio. We create realistic model shoots and product pictures that look professionally shot, in a few days instead of weeks. Perfect for clothing, jewellery and beauty brands."
           data-chip1="Looks real"
           data-chip2="Ready for ads"
+          data-cta-href="/work.html#womens-fashion-shoots"
+          data-cta-label="See visual shoots"
         >
           <div class="service-row__left">
             <span class="service-row__index">02</span>
@@ -60,7 +75,13 @@
             </div>
             <span class="service-row__title">AI Product Visuals</span>
           </div>
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <svg
+            class="service-row__arrow"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            aria-hidden="true"
+          >
             <use href="#icon-arrow-right"></use>
           </svg>
         </div>
@@ -69,24 +90,32 @@
         <div
           class="service-row"
           role="tab"
-          tabindex="0"
+          tabindex="-1"
           id="tab-service-2"
           aria-selected="false"
-          aria-controls="panel-service-2"
+          aria-controls="servicesGlassPanel"
           data-service-index="2"
           data-title="AI Agents &amp; Chatbots"
           data-desc="A helper that works while you sleep. It answers customer questions, follows up with leads and handles routine tasks any time of day. When a real person is needed, it passes the job to your team."
           data-chip1="Always available"
           data-chip2="Hands off to your team"
+          data-cta-href="/work.html#ai-sales-operations-agent"
+          data-cta-label="See AI agents"
         >
           <div class="service-row__left">
             <span class="service-row__index">03</span>
             <div class="icon-tile icon-tile--soft">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-bot"></use></svg>
             </div>
-            <span class="service-row__title">AI Agents & Chatbots</span>
+            <span class="service-row__title">AI Agents &amp; Chatbots</span>
           </div>
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <svg
+            class="service-row__arrow"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            aria-hidden="true"
+          >
             <use href="#icon-arrow-right"></use>
           </svg>
         </div>
@@ -95,15 +124,17 @@
         <div
           class="service-row"
           role="tab"
-          tabindex="0"
+          tabindex="-1"
           id="tab-service-3"
           aria-selected="false"
-          aria-controls="panel-service-3"
+          aria-controls="servicesGlassPanel"
           data-service-index="3"
           data-title="Custom AI Systems"
           data-desc="Built for your business, not off the shelf. Tell us the problem you face every day, and we build a system that solves it, using your own data, cameras or records."
           data-chip1="Made for you"
           data-chip2="Works with your data"
+          data-cta-href="/work.html#feed-push-monitor"
+          data-cta-label="See custom systems"
         >
           <div class="service-row__left">
             <span class="service-row__index">04</span>
@@ -112,7 +143,13 @@
             </div>
             <span class="service-row__title">Custom AI Systems</span>
           </div>
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <svg
+            class="service-row__arrow"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            aria-hidden="true"
+          >
             <use href="#icon-arrow-right"></use>
           </svg>
         </div>
@@ -147,7 +184,7 @@
           alt="A model in a cream suit posing against a maroon backdrop while a photographer shoots her, lit by a glowing orange paper lantern"
           class="service-display-image"
           data-index="1"
-          loading="lazy"
+          loading="eager"
           decoding="async"
         />
         <img
@@ -159,7 +196,7 @@
           alt="Two cream speech-bubble sculptures linked by a thin thread of orange light"
           class="service-display-image"
           data-index="2"
-          loading="lazy"
+          loading="eager"
           decoding="async"
         />
         <img
@@ -171,7 +208,7 @@
           alt="A cream custom-shaped block fitting into a lattice of maroon blocks above an orange glow"
           class="service-display-image"
           data-index="3"
-          loading="lazy"
+          loading="eager"
           decoding="async"
         />
 
@@ -182,15 +219,25 @@
           role="tabpanel"
           aria-labelledby="tab-service-0"
         >
-          <h3 class="services-glass-panel__title" id="glassTitle">AI Workflow Automation</h3>
-          <p class="services-glass-panel__desc" id="glassDesc">
-            Boring jobs done for you, automatically. We connect the tools you already use, so
-            messages, forms, reports and reminders move by themselves. Your team spends less time on
-            copy-and-paste and more time on real work.
-          </p>
-          <div class="chips-row">
-            <span class="chip" id="glassChip1">Saves time</span>
-            <span class="chip" id="glassChip2">Fewer mistakes</span>
+          <div class="services-glass-panel__content" id="glassContent">
+            <h3 class="services-glass-panel__title" id="glassTitle">AI Workflow Automation</h3>
+            <p class="services-glass-panel__desc" id="glassDesc">
+              Boring jobs done for you, automatically. We connect the tools you already use, so
+              messages, forms, reports and reminders move by themselves. Your team spends less time
+              on copy-and-paste and more time on real work.
+            </p>
+            <div class="services-glass-panel__footer">
+              <div class="chips-row">
+                <span class="chip" id="glassChip1">Saves time</span>
+                <span class="chip" id="glassChip2">Fewer mistakes</span>
+              </div>
+              <a class="services-glass-panel__link" id="glassLink" href="#contact">
+                <span id="glassLinkLabel">Ask about automation</span>
+                <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+                  <use href="#icon-arrow-up-right"></use>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
