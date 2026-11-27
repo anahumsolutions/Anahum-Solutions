@@ -4,6 +4,17 @@
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mqpqpvnk'
 
+function setSubmitLabel(btn, text) {
+  const label = btn.querySelector('.gb-core-label, .roll-line')
+  if (label) {
+    btn.querySelectorAll('.gb-core-label, .roll-line').forEach((node) => {
+      node.textContent = text
+    })
+  } else {
+    btn.textContent = text
+  }
+}
+
 export function initContactForm() {
   const form = document.getElementById('contactForm')
   if (!form) return
@@ -18,7 +29,7 @@ export function initContactForm() {
     if (form._gotcha && form._gotcha.value) return
 
     btn.disabled = true
-    btn.textContent = 'Sending…'
+    setSubmitLabel(btn, 'Sending…')
     status.textContent = ''
     status.className = 'form-status'
 
@@ -41,7 +52,7 @@ export function initContactForm() {
       status.classList.add('form-status--error')
     } finally {
       btn.disabled = false
-      btn.textContent = 'Send message'
+      setSubmitLabel(btn, 'Send message')
     }
   })
 }

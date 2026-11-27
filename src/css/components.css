@@ -41,42 +41,82 @@
 
 /* Light version: for cream / light-background sections */
 :root {
-  /* Primary glass frame */
-  --gb-frame-bg:
-    linear-gradient(to bottom, rgb(255 255 255 / 0.7), rgb(255 255 255 / 0.35)),
-    rgb(var(--cream, 255 250 238) / 0.4);
+  /* GLASS 04 • Primary Layered Prism frame (outer bezel) */
+  --gb-frame-bg: rgb(255 255 255 / 0.44);
   --gb-frame-border: rgb(var(--maroon-rgb) / 0.14);
-  --gb-frame-hi: rgb(255 255 255 / 0.95);
+  --gb-frame-hi: rgb(255 255 255 / 0.92);
   --gb-frame-lo: rgb(var(--maroon-rgb) / 0.08);
-  --gb-frame-shadow: 0 8px 20px rgb(var(--maroon-rgb) / 0.14);
-  --gb-hover-border: rgb(var(--ember-rgb) / 0.45);
+  --gb-frame-shadow: 0 14px 30px -10px rgb(var(--maroon-rgb) / 0.16);
+  --gb-hover-border: rgb(var(--maroon-rgb) / 0.28);
+  --gb-prism-line-top: rgb(255 255 255 / 0.8);
+  --gb-prism-line-bot: rgb(var(--maroon-rgb) / 0.08);
   --gb-core: var(--ember);
   --gb-core-text: var(--cream);
+  --gb-core-shadow: 0 6px 14px rgb(var(--maroon-rgb) / 0.22);
 
-  /* Secondary always-dark glass */
+  /* GLASS 02 • Liquid Crystal Specular (light surface default) */
+  --gb-crystal-bg: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0.68) 0%,
+    rgb(255 255 255 / 0.36) 100%
+  );
+  --gb-crystal-border: rgb(var(--maroon-rgb) / 0.14);
+  --gb-crystal-hover-border: rgb(var(--maroon-rgb) / 0.28);
+  --gb-crystal-hi: rgb(255 255 255 / 0.95);
+  --gb-crystal-lo: rgb(var(--maroon-rgb) / 0.08);
+  --gb-crystal-shadow: 0 14px 30px -10px rgb(var(--maroon-rgb) / 0.16);
+  --gb-crystal-hover-shadow: 0 20px 38px -12px rgb(var(--maroon-rgb) / 0.24);
+  --gb-crystal-ink: var(--ink);
+  --gb-spec-hi: rgb(255 255 255 / 0.85);
+  --gb-spec-mid: rgb(255 255 255 / 0.25);
+
+  /* GLASS 02 • Dark / Active Liquid Crystal (dark sections, active filter/tabs, back-to-top) */
   --gb-dark-bg:
-    linear-gradient(to bottom, rgb(255 255 255 / 0.13), rgb(255 255 255 / 0.04)),
-    color-mix(in srgb, var(--maroon) 55%, black) 58%;
+    linear-gradient(180deg, rgb(255 255 255 / 0.14) 0%, rgb(255 255 255 / 0.04) 100%),
+    color-mix(in srgb, color-mix(in srgb, var(--maroon) 62%, black) 84%, transparent);
   --gb-dark-border: rgb(255 255 255 / 0.24);
-  --gb-dark-hi: rgb(255 255 255 / 0.2);
-  --gb-dark-shadow: 0 14px 30px rgb(0 0 0 / 0.45);
-  --gb-dark-hover-border: rgb(color-mix(in srgb, var(--peach) 70%, var(--ember)) / 0.65);
+  --gb-dark-hi: rgb(255 255 255 / 0.36);
+  --gb-dark-lo: rgb(0 0 0 / 0.35);
+  --gb-dark-shadow: 0 16px 34px -10px rgb(0 0 0 / 0.52);
+  --gb-dark-hover-shadow: 0 22px 44px -12px rgb(0 0 0 / 0.68);
+  --gb-dark-hover-border: rgb(255 255 255 / 0.44);
+  --gb-dark-spec-hi: rgb(255 255 255 / 0.36);
+  --gb-dark-spec-mid: rgb(255 255 255 / 0.1);
 }
 
-/* Dark version: for dark-background sections */
+/* Dark surface overrides for primary & secondary glass */
 .hero,
-.bento-panel {
-  --gb-frame-bg:
-    linear-gradient(to bottom, rgb(255 255 255 / 0.13) 0%, rgb(255 255 255 / 0.04) 100%),
-    rgb(color-mix(in srgb, var(--maroon) 55%, black) / 0.58);
-  --gb-frame-border: rgb(255 255 255 / 0.24);
-  --gb-frame-hi: rgb(255 255 255 / 0.2);
+.bento-panel,
+.work-cta,
+.wk-lightbox,
+[data-theme='dark'] {
+  --gb-frame-bg: rgb(255 255 255 / 0.08);
+  --gb-frame-border: rgb(255 255 255 / 0.22);
+  --gb-frame-hi: rgb(255 255 255 / 0.36);
   --gb-frame-lo: rgb(0 0 0 / 0.35);
-  --gb-frame-shadow: 0 14px 30px rgb(0 0 0 / 0.45);
-  --gb-hover-border: rgb(color-mix(in srgb, var(--peach) 70%, var(--ember)) / 0.65);
+  --gb-frame-shadow: 0 16px 34px -10px rgb(0 0 0 / 0.52);
+  --gb-hover-border: rgb(255 255 255 / 0.44);
+  --gb-prism-line-top: rgb(255 255 255 / 0.34);
+  --gb-prism-line-bot: rgb(0 0 0 / 0.35);
+
+  --gb-crystal-bg: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0.14) 0%,
+    rgb(255 255 255 / 0.05) 100%
+  );
+  --gb-crystal-border: rgb(255 255 255 / 0.22);
+  --gb-crystal-hover-border: rgb(255 255 255 / 0.44);
+  --gb-crystal-hi: rgb(255 255 255 / 0.42);
+  --gb-crystal-lo: rgb(0 0 0 / 0.38);
+  --gb-crystal-shadow: 0 16px 34px -10px rgb(0 0 0 / 0.52);
+  --gb-crystal-hover-shadow: 0 22px 44px -12px rgb(0 0 0 / 0.68);
+  --gb-crystal-ink: var(--cream);
+  --gb-spec-hi: rgb(255 255 255 / 0.36);
+  --gb-spec-mid: rgb(255 255 255 / 0.1);
 }
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -93,28 +133,32 @@
   border: none;
   cursor: pointer;
   text-decoration: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   transition:
-    transform var(--dur-fast) var(--ease-out),
-    background-color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
     opacity var(--dur-fast) var(--ease-out);
-}
-
-.btn:active {
-  transform: scale(0.98);
 }
 
 .btn:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
-/* Primary: glass frame with orange core pill */
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary — GLASS 04: Layered Prism Glass (outer frosted bezel + floating 3D inner core) */
 .btn--primary {
   position: relative;
   isolation: isolate;
+  transform-style: preserve-3d;
   height: 56px;
-  padding: 0 34px;
+  padding: 6px;
   border-radius: var(--r-pill);
   background: var(--gb-frame-bg);
   -webkit-backdrop-filter: blur(14px);
@@ -126,71 +170,226 @@
     var(--gb-frame-shadow);
   color: var(--gb-core-text);
   font-weight: 600;
+  will-change: transform;
   transition:
-    transform var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out);
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
+/* Crisp prism refraction hairlines along inner edge of crystal shell */
 .btn--primary::before {
   content: '';
   position: absolute;
-  inset: 6px;
+  inset: 2px;
+  border-radius: inherit;
+  border-top: 1px solid var(--gb-prism-line-top);
+  border-bottom: 1px solid var(--gb-prism-line-bot);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gb-core {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 0 28px;
   border-radius: var(--r-pill);
   background: var(--gb-core);
+  color: var(--gb-core-text);
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.28),
-    inset 0 -1px 0 rgb(0 0 0 / 0.12);
-  z-index: -1;
-  transform: translate(var(--gb-cx, 0px), var(--gb-cy, 0px));
+    inset 0 1px 0 rgb(255 255 255 / 0.32),
+    inset 0 -1px 0 rgb(0 0 0 / 0.14),
+    var(--gb-core-shadow);
+  will-change: transform;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.gb-core-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
-  transform: translateY(-2px);
   border-color: var(--gb-hover-border);
-  box-shadow:
-    inset 0 1px 0 var(--gb-frame-hi),
-    inset 0 -1px 0 var(--gb-frame-lo),
-    var(--gb-frame-shadow);
 }
 
-.btn--primary:hover::before {
-  background: color-mix(in srgb, var(--gb-core) 94%, white 6%);
+.btn--primary:hover .gb-core,
+.btn--primary:focus-visible .gb-core {
+  background: color-mix(in srgb, var(--gb-core) 92%, white 8%);
 }
 
-/* Dark / Ghost / Outline: plain dark smoked glass */
-.btn--dark,
+/* Secondary / Ghost / Outline — GLASS 02: Liquid Crystal Specular (adapts to light & dark surfaces) */
 .btn--ghost,
 .btn--outline {
+  --rx: 50%;
+  --ry: 50%;
+  overflow: hidden;
+  isolation: isolate;
   height: 48px;
+  padding: 0 28px;
   border-radius: var(--r-pill);
-  background: var(--gb-dark-bg);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--gb-dark-border);
-  border-style: solid;
+  background: var(--gb-crystal-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  backdrop-filter: blur(20px) saturate(145%);
+  border: 1px solid var(--gb-crystal-border);
   box-shadow:
-    inset 0 1px 0 var(--gb-dark-hi),
-    var(--gb-dark-shadow);
-  color: var(--cream);
+    inset 0 1.5px 0 var(--gb-crystal-hi),
+    inset 0 -1.5px 3px var(--gb-crystal-lo),
+    var(--gb-crystal-shadow);
+  color: var(--gb-crystal-ink);
+  will-change: transform;
   transition:
-    transform var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out);
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.btn--dark:hover,
-.btn--dark:focus-visible,
+.btn--ghost::before,
+.btn--outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    92px circle at var(--rx) var(--ry),
+    var(--gb-spec-hi) 0%,
+    var(--gb-spec-mid) 38%,
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn--ghost > *,
+.btn--outline > * {
+  position: relative;
+  z-index: 1;
+}
+
 .btn--ghost:hover,
 .btn--ghost:focus-visible,
 .btn--outline:hover,
 .btn--outline:focus-visible {
-  transform: translateY(-2px);
+  border-color: var(--gb-crystal-hover-border);
+  box-shadow:
+    inset 0 1.5px 0 var(--gb-crystal-hi),
+    inset 0 -1.5px 3px var(--gb-crystal-lo),
+    var(--gb-crystal-hover-shadow);
+}
+
+.btn--ghost:hover::before,
+.btn--ghost:focus-visible::before,
+.btn--outline:hover::before,
+.btn--outline:focus-visible::before {
+  opacity: 1;
+}
+
+/* Dark Crystal — GLASS 02 always-dark smoked crystal */
+.btn--dark {
+  --rx: 50%;
+  --ry: 50%;
+  overflow: hidden;
+  isolation: isolate;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: var(--r-pill);
+  background: var(--gb-dark-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  backdrop-filter: blur(20px) saturate(145%);
+  border: 1px solid var(--gb-dark-border);
+  box-shadow:
+    inset 0 1.5px 0 var(--gb-dark-hi),
+    inset 0 -1.5px 3px var(--gb-dark-lo),
+    var(--gb-dark-shadow);
+  color: var(--cream);
+  will-change: transform;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    92px circle at var(--rx) var(--ry),
+    var(--gb-dark-spec-hi) 0%,
+    var(--gb-dark-spec-mid) 42%,
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn--dark > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn--dark:hover,
+.btn--dark:focus-visible {
   border-color: var(--gb-dark-hover-border);
   box-shadow:
-    inset 0 1px 0 var(--gb-dark-hi),
-    0 20px 40px rgb(0 0 0 / 0.52);
+    inset 0 1.5px 0 var(--gb-dark-hi),
+    inset 0 -1.5px 3px var(--gb-dark-lo),
+    var(--gb-dark-hover-shadow);
+}
+
+.btn--dark:hover::before,
+.btn--dark:focus-visible::before {
+  opacity: 1;
+}
+
+/* GLASS 02 Rollover Vertical Text Mask */
+.roll-mask {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.3em;
+  line-height: 1.3em;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.roll-track {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0%);
+  transition: transform 0.42s var(--ease-smooth);
+}
+
+.roll-trigger:hover .roll-track,
+.roll-trigger:focus-visible .roll-track {
+  transform: translateY(-50%);
+}
+
+.roll-line {
+  height: 1.3em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.roll-line svg {
+  flex-shrink: 0;
 }
 
 /* Legacy modifier kept for backward compat */
@@ -299,21 +498,26 @@
   margin: 2rem 0;
 }
 
-/* 6. Back-To-Top Button */
+/* 6. Back-To-Top Button — GLASS 02 Dark Liquid Crystal (uses standalone translate for show/hide so GSAP transform stays conflict-free) */
 .back-to-top {
+  --rx: 50%;
+  --ry: 50%;
   position: fixed;
   bottom: 24px;
   right: 24px;
   width: 48px;
   height: 48px;
+  overflow: hidden;
+  isolation: isolate;
   background: var(--gb-dark-bg);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  backdrop-filter: blur(20px) saturate(145%);
   color: var(--cream);
   border-radius: 50%;
   border: 1px solid var(--gb-dark-border);
   box-shadow:
-    inset 0 1px 0 var(--gb-dark-hi),
+    inset 0 1.5px 0 var(--gb-dark-hi),
+    inset 0 -1.5px 3px var(--gb-dark-lo),
     var(--gb-dark-shadow);
   display: flex;
   align-items: center;
@@ -321,30 +525,56 @@
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
+  translate: 0 12px;
+  will-change: transform;
   transition:
     opacity var(--dur-base) var(--ease-out),
-    transform var(--dur-base) var(--ease-out),
+    translate var(--dur-base) var(--ease-out),
     visibility var(--dur-base),
-    border-color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out);
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.back-to-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    68px circle at var(--rx) var(--ry),
+    var(--gb-dark-spec-hi) 0%,
+    var(--gb-dark-spec-mid) 42%,
+    transparent 74%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .back-to-top.is-visible {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  translate: 0 0;
 }
 
-.back-to-top:hover {
-  transform: translateY(-3px);
+.back-to-top:hover,
+.back-to-top:focus-visible {
   border-color: var(--gb-dark-hover-border);
   box-shadow:
-    inset 0 1px 0 var(--gb-dark-hi),
-    0 20px 40px rgb(0 0 0 / 0.52);
+    inset 0 1.5px 0 var(--gb-dark-hi),
+    inset 0 -1.5px 3px var(--gb-dark-lo),
+    var(--gb-dark-hover-shadow);
+}
+
+.back-to-top:hover::before,
+.back-to-top:focus-visible::before {
+  opacity: 1;
 }
 
 .back-to-top svg {
+  position: relative;
+  z-index: 1;
   width: 20px;
   height: 20px;
 }
@@ -379,5 +609,15 @@
       box-shadow var(--dur-fast) var(--ease-out),
       opacity var(--dur-fast) var(--ease-out),
       visibility var(--dur-base);
+  }
+
+  .btn--primary::before,
+  .btn--ghost::before,
+  .btn--outline::before,
+  .btn--dark::before,
+  .back-to-top::before,
+  .gb-core,
+  .roll-track {
+    transition: none;
   }
 }

@@ -19,6 +19,8 @@ import { initOrbit } from './anim/orbit.js'
 import { initHeroNodesDrift } from './anim/hero-nodes-drift.js'
 import { initBackToTop } from './anim/back-to-top.js'
 import { initContactForm } from './contact-form.js'
+import { initSelectedWorks } from './anim/selected-works.js'
+import { initAllGlassButtons } from './anim/glass-button.js'
 
 /**
  * Application Bootstrap & Animation Registry
@@ -28,8 +30,10 @@ function initApp() {
   // Respect prefers-reduced-motion: skip all animations when active
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.classList.add('reduce-motion')
-    // Still init non-animation modules
+    // Still init non-animation and reduced-motion-aware interactive modules
     initMenu()
+    initServicesTabs()
+    initSelectedWorks()
     initBackToTop()
     initContactForm()
     return
@@ -55,6 +59,8 @@ function initApp() {
   initOrbit()
   initLogo3D()
   initHeroNodesDrift()
+  initSelectedWorks()
+  initAllGlassButtons()
 
   // 4. Force trigger refreshes
   setTimeout(() => ScrollTrigger.refresh(), 150)

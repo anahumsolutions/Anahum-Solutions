@@ -2,18 +2,6 @@
      WORK PAGE PARTIAL
      ========================================================= -->
 
-<!-- Lightbox dialog -->
-<dialog id="lightbox" class="lightbox" aria-label="Image viewer">
-  <div class="lightbox__inner">
-    <button type="button" class="lightbox__close" aria-label="Close image viewer">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"></use></svg>
-    </button>
-    <button type="button" class="lightbox__prev" aria-label="Previous image">&#8592;</button>
-    <img class="lightbox__img" src="" alt="" decoding="async" />
-    <button type="button" class="lightbox__next" aria-label="Next image">&#8594;</button>
-  </div>
-</dialog>
-
 <!-- =========================================================
      HERO
      ========================================================= -->
@@ -54,8 +42,8 @@
     <h2 class="work-group__title" data-anim="fade-up">Custom AI Systems</h2>
 
     <!-- Project 1: Feed Push Monitor -->
-    <article class="work-project" id="feed-push-monitor" data-anim="blur-reveal" data-delay="0.05">
-      <div class="work-project__text">
+    <article class="work-project" id="feed-push-monitor">
+      <div class="work-project__text" data-anim="blur-reveal" data-delay="0.05">
         <div class="work-project__meta">
           <span class="work-project__tag">Built for Eastern Dairies</span>
           <div class="chips-row">
@@ -90,84 +78,66 @@
             </p>
           </div>
         </div>
+        <p class="work-project__caption">From our visit to Eastern Dairies</p>
       </div>
 
-      <div class="work-project__media">
-        <div class="work-gallery" data-layout="landscape">
-          <p class="work-gallery__caption">From our visit to Eastern Dairies</p>
-
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image: Feed lane"
-              data-full="/work/eastern-dairies/dairy-shed-feed-lane.webp"
-            >
+      <div class="wk-flow" data-layout="four-three">
+        <div
+          class="wk-flow__stage"
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Feed Push Monitor photos. Use Left and Right arrow keys to browse, Enter or Space to open larger view."
+        >
+          <div class="wk-flow__track">
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/eastern-dairies/dairy-shed-feed-lane-sm.webp"
-                srcset="
-                  /work/eastern-dairies/dairy-shed-feed-lane-sm.webp  800w,
-                  /work/eastern-dairies/dairy-shed-feed-lane.webp    1600w
-                "
-                sizes="(min-width: 992px) 25vw, 50vw"
                 width="800"
                 height="600"
                 alt="Cows feeding along the fence in a covered dairy shed while a worker pushes feed back down the lane"
-                loading="lazy"
+                data-full="/work/eastern-dairies/dairy-shed-feed-lane.webp"
+                fetchpriority="high"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
+            </figure>
 
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image: Cows eating"
-              data-full="/work/eastern-dairies/dairy-cows-eating.webp"
-            >
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/eastern-dairies/dairy-cows-eating-sm.webp"
-                srcset="
-                  /work/eastern-dairies/dairy-cows-eating-sm.webp  640w,
-                  /work/eastern-dairies/dairy-cows-eating.webp    1280w
-                "
-                sizes="(min-width: 992px) 25vw, 50vw"
                 width="640"
                 height="480"
                 alt="Cows eating from the feed lane under bright shed lights"
+                data-full="/work/eastern-dairies/dairy-cows-eating.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
+            </figure>
 
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image: Calves"
-              data-full="/work/eastern-dairies/dairy-calves.webp"
-            >
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/eastern-dairies/dairy-calves-sm.webp"
-                srcset="
-                  /work/eastern-dairies/dairy-calves-sm.webp  600w,
-                  /work/eastern-dairies/dairy-calves.webp    1200w
-                "
-                sizes="(min-width: 992px) 25vw, 50vw"
                 width="600"
                 height="800"
                 alt="Calves resting in a pen at the dairy farm"
+                class="wk-flow__img--upper"
+                data-full="/work/eastern-dairies/dairy-calves.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
+            </figure>
           </div>
         </div>
+        <div class="sr-only wk-flow__live" aria-live="polite" aria-atomic="true"></div>
       </div>
     </article>
 
     <!-- Project 2: Dairy Data Analyst -->
-    <article class="work-project" id="dairy-data-analyst" data-anim="blur-reveal" data-delay="0.1">
-      <div class="work-project__text">
+    <article class="work-project" id="dairy-data-analyst">
+      <div class="work-project__text" data-anim="blur-reveal" data-delay="0.1">
         <div class="work-project__meta">
           <span class="work-project__tag">Built for Eastern Dairies</span>
           <div class="chips-row">
@@ -203,21 +173,28 @@
         </div>
       </div>
 
-      <div class="work-project__media work-project__media--single">
-        <img
-          src="/work/covers/work-dairy-analyst.webp"
-          srcset="
-            /work/covers/work-dairy-analyst-sm.webp  576w,
-            /work/covers/work-dairy-analyst.webp    1152w
-          "
-          sizes="(min-width: 992px) 50vw, 100vw"
-          width="1152"
-          height="864"
-          alt="A milk bottle beside rising cream columns with an orange sphere on the tallest"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+      <figure class="work-project__single">
+        <button
+          type="button"
+          class="work-project__single-btn"
+          data-full="/work/covers/work-dairy-analyst.webp"
+          aria-label="View larger image: A milk bottle beside rising cream columns with an orange sphere on the tallest"
+        >
+          <img
+            src="/work/covers/work-dairy-analyst.webp"
+            srcset="
+              /work/covers/work-dairy-analyst-sm.webp  576w,
+              /work/covers/work-dairy-analyst.webp    1152w
+            "
+            sizes="(min-width: 992px) 820px, 100vw"
+            width="1152"
+            height="864"
+            alt="A milk bottle beside rising cream columns with an orange sphere on the tallest"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+      </figure>
     </article>
   </div>
 </section>
@@ -230,13 +207,8 @@
     <h2 class="work-group__title" data-anim="fade-up">AI Fashion Shoots</h2>
 
     <!-- Project 3: Women's Fashion Shoots -->
-    <article
-      class="work-project"
-      id="womens-fashion-shoots"
-      data-anim="blur-reveal"
-      data-delay="0.05"
-    >
-      <div class="work-project__text">
+    <article class="work-project" id="womens-fashion-shoots">
+      <div class="work-project__text" data-anim="blur-reveal" data-delay="0.05">
         <div class="work-project__meta">
           <div class="chips-row">
             <span class="chip">Models</span>
@@ -252,211 +224,156 @@
         </p>
         <a
           href="https://www.instagram.com/solasbynoor/"
-          class="btn btn--outline"
+          class="btn btn--outline roll-trigger"
           target="_blank"
           rel="noopener noreferrer"
-          >See more on Instagram</a
+          aria-label="See Women's Fashion Shoots on Instagram"
         >
+          <span class="roll-mask">
+            <span class="roll-track">
+              <span class="roll-line">See more on Instagram</span>
+              <span class="roll-line"
+                >See more on Instagram <span aria-hidden="true">&#8599;</span></span
+              >
+            </span>
+          </span>
+        </a>
       </div>
 
-      <div class="work-project__media">
-        <div class="work-gallery work-gallery--landscape" data-layout="landscape">
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-01-cover.webp"
-            >
+      <div class="wk-flow" data-layout="landscape">
+        <div
+          class="wk-flow__stage"
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Women's Fashion Shoots photos. Use Left and Right arrow keys to browse, Enter or Space to open larger view."
+        >
+          <div class="wk-flow__track">
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-01-cover-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-01-cover-sm.webp  800w,
-                  /work/fashion-women/fashion-women-01-cover.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model in a light blue hoodie and gold head chain resting her chin on her hand in the desert at sunset"
+                data-full="/work/fashion-women/fashion-women-01-cover.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-02.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-02-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-02-sm.webp  800w,
-                  /work/fashion-women/fashion-women-02.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model reclining on a sand dune in an olive draped dress"
+                data-full="/work/fashion-women/fashion-women-02.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-03.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-03-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-03-sm.webp  800w,
-                  /work/fashion-women/fashion-women-03.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model in a flowing olive gown standing on a dune crest at sunset"
+                data-full="/work/fashion-women/fashion-women-03.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-04.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-04-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-04-sm.webp  800w,
-                  /work/fashion-women/fashion-women-04.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model in an olive puffer jacket standing in an ancient temple hall"
+                data-full="/work/fashion-women/fashion-women-04.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-05.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-05-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-05-sm.webp  800w,
-                  /work/fashion-women/fashion-women-05.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model in an olive hoodie lying on an Egyptian rug on desert sand, seen from above"
+                data-full="/work/fashion-women/fashion-women-05.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-06.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-06-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-06-sm.webp  800w,
-                  /work/fashion-women/fashion-women-06.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model in a cream hoodie and gold collar crouching in front of a black SUV with the pyramids behind"
+                data-full="/work/fashion-women/fashion-women-06.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-07.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-07-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-07-sm.webp  800w,
-                  /work/fashion-women/fashion-women-07.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model in a cream hoodie leaning out of an SUV window with the pyramids behind"
+                data-full="/work/fashion-women/fashion-women-07.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-08.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-08-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-08-sm.webp  800w,
-                  /work/fashion-women/fashion-women-08.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Close-up portrait of a model with gold leaf makeup and a gold head chain"
+                data-full="/work/fashion-women/fashion-women-08.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-women/fashion-women-09.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-women/fashion-women-09-sm.webp"
-                srcset="
-                  /work/fashion-women/fashion-women-09-sm.webp  800w,
-                  /work/fashion-women/fashion-women-09.webp    1600w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="800"
                 height="447"
                 alt="Model in a blue hoodie standing in front of a large setting sun in the desert"
+                data-full="/work/fashion-women/fashion-women-09.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
+            </figure>
           </div>
         </div>
+        <div class="sr-only wk-flow__live" aria-live="polite" aria-atomic="true"></div>
       </div>
     </article>
 
     <!-- Project 4: Men's Fashion Shoots -->
-    <article class="work-project" id="mens-fashion-shoots" data-anim="blur-reveal" data-delay="0.1">
-      <div class="work-project__text">
+    <article class="work-project" id="mens-fashion-shoots">
+      <div class="work-project__text" data-anim="blur-reveal" data-delay="0.1">
         <div class="work-project__meta">
           <div class="chips-row">
             <span class="chip">Menswear</span>
@@ -472,205 +389,150 @@
         </p>
         <a
           href="https://www.instagram.com/bilaaal.ai/"
-          class="btn btn--outline"
+          class="btn btn--outline roll-trigger"
           target="_blank"
           rel="noopener noreferrer"
-          >See more on Instagram</a
+          aria-label="See Men's Fashion Shoots on Instagram"
         >
+          <span class="roll-mask">
+            <span class="roll-track">
+              <span class="roll-line">See more on Instagram</span>
+              <span class="roll-line"
+                >See more on Instagram <span aria-hidden="true">&#8599;</span></span
+              >
+            </span>
+          </span>
+        </a>
       </div>
 
-      <div class="work-project__media">
-        <div class="work-gallery work-gallery--portrait" data-layout="portrait">
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-01-cover.webp"
-            >
+      <div class="wk-flow" data-layout="portrait">
+        <div
+          class="wk-flow__stage"
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Men's Fashion Shoots photos. Use Left and Right arrow keys to browse, Enter or Space to open larger view."
+        >
+          <div class="wk-flow__track">
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-01-cover-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-01-cover-sm.webp  600w,
-                  /work/fashion-men/fashion-men-01-cover.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Model in a charcoal hoodie and white trousers seated on a black block among stacked black crates"
+                data-full="/work/fashion-men/fashion-men-01-cover.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-02.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-02-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-02-sm.webp  600w,
-                  /work/fashion-men/fashion-men-02.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="800"
                 alt="Model in glasses looking up at the camera, lying among black crates"
+                data-full="/work/fashion-men/fashion-men-02.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-03.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-03-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-03-sm.webp  600w,
-                  /work/fashion-men/fashion-men-03.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Model in a charcoal hoodie and white trousers walking between stacked black crates"
+                data-full="/work/fashion-men/fashion-men-03.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-04.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-04-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-04-sm.webp  600w,
-                  /work/fashion-men/fashion-men-04.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Back view of a charcoal hoodie with a printed list down one side"
+                data-full="/work/fashion-men/fashion-men-04.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-05.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-05-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-05-sm.webp  600w,
-                  /work/fashion-men/fashion-men-05.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Model in a taupe button-up shirt lit by a red spotlight against a red curtain"
+                data-full="/work/fashion-men/fashion-men-05.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-06.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-06-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-06-sm.webp  600w,
-                  /work/fashion-men/fashion-men-06.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Model in a taupe shirt and trousers seated on a black leather chair in front of a red curtain"
+                data-full="/work/fashion-men/fashion-men-06.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-07.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-07-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-07-sm.webp  600w,
-                  /work/fashion-men/fashion-men-07.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Model in a black graphic hoodie pulling up the hood against a corrugated metal wall"
+                data-full="/work/fashion-men/fashion-men-07.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-08.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-08-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-08-sm.webp  600w,
-                  /work/fashion-men/fashion-men-08.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Model in a black graphic hoodie and baggy black trousers leaning on a blue metal shutter at night"
+                data-full="/work/fashion-men/fashion-men-08.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
-          </div>
-          <div class="work-gallery__item">
-            <button
-              type="button"
-              aria-label="View full image"
-              data-full="/work/fashion-men/fashion-men-09.webp"
-            >
+            </figure>
+
+            <figure class="wk-flow__item" tabindex="-1">
               <img
                 src="/work/fashion-men/fashion-men-09-sm.webp"
-                srcset="
-                  /work/fashion-men/fashion-men-09-sm.webp  600w,
-                  /work/fashion-men/fashion-men-09.webp    1200w
-                "
-                sizes="(min-width: 992px) 16vw, 50vw"
                 width="600"
                 height="804"
                 alt="Model in a black graphic hoodie standing on a loading dock in front of a metal shutter"
+                data-full="/work/fashion-men/fashion-men-09.webp"
                 loading="lazy"
                 decoding="async"
+                draggable="false"
               />
-            </button>
+            </figure>
           </div>
         </div>
+        <div class="sr-only wk-flow__live" aria-live="polite" aria-atomic="true"></div>
       </div>
     </article>
   </div>
@@ -684,13 +546,8 @@
     <h2 class="work-group__title" data-anim="fade-up">AI Agents</h2>
 
     <!-- Project 5: AI Sales Operations Agent -->
-    <article
-      class="work-project"
-      id="ai-sales-operations-agent"
-      data-anim="blur-reveal"
-      data-delay="0.05"
-    >
-      <div class="work-project__text">
+    <article class="work-project" id="ai-sales-operations-agent">
+      <div class="work-project__text" data-anim="blur-reveal" data-delay="0.05">
         <div class="work-project__meta">
           <div class="chips-row">
             <span class="chip">Finds quiet deals</span>
@@ -709,28 +566,30 @@
         </p>
       </div>
 
-      <div class="work-project__media work-project__media--single">
-        <img
-          src="/work/covers/work-salesops.webp"
-          srcset="/work/covers/work-salesops-sm.webp 576w, /work/covers/work-salesops.webp 1152w"
-          sizes="(min-width: 992px) 50vw, 100vw"
-          width="1152"
-          height="864"
-          alt="A row of cream chess pawns on a maroon lane with an orange sphere glowing above"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+      <figure class="work-project__single">
+        <button
+          type="button"
+          class="work-project__single-btn"
+          data-full="/work/covers/work-salesops.webp"
+          aria-label="View larger image: A row of cream chess pawns on a maroon lane with an orange sphere glowing above"
+        >
+          <img
+            src="/work/covers/work-salesops.webp"
+            srcset="/work/covers/work-salesops-sm.webp 576w, /work/covers/work-salesops.webp 1152w"
+            sizes="(min-width: 992px) 820px, 100vw"
+            width="1152"
+            height="864"
+            alt="A row of cream chess pawns on a maroon lane with an orange sphere glowing above"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+      </figure>
     </article>
 
     <!-- Project 6: AI Revenue Operations Engine -->
-    <article
-      class="work-project"
-      id="ai-revenue-operations-engine"
-      data-anim="blur-reveal"
-      data-delay="0.1"
-    >
-      <div class="work-project__text">
+    <article class="work-project" id="ai-revenue-operations-engine">
+      <div class="work-project__text" data-anim="blur-reveal" data-delay="0.1">
         <div class="work-project__meta">
           <div class="chips-row">
             <span class="chip">Lead finding</span>
@@ -748,18 +607,25 @@
         </p>
       </div>
 
-      <div class="work-project__media work-project__media--single">
-        <img
-          src="/work/covers/work-revenue.webp"
-          srcset="/work/covers/work-revenue-sm.webp 576w, /work/covers/work-revenue.webp 1152w"
-          sizes="(min-width: 992px) 50vw, 100vw"
-          width="1152"
-          height="864"
-          alt="Cream spheres falling through a maroon funnel with one orange sphere coming out"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+      <figure class="work-project__single">
+        <button
+          type="button"
+          class="work-project__single-btn"
+          data-full="/work/covers/work-revenue.webp"
+          aria-label="View larger image: Cream spheres falling through a maroon funnel with one orange sphere coming out"
+        >
+          <img
+            src="/work/covers/work-revenue.webp"
+            srcset="/work/covers/work-revenue-sm.webp 576w, /work/covers/work-revenue.webp 1152w"
+            sizes="(min-width: 992px) 820px, 100vw"
+            width="1152"
+            height="864"
+            alt="Cream spheres falling through a maroon funnel with one orange sphere coming out"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+      </figure>
     </article>
   </div>
 </section>
@@ -779,10 +645,84 @@
           class="btn btn--primary"
           target="_blank"
           rel="noopener noreferrer"
-          >Book a call</a
         >
-        <a href="/#contact" class="btn btn--ghost">Contact us</a>
+          <span class="gb-core"><span class="gb-core-label">Book a call</span></span>
+        </a>
+        <a href="/#contact" class="btn btn--ghost roll-trigger">
+          <span class="roll-mask">
+            <span class="roll-track">
+              <span class="roll-line">Contact us</span>
+              <span class="roll-line">Contact us <span aria-hidden="true">&#8599;</span></span>
+            </span>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- =========================================================
+     SHARED LIGHTBOX
+     ========================================================= -->
+<div
+  class="wk-lightbox"
+  id="wkLightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image viewer"
+  aria-hidden="true"
+>
+  <div class="wk-lightbox__backdrop" data-lightbox-close></div>
+  <div class="wk-lightbox__content">
+    <button
+      type="button"
+      class="wk-lightbox__close"
+      id="wkLightboxClose"
+      aria-label="Close image viewer"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
+    <button
+      type="button"
+      class="wk-lightbox__nav wk-lightbox__prev"
+      id="wkLightboxPrev"
+      aria-label="Previous photo"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M15 18l-6-6 6-6"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <figure class="wk-lightbox__figure">
+      <img class="wk-lightbox__img" id="wkLightboxImg" src="" alt="" decoding="async" />
+      <figcaption class="wk-lightbox__meta" id="wkLightboxMeta">
+        <span class="wk-lightbox__counter" id="wkLightboxCounter"></span>
+        <span class="wk-lightbox__caption" id="wkLightboxCaption"></span>
+      </figcaption>
+    </figure>
+    <button
+      type="button"
+      class="wk-lightbox__nav wk-lightbox__next"
+      id="wkLightboxNext"
+      aria-label="Next photo"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M9 18l6-6-6-6"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <div class="sr-only" id="wkLightboxLive" aria-live="polite" aria-atomic="true"></div>
+  </div>
+</div>

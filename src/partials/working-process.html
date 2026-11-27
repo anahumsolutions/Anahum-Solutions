@@ -15,10 +15,10 @@
       </h2>
     </div>
 
-    <!-- 4 Cards Alternating Dark and Light with Alternating Chips -->
+    <!-- 4 Cards Alternating Dark and Light with All Step Chips at Top -->
     <div class="process-grid">
-      <!-- Card 1: Dark (Maroon to black gradient, ember chip at top) -->
-      <div class="process-card process-card--dark" data-anim="card-rise" data-delay="0.1">
+      <!-- Card 1: Dark -->
+      <div class="process-card process-card--dark" data-anim="card-rise" data-delay="0.05">
         <div>
           <div class="process-chip process-chip--accent">
             <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -26,57 +26,51 @@
             </svg>
             <span>01 · Discovery</span>
           </div>
-          <h3 style="font-size: 22px; font-weight: 600; color: var(--on-dark); margin-bottom: 12px">
-            We listen first
-          </h3>
-          <p style="color: var(--muted-dark); font-size: 14px; line-height: 1.6">
+          <h3 class="process-card__title">We listen first</h3>
+          <p class="process-card__desc">
             We talk through your business, your goals and what you want to fix or create. You tell
             us what you have, and we tell you what is possible.
           </p>
         </div>
         <div class="process-card__bottom">
-          <span style="display: flex; align-items: center; gap: 6px">
+          <span class="process-card__time-label">
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
               <use href="#icon-clock"></use>
             </svg>
             Typical time
           </span>
-          <span style="font-weight: 600; color: var(--on-dark)">Day 1–2</span>
+          <span class="process-card__time-val">Day 1–2</span>
         </div>
       </div>
 
-      <!-- Card 2: Light (White card, dark chip at bottom) -->
-      <div class="process-card process-card--light" data-anim="card-rise" data-delay="0.25">
+      <!-- Card 2: Light -->
+      <div class="process-card process-card--light" data-anim="card-rise" data-delay="0.15">
         <div>
-          <h3 style="font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 12px">
-            We agree the plan
-          </h3>
-          <p style="color: var(--muted); font-size: 14px; line-height: 1.6">
-            We agree what we will make, how long it will take and what it will cost, in writing. For
-            visuals we send first samples, and for systems we show you a simple plan.
-          </p>
-        </div>
-        <div>
-          <div class="process-chip process-chip--dark" style="margin-bottom: 0">
+          <div class="process-chip process-chip--dark">
             <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
               <use href="#icon-system"></use>
             </svg>
             <span>02 · Plan</span>
           </div>
-          <div class="process-card__bottom">
-            <span style="display: flex; align-items: center; gap: 6px">
-              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                <use href="#icon-clock"></use>
-              </svg>
-              Typical time
-            </span>
-            <span style="font-weight: 600; color: var(--ink)">2–3 days</span>
-          </div>
+          <h3 class="process-card__title">We agree the plan</h3>
+          <p class="process-card__desc">
+            We agree what we will make, how long it will take and what it will cost, in writing. For
+            visuals we send first samples, and for systems we show you a simple plan.
+          </p>
+        </div>
+        <div class="process-card__bottom">
+          <span class="process-card__time-label">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <use href="#icon-clock"></use>
+            </svg>
+            Typical time
+          </span>
+          <span class="process-card__time-val">2–3 days</span>
         </div>
       </div>
 
-      <!-- Card 3: Dark (Maroon to black gradient, ember chip at top) -->
-      <div class="process-card process-card--dark" data-anim="card-rise" data-delay="0.4">
+      <!-- Card 3: Dark -->
+      <div class="process-card process-card--dark" data-anim="card-rise" data-delay="0.25">
         <div>
           <div class="process-chip process-chip--accent">
             <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -84,62 +78,64 @@
             </svg>
             <span>03 · Build</span>
           </div>
-          <h3 style="font-size: 22px; font-weight: 600; color: var(--on-dark); margin-bottom: 12px">
-            We make it
-          </h3>
-          <p style="color: var(--muted-dark); font-size: 14px; line-height: 1.6">
+          <h3 class="process-card__title">We make it</h3>
+          <p class="process-card__desc">
             We create your shoots or build your automation, AI helper or custom system. You see
             progress along the way and tell us what to change.
           </p>
         </div>
         <div class="process-card__bottom">
-          <span style="display: flex; align-items: center; gap: 6px">
+          <span class="process-card__time-label">
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
               <use href="#icon-clock"></use>
             </svg>
             Typical time
           </span>
-          <span style="font-weight: 600; color: var(--on-dark)">Days to weeks</span>
+          <span class="process-card__time-val">Days to weeks</span>
         </div>
       </div>
 
-      <!-- Card 4: Light (White card, dark chip at bottom) -->
-      <div class="process-card process-card--light" data-anim="card-rise" data-delay="0.55">
+      <!-- Card 4: Light -->
+      <div class="process-card process-card--light" data-anim="card-rise" data-delay="0.35">
         <div>
-          <h3 style="font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 12px">
-            We launch and support
-          </h3>
-          <p style="color: var(--muted); font-size: 14px; line-height: 1.6">
-            We hand everything over, show your team how to use it, and stay available to fix and
-            improve it.
-          </p>
-        </div>
-        <div>
-          <div class="process-chip process-chip--dark" style="margin-bottom: 0">
+          <div class="process-chip process-chip--dark">
             <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
               <use href="#icon-bot"></use>
             </svg>
             <span>04 · Launch</span>
           </div>
-          <div class="process-card__bottom">
-            <span style="display: flex; align-items: center; gap: 6px">
-              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                <use href="#icon-clock"></use>
-              </svg>
-              Typical time
-            </span>
-            <span style="font-weight: 600; color: var(--ink)">Ongoing</span>
-          </div>
+          <h3 class="process-card__title">We launch and support</h3>
+          <p class="process-card__desc">
+            We hand everything over, show your team how to use it, and stay available to fix and
+            improve it.
+          </p>
+        </div>
+        <div class="process-card__bottom">
+          <span class="process-card__time-label">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <use href="#icon-clock"></use>
+            </svg>
+            Typical time
+          </span>
+          <span class="process-card__time-val">Ongoing</span>
         </div>
       </div>
     </div>
 
-    <p class="section-intro" data-anim="fade-up">
-      Typical timings: AI fashion shoots and product visuals, first samples in 2 to 3 days and the
-      final set 3 to 7 days after you approve. Workflow automation, 1 to 2 weeks for a simple
-      workflow and 2 to 4 weeks for bigger ones. AI agents and chatbots, 2 to 4 weeks. Custom AI
-      systems are planned for each project and usually take 4 to 8 weeks or more. We confirm your
-      exact timeline before we start.
-    </p>
+    <div class="process-footer" data-anim="fade-up">
+      <p class="process-timings">
+        Typical timings: AI fashion shoots and product visuals, first samples in 2 to 3 days and the
+        final set 3 to 7 days after you approve. Workflow automation, 1 to 2 weeks for a simple
+        workflow and 2 to 4 weeks for bigger ones. AI agents and chatbots, 2 to 4 weeks. Custom AI
+        systems are planned for each project and usually take 4 to 8 weeks or more. We confirm your
+        exact timeline before we start.
+      </p>
+      <a class="process-timings__link" href="#contact">
+        <span>Get your timeline</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <use href="#icon-arrow-up-right"></use>
+        </svg>
+      </a>
+    </div>
   </div>
 </section>
