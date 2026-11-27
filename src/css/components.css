@@ -170,7 +170,6 @@
     var(--gb-frame-shadow);
   color: var(--gb-core-text);
   font-weight: 600;
-  will-change: transform;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
@@ -205,7 +204,6 @@
     inset 0 1px 0 rgb(255 255 255 / 0.32),
     inset 0 -1px 0 rgb(0 0 0 / 0.14),
     var(--gb-core-shadow);
-  will-change: transform;
   transition:
     background-color 0.25s ease,
     box-shadow 0.25s ease;
@@ -248,7 +246,6 @@
     inset 0 -1.5px 3px var(--gb-crystal-lo),
     var(--gb-crystal-shadow);
   color: var(--gb-crystal-ink);
-  will-change: transform;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
@@ -314,7 +311,6 @@
     inset 0 -1.5px 3px var(--gb-dark-lo),
     var(--gb-dark-shadow);
   color: var(--cream);
-  will-change: transform;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
@@ -397,52 +393,7 @@
   border-radius: var(--r-pill);
 }
 
-/* 3. The Split Button (Section 7.9 & Newsletter) */
-.split-btn {
-  display: inline-flex;
-  align-items: stretch;
-  height: 60px;
-  border-radius: var(--r-md);
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgb(var(--maroon-rgb) / 0.08);
-  transition: transform var(--dur-fast) var(--ease-out);
-}
-
-.split-btn:hover {
-  transform: translateY(-2px);
-}
-
-.split-btn__action {
-  flex: 1;
-  min-width: 150px;
-  background-color: var(--dark);
-  color: var(--on-dark);
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 600;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--dur-fast) var(--ease-out);
-}
-
-.split-btn__icon {
-  width: 60px;
-  background-color: var(--accent);
-  color: var(--cream);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  transition: background-color var(--dur-fast) var(--ease-out);
-}
-
-.split-btn:hover .split-btn__icon {
-  background-color: rgb(var(--ember-rgb) / 0.9);
-}
-
-/* 4. Icon Tiles */
+/* 3. Icon Tiles */
 .icon-tile {
   display: inline-flex;
   align-items: center;
@@ -503,8 +454,8 @@
   --rx: 50%;
   --ry: 50%;
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: max(24px, calc(16px + env(safe-area-inset-bottom)));
+  right: max(24px, calc(16px + env(safe-area-inset-right)));
   width: 48px;
   height: 48px;
   overflow: hidden;
@@ -526,13 +477,23 @@
   opacity: 0;
   visibility: hidden;
   translate: 0 12px;
-  will-change: transform;
   transition:
     opacity var(--dur-base) var(--ease-out),
     translate var(--dur-base) var(--ease-out),
     visibility var(--dur-base),
     border-color 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--primary:hover,
+  .btn--primary:hover .gb-core,
+  .btn--ghost:hover,
+  .btn--outline:hover,
+  .btn--dark:hover,
+  .back-to-top:hover {
+    will-change: transform;
+  }
 }
 
 .back-to-top::before {
@@ -579,25 +540,7 @@
   height: 20px;
 }
 
-/* 7. Image Placeholders & Cinematic Filters */
-.placeholder-image {
-  background-color: var(--dark);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.placeholder-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 30%, rgb(var(--ember-rgb) / 0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* 8. Reduced Motion */
+/* 7. Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .btn--primary,
   .btn--dark,

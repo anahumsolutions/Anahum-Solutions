@@ -1,43 +1,69 @@
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 /**
  * Blur-To-Sharp Reveal Animation Module
- * Starts with cinematic 14px blur, transforms to crisp clarity on scroll.
- * Runs unconditionally.
+ * Smoothly reveals headings and text blocks from soft blur to crisp clarity on scroll,
+ * promoting compositor layers only during the active tween and clearing them on completion.
  */
 export function initBlurReveal() {
-  const elements = document.querySelectorAll('[data-anim="blur-reveal"]')
+  const elements = Array.from(document.querySelectorAll('[data-anim="blur-reveal"]'))
   if (!elements.length) return
 
-  elements.forEach((el) => {
-    const delay = parseFloat(el.getAttribute('data-delay')) || 0
+  if (!('IntersectionObserver' in window)) return
 
-    gsap.fromTo(
-      el,
-      {
-        opacity: 0,
-        y: 50,
-        filter: 'blur(14px)',
-      },
-      {
+  const revealed = new WeakSet()
+
+  function reveal(el, instant = false) {
+    if (revealed.has(el)) return
+    revealed.add(el)
+
+    if (instant) {
+      gsap.set(el, {
         opacity: 1,
         y: 0,
         filter: 'blur(0px)',
-        duration: 0.9,
-        delay: delay,
-        ease: 'power3.out',
-        onComplete: () => {
-          el.style.filter = ''
-        },
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      },
-    )
+        clearProps: 'transform,filter,willChange',
+      })
+      return
+    }
+
+    const delay = parseFloat(el.getAttribute('data-delay')) || 0
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      duration: 0.85,
+      delay,
+      ease: 'power3.out',
+      overwrite: 'auto',
+      clearProps: 'transform,filter,willChange',
+    })
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          reveal(entry.target, false)
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.05, rootMargin: '0px 0px -8% 0px' },
+  )
+
+  elements.forEach((el) => {
+    const rect = el.getBoundingClientRect()
+    if (rect.height > 0 && rect.bottom < 0) {
+      reveal(el, true)
+      return
+    }
+    gsap.set(el, {
+      opacity: 0,
+      y: 34,
+      filter: 'blur(11px)',
+      willChange: 'transform, opacity, filter',
+    })
+    observer.observe(el)
   })
 }

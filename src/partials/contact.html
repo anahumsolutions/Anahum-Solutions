@@ -1,6 +1,6 @@
 <section class="contact-section section-spacing" id="contact" data-section="contact">
   <div class="container-custom">
-    <div class="section-heading" data-anim="fade-up">
+    <div class="section-heading" data-anim="blur-reveal">
       <div class="pill-badge">
         <span class="pill-badge__dot"></span>
         Contact
@@ -32,11 +32,9 @@
         </a>
 
         <a
-          href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=anahumsolutions@gmail.com&amp;su=Project%20enquiry%20for%20anahum"
+          href="mailto:anahumsolutions@gmail.com?subject=Project%20enquiry%20for%20anahum"
           class="contact-channel-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Email: anahumsolutions@gmail.com (opens Gmail in a new tab)"
+          aria-label="Email: anahumsolutions@gmail.com"
         >
           <div class="icon-tile icon-tile--soft" aria-hidden="true">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-bolt"></use></svg>
@@ -135,6 +133,7 @@
               id="cf-name"
               name="name"
               required
+              aria-required="true"
               autocomplete="name"
               placeholder="Your name"
             />
@@ -148,6 +147,7 @@
               id="cf-email"
               name="email"
               required
+              aria-required="true"
               autocomplete="email"
               placeholder="you@example.com"
             />
@@ -188,6 +188,7 @@
               id="cf-message"
               name="message"
               required
+              aria-required="true"
               rows="5"
               placeholder="Tell us about your project…"
             ></textarea>

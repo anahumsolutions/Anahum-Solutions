@@ -1,12 +1,9 @@
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { initMenu } from './anim/menu.js'
+import { initMenu, initStickyHeader } from './anim/menu.js'
 import { initFadeUp } from './anim/fade-up.js'
 import { initBlurReveal } from './anim/blur-reveal.js'
 import { initBackToTop } from './anim/back-to-top.js'
 import { initAllGlassButtons } from './anim/glass-button.js'
-
-gsap.registerPlugin(ScrollTrigger)
 
 // ---------------------------------------------------------------------------
 // Filter bar
@@ -34,7 +31,6 @@ function initFilter(onAfterFilter) {
       if (typeof onAfterFilter === 'function') {
         requestAnimationFrame(onAfterFilter)
       }
-      ScrollTrigger.refresh()
     })
   })
 }
@@ -62,7 +58,28 @@ function initLightbox() {
     }
   }
 
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  let reducedMotion = reducedMotionQuery.matches
+  const onReducedMotionChange = () => {
+    reducedMotion = reducedMotionQuery.matches
+  }
+  reducedMotionQuery.addEventListener('change', onReducedMotionChange)
+
+  function setBackgroundInert(active) {
+    const header = document.querySelector('.site-header')
+    const footer = document.querySelector('.site-footer')
+    const backToTop = document.getElementById('backToTop')
+    const main = document.getElementById('mainContent')
+
+    ;[header, footer, backToTop].forEach((el) => {
+      if (el) el.inert = active
+    })
+    if (main) {
+      Array.from(main.children).forEach((child) => {
+        if (child !== lightbox) child.inert = active
+      })
+    }
+  }
   let currentPhotos = []
   let currentIndex = 0
   let openState = false
@@ -123,6 +140,7 @@ function initLightbox() {
     openState = true
 
     renderPhoto()
+    setBackgroundInert(true)
     lightbox.classList.add('is-open')
     lightbox.setAttribute('aria-hidden', 'false')
     notifyToggle(true)
@@ -148,7 +166,8 @@ function initLightbox() {
   function finalizeClose() {
     lightbox.classList.remove('is-open')
     lightbox.setAttribute('aria-hidden', 'true')
-    img.src = ''
+    setBackgroundInert(false)
+    img.removeAttribute('src')
     img.alt = ''
     if (counterEl) counterEl.textContent = ''
     if (captionEl) captionEl.textContent = ''
@@ -297,10 +316,17 @@ function initLightbox() {
 function initCoverflows(lightbox) {
   const flows = Array.from(document.querySelectorAll('.wk-flow'))
   if (!flows.length) {
-    return { setLightboxOpen: () => {}, refreshLayout: () => {}, destroy: () => {} }
+    return {
+      setLightboxOpen: () => {},
+      refreshLayout: () => {},
+      pauseAll: () => {},
+      resumeAll: () => {},
+      destroy: () => {},
+    }
   }
 
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  let reducedMotion = reducedMotionQuery.matches
   const hasHoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
   const AUTOSCROLL_MS = 3500
   const RESUME_DELAY_MS = 2000
@@ -523,11 +549,17 @@ function initCoverflows(lightbox) {
         return () => el.removeEventListener('click', handler)
       })
 
-      // --- Pointer drag (keeps isDragging true until release) ---
+      // --- Pointer drag (keeps isDragging true until release, cancels on vertical scroll) ---
       function onWindowPointerMove(e) {
         if (activePointerId !== e.pointerId) return
         const dx = e.clientX - dragStartX
         const dy = e.clientY - dragStartY
+
+        if (!didDrag && Math.abs(dy) > 10 && Math.abs(dy) > Math.abs(dx)) {
+          finishDrag()
+          scheduleResume()
+          return
+        }
 
         if (!didDrag && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
           didDrag = true
@@ -690,11 +722,25 @@ function initCoverflows(lightbox) {
       window.addEventListener('resize', onResize, { passive: true })
       observer.observe(stage)
 
+      function onReducedMotionChange() {
+        reducedMotion = reducedMotionQuery.matches
+        layout(false)
+        if (reducedMotion) stopAuto()
+        else startAuto()
+      }
+      reducedMotionQuery.addEventListener('change', onReducedMotionChange)
+
       layout(false)
 
       return {
         refreshLayout() {
           layout(false)
+        },
+        pauseAuto() {
+          stopAuto()
+        },
+        resumeAuto() {
+          startAuto()
         },
         setLightboxOpen(open) {
           isLightboxOpen = open
@@ -720,6 +766,7 @@ function initCoverflows(lightbox) {
           stage.removeEventListener('focusout', onFocusOut)
           document.removeEventListener('visibilitychange', onVisibilityChange)
           window.removeEventListener('resize', onResize)
+          reducedMotionQuery.removeEventListener('change', onReducedMotionChange)
         },
       }
     })
@@ -728,6 +775,12 @@ function initCoverflows(lightbox) {
   return {
     refreshLayout() {
       controllers.forEach((c) => c.refreshLayout())
+    },
+    pauseAll() {
+      controllers.forEach((c) => c.pauseAuto())
+    },
+    resumeAll() {
+      controllers.forEach((c) => c.resumeAuto())
     },
     setLightboxOpen(open) {
       controllers.forEach((c) => c.setLightboxOpen(open))
@@ -748,6 +801,7 @@ function initApp() {
     document.documentElement.classList.add('reduce-motion')
   }
 
+  initStickyHeader({ alwaysVisible: true })
   initMenu()
   if (!reducedMotion) {
     initFadeUp()
@@ -765,16 +819,20 @@ function initApp() {
 
   const cleanupGlass = !reducedMotion ? initAllGlassButtons() : null
 
-  window.addEventListener('pagehide', () => {
+  window.addEventListener('pagehide', (e) => {
+    coverflows.pauseAll()
+    if (e.persisted) return
     coverflows.destroy()
     lightbox.destroy()
     if (typeof cleanupGlass === 'function') cleanupGlass()
   })
 
-  if (!reducedMotion) {
-    setTimeout(() => ScrollTrigger.refresh(), 150)
-    setTimeout(() => ScrollTrigger.refresh(), 800)
-  }
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      coverflows.refreshLayout()
+      coverflows.resumeAll()
+    }
+  })
 }
 
 if (document.readyState === 'loading') {
@@ -782,9 +840,3 @@ if (document.readyState === 'loading') {
 } else {
   initApp()
 }
-
-window.addEventListener('load', () => {
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    ScrollTrigger.refresh()
-  }
-})

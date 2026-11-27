@@ -1,10 +1,9 @@
 /**
  * Hero Video Playback
+ * - Lets hero poster & critical text load first, then starts video after window load
  * - Fades the video in over the poster once it is actually playing
  * - Pauses when the hero is off-screen (saves battery and CPU)
- * - Stays on the still poster for visitors who prefer reduced motion
- *   or have Data Saver turned on
- * - If autoplay is blocked (e.g. Low Power Mode), the poster simply stays
+ * - Stays on the still poster for visitors who prefer reduced motion or Save-Data
  */
 export function initHeroVideo() {
   const video = document.getElementById('heroVideo')
@@ -19,6 +18,22 @@ export function initHeroVideo() {
   const showPoster = () => {
     video.pause()
     video.classList.remove('is-playing')
+    video.removeAttribute('autoplay')
+    video.preload = 'none'
+  }
+
+  const startPlayback = () => {
+    if (stayStill()) {
+      showPoster()
+      return
+    }
+    video.preload = 'auto'
+    const attempt = video.play()
+    if (attempt && typeof attempt.catch === 'function') {
+      attempt.catch(() => {
+        video.classList.remove('is-playing')
+      })
+    }
   }
 
   // Fade in only when frames are really playing
@@ -32,16 +47,10 @@ export function initHeroVideo() {
 
   if (stayStill()) {
     showPoster()
-    video.removeAttribute('autoplay')
-    video.preload = 'none'
+  } else if (document.readyState === 'complete') {
+    startPlayback()
   } else {
-    const attempt = video.play()
-    if (attempt && typeof attempt.catch === 'function') {
-      attempt.catch(() => {
-        // Autoplay blocked: keep the poster image visible
-        video.classList.remove('is-playing')
-      })
-    }
+    window.addEventListener('load', startPlayback, { once: true })
   }
 
   // Pause off-screen, resume on return
@@ -51,8 +60,9 @@ export function initHeroVideo() {
         entries.forEach((entry) => {
           if (stayStill()) return
           if (entry.isIntersecting) {
-            const p = video.play()
-            if (p && typeof p.catch === 'function') p.catch(() => {})
+            if (document.readyState === 'complete') {
+              startPlayback()
+            }
           } else {
             video.pause()
           }
@@ -68,8 +78,7 @@ export function initHeroVideo() {
     if (stayStill()) {
       showPoster()
     } else {
-      const p = video.play()
-      if (p && typeof p.catch === 'function') p.catch(() => {})
+      startPlayback()
     }
   })
 }
