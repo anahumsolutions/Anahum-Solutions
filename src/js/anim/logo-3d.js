@@ -1,8 +1,4 @@
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { createArchShape, extrudeSettings, extrudeDepth } from './logo-3d-shape.js'
-
-gsap.registerPlugin(ScrollTrigger)
 
 /**
  * Generates a soft procedural radial contact shadow texture on an offscreen canvas.
@@ -58,16 +54,25 @@ export function initLogo3D() {
 
   // Lazy-load three only when container is within ~400px of viewport
   let loaded = false
+  let loadObserver = null
 
   function loadAndInit() {
     if (loaded) return
     loaded = true
+    if (loadObserver) {
+      loadObserver.disconnect()
+      loadObserver = null
+    }
 
-    Promise.all([import('three'), import('three/addons/environments/RoomEnvironment.js')])
-      .then(([THREE_MOD, ROOM_MOD]) => {
+    Promise.all([
+      import('three'),
+      import('three/addons/environments/RoomEnvironment.js'),
+      import('./logo-3d-shape.js'),
+    ])
+      .then(([THREE_MOD, ROOM_MOD, SHAPE_MOD]) => {
         const THREE = THREE_MOD
         const RoomEnvironment = ROOM_MOD.RoomEnvironment
-        buildScene(THREE, RoomEnvironment)
+        buildScene(THREE, RoomEnvironment, SHAPE_MOD)
       })
       .catch(() => {
         // Dynamic import failed -- show fallback
@@ -75,14 +80,21 @@ export function initLogo3D() {
       })
   }
 
-  ScrollTrigger.create({
-    trigger: container,
-    start: 'top bottom+=400',
-    once: true,
-    onEnter: loadAndInit,
-  })
+  if ('IntersectionObserver' in window) {
+    loadObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          loadAndInit()
+        }
+      },
+      { rootMargin: '400px 0px' },
+    )
+    loadObserver.observe(container)
+  } else {
+    loadAndInit()
+  }
 
-  function buildScene(THREE, RoomEnvironment) {
+  function buildScene(THREE, RoomEnvironment, { createArchShape, extrudeSettings, extrudeDepth }) {
     // -----------------------------------------------------------------
     // Renderer -- transparent canvas mounted into the stage element
     // -----------------------------------------------------------------
@@ -110,8 +122,9 @@ export function initLogo3D() {
     renderer.domElement.style.height = '100%'
     stage.appendChild(renderer.domElement)
 
-    // Handle WebGL context loss -- remove canvas and show fallback
+    // Handle WebGL context loss -- stop loop, remove canvas and show fallback
     renderer.domElement.addEventListener('webglcontextlost', () => {
+      stopLoop()
       renderer.domElement.remove()
       container.classList.remove('is-ready')
       container.classList.add('is-fallback')
@@ -185,7 +198,7 @@ export function initLogo3D() {
       envMapIntensity: 1.1,
     })
 
-    const outerShape = createArchShape(1.62, -1.42, 1.68, 0.28)
+    const outerShape = createArchShape(THREE, 1.62, -1.42, 1.68, 0.28)
     const outerGeo = new THREE.ExtrudeGeometry(outerShape, extrudeSettings)
     outerGeo.translate(0, 0, -extrudeDepth / 2)
     outerGeo.computeVertexNormals()
@@ -194,7 +207,7 @@ export function initLogo3D() {
     outerArch.receiveShadow = true
     logoGroup.add(outerArch)
 
-    const innerShape = createArchShape(0.84, -1.42, 0.19, 0.25)
+    const innerShape = createArchShape(THREE, 0.84, -1.42, 0.19, 0.25)
     const innerGeo = new THREE.ExtrudeGeometry(innerShape, extrudeSettings)
     innerGeo.translate(0, 0, -extrudeDepth / 2)
     innerGeo.computeVertexNormals()
@@ -335,12 +348,24 @@ export function initLogo3D() {
       return tl
     }
 
-    ScrollTrigger.create({
-      trigger: container,
-      start: 'top 75%',
-      once: true,
-      onEnter: playEntrance,
-    })
+    let entrancePlayed = false
+    let entranceObserver = null
+    if ('IntersectionObserver' in window) {
+      entranceObserver = new IntersectionObserver(
+        (entries) => {
+          if (!entrancePlayed && entries.some((entry) => entry.isIntersecting)) {
+            entrancePlayed = true
+            entranceObserver.disconnect()
+            entranceObserver = null
+            playEntrance()
+          }
+        },
+        { rootMargin: '0px 0px -25% 0px' },
+      )
+      entranceObserver.observe(container)
+    } else {
+      playEntrance()
+    }
 
     // -----------------------------------------------------------------
     // Click pulse -- subtle sphere flash + depth kickback through arches
@@ -366,8 +391,8 @@ export function initLogo3D() {
     // -----------------------------------------------------------------
     // Hover / cursor parallax (mouse only)
     // -----------------------------------------------------------------
-    function handleCursorParallax(clientX, clientY) {
-      const rect = container.getBoundingClientRect()
+    function handleCursorParallax(clientX, clientY, rect = container.getBoundingClientRect()) {
+      if (!rect.width || !rect.height) return
       const nx = THREE.MathUtils.clamp(((clientX - rect.left) / rect.width) * 2 - 1, -1.25, 1.25)
       const ny = THREE.MathUtils.clamp(-(((clientY - rect.top) / rect.height) * 2 - 1), -1.25, 1.25)
 
@@ -415,22 +440,36 @@ export function initLogo3D() {
       qtLightY(0.5)
     }
 
+    let isVisible = false
+    let containerRect = null
+    let rectRaf = 0
+
+    function invalidateRect() {
+      containerRect = null
+    }
+
+    function onWindowPointerMove(e) {
+      if (appState.isDragging) {
+        const dx = e.clientX - appState.lastPointerX
+        const dy = e.clientY - appState.lastPointerY
+        appState.dragDistance += Math.hypot(dx, dy)
+        appState.lastPointerX = e.clientX
+        appState.lastPointerY = e.clientY
+
+        dragState.rotY += dx * 0.0115
+        dragState.rotX = THREE.MathUtils.clamp(dragState.rotX + dy * 0.0095, -0.61, 0.61)
+        return
+      }
+      if (!isVisible || document.hidden) return
+      if (!containerRect) {
+        containerRect = container.getBoundingClientRect()
+      }
+      handleCursorParallax(e.clientX, e.clientY, containerRect)
+    }
+
     if (hasMouse) {
-      window.addEventListener('pointermove', (e) => {
-        if (appState.isDragging) {
-          const dx = e.clientX - appState.lastPointerX
-          const dy = e.clientY - appState.lastPointerY
-          appState.dragDistance += Math.hypot(dx, dy)
-          appState.lastPointerX = e.clientX
-          appState.lastPointerY = e.clientY
-
-          dragState.rotY += dx * 0.0115
-          dragState.rotX = THREE.MathUtils.clamp(dragState.rotX + dy * 0.0095, -0.61, 0.61)
-          return
-        }
-        handleCursorParallax(e.clientX, e.clientY)
-      })
-
+      window.addEventListener('pointermove', onWindowPointerMove, { passive: true })
+      window.addEventListener('scroll', invalidateRect, { passive: true })
       document.addEventListener('pointerleave', resetHoverParallax)
     }
 
@@ -509,6 +548,7 @@ export function initLogo3D() {
     // Resize observer
     // -----------------------------------------------------------------
     function updateViewportSize() {
+      containerRect = null
       const width = Math.max(container.clientWidth, 1)
       const height = Math.max(container.clientHeight, 1)
 
@@ -527,18 +567,34 @@ export function initLogo3D() {
     updateViewportSize()
 
     // -----------------------------------------------------------------
-    // Render loop -- pause when off-screen or tab hidden
+    // Render loop -- strictly stopped when off-screen or tab hidden
     // -----------------------------------------------------------------
-    const clock = new THREE.Clock()
     let rafId = null
-    let isVisible = false
+    let lastTime = null
+    let elapsed = 0
 
-    function animate() {
+    function startLoop() {
+      if (rafId !== null || !isVisible || document.hidden) return
+      lastTime = performance.now()
       rafId = requestAnimationFrame(animate)
+    }
 
+    function stopLoop() {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId)
+        rafId = null
+      }
+      lastTime = null
+    }
+
+    function animate(now) {
+      rafId = null
       if (!isVisible || document.hidden) return
 
-      const elapsed = clock.getElapsedTime()
+      if (lastTime !== null) {
+        elapsed += Math.min((now - lastTime) / 1000, 0.1)
+      }
+      lastTime = now
 
       // Idle sphere float: ~3.5s cycle, small amplitude
       const sphereIdleY = Math.sin(elapsed * 1.8) * 0.045
@@ -586,30 +642,44 @@ export function initLogo3D() {
       contactShadow.scale.set(shadowScaleX, 1, 1)
 
       renderer.render(scene, camera)
+      rafId = requestAnimationFrame(animate)
     }
 
-    // IntersectionObserver: pause render loop when container is off-screen
+    // IntersectionObserver: stop render loop when container is off-screen
     const io = new IntersectionObserver(
       (entries) => {
         isVisible = entries[0].isIntersecting
+        containerRect = null
+        if (isVisible && !document.hidden) startLoop()
+        else stopLoop()
       },
       { rootMargin: '100px' },
     )
     io.observe(container)
 
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && isVisible) clock.start()
-    })
+    function onVisibilityChange() {
+      if (!document.hidden && isVisible) startLoop()
+      else stopLoop()
+    }
 
-    animate()
+    document.addEventListener('visibilitychange', onVisibilityChange)
 
     // -----------------------------------------------------------------
-    // Cleanup on unload
+    // bfcache-safe lifecycle & cleanup
     // -----------------------------------------------------------------
-    window.addEventListener('beforeunload', () => {
-      if (rafId) cancelAnimationFrame(rafId)
+    window.addEventListener('pagehide', (e) => {
+      stopLoop()
+      if (e.persisted) return
+      if (rectRaf) cancelAnimationFrame(rectRaf)
+      if (entranceObserver) entranceObserver.disconnect()
       resizeObserver.disconnect()
       io.disconnect()
+      document.removeEventListener('visibilitychange', onVisibilityChange)
+      if (hasMouse) {
+        window.removeEventListener('pointermove', onWindowPointerMove)
+        window.removeEventListener('scroll', invalidateRect)
+        document.removeEventListener('pointerleave', resetHoverParallax)
+      }
       outerGeo.dispose()
       innerGeo.dispose()
       sphereGeo.dispose()
@@ -620,6 +690,12 @@ export function initLogo3D() {
       shadowTex.dispose()
       envRT.dispose()
       renderer.dispose()
+    })
+
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted && isVisible && !document.hidden) {
+        startLoop()
+      }
     })
   }
 }

@@ -18,11 +18,10 @@
       class="hero__video"
       id="heroVideo"
       poster="/hero/hero-poster.jpg"
-      autoplay
       muted
       loop
       playsinline
-      preload="metadata"
+      preload="none"
       disablepictureinpicture
       tabindex="-1"
     >
@@ -37,7 +36,7 @@
   <div class="hero__stage">
     <div class="hero__content">
       <!-- Nav Row -->
-      <header class="hero__nav" role="navigation" aria-label="Hero Navigation">
+      <div class="hero__nav">
         <!-- Left Nav Pill -->
         <nav class="hero__nav-pill" aria-label="Primary">
           <a href="#about" class="hero__nav-link">About Us</a>
@@ -50,7 +49,7 @@
 
         <!-- Centered Logo Group -->
         <a href="#hero" class="hero__logo" aria-label="anahum solutions home">
-          <svg viewBox="0 -172 632.0 175" role="img" aria-hidden="true">
+          <svg viewBox="0 -172 632.0 175" aria-hidden="true">
             <use href="#lk"></use>
           </svg>
         </a>
@@ -66,7 +65,7 @@
             <span class="gb-core"><span class="gb-core-label">Book a call</span></span>
           </a>
         </div>
-      </header>
+      </div>
 
       <!-- Center Headline Block -->
       <div class="hero__text-block" data-anim="hero-text">

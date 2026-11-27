@@ -6,7 +6,7 @@
     <title>anahum — The quiet intelligence behind your brand</title>
     <meta
       name="description"
-      content="anahum solutions is an AI agency that helps modern businesses create, automate and grow: AI ad and social content, AI product visuals, workflow automation, AI agents, chatbots, and custom AI systems."
+      content="anahum is an AI agency helping modern businesses create, automate and grow with AI content, product visuals, workflow automation, AI agents and custom systems."
     />
 
     <!-- Favicons -->
@@ -62,6 +62,13 @@
       }
     </script>
 
+    <!-- Pre-hide hero entrance before first paint so JS does not flicker -->
+    <script>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('hero-anim-ready')
+      }
+    </script>
+
     <!-- Vercel Web Analytics -->
     <script>
       window.va =
@@ -69,20 +76,30 @@
         function () {
           ;(window.vaq = window.vaq || []).push(arguments)
         }
+      var vaScript = document.createElement('script')
+      vaScript.defer = true
+      vaScript.src = '/_vercel/insights/script.js'
+      document.head.appendChild(vaScript)
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@1&family=Inter:wght@300;400;500;600;700&display=swap"
+      media="print"
+      onload="this.media = 'all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@1&family=Inter:wght@300;400;500;600;700&display=swap"
+      />
+    </noscript>
 
-    <!-- Bootstrap 5.3 Reboot & Grid only (No Bootstrap components) -->
+    <!-- Bootstrap 5.3 Reboot only -->
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css" />
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-grid.min.css" />
 
     <!-- Core Stylesheets -->
     <link rel="stylesheet" href="/src/css/tokens.css" />

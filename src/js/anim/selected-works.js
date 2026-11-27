@@ -59,12 +59,18 @@ function initCardHover(cards) {
     const qtY = gsap.quickTo(card, 'y', { duration: 0.4, ease: 'power3.out' })
     let leaveTween = null
     let needsSync = true
+    let cachedRect = null
+
+    function invalidateRect() {
+      cachedRect = null
+    }
 
     function onEnter() {
       if (leaveTween) {
         leaveTween.kill()
         leaveTween = null
       }
+      cachedRect = card.getBoundingClientRect()
       card.classList.add('is-hovered')
     }
 
@@ -73,7 +79,8 @@ function initCardHover(cards) {
         leaveTween.kill()
         leaveTween = null
       }
-      const rect = card.getBoundingClientRect()
+      const rect = cachedRect || (cachedRect = card.getBoundingClientRect())
+      if (!rect.width || !rect.height) return
       const cx = rect.left + rect.width / 2
       const cy = rect.top + rect.height / 2
       const nx = (e.clientX - cx) / (rect.width / 2)
@@ -102,6 +109,7 @@ function initCardHover(cards) {
     }
 
     function onLeave() {
+      cachedRect = null
       qtRx.tween.pause()
       qtRy.tween.pause()
       qtY.tween.pause()
@@ -124,9 +132,13 @@ function initCardHover(cards) {
     card.addEventListener('mouseenter', onEnter)
     card.addEventListener('mousemove', onMove)
     card.addEventListener('mouseleave', onLeave)
+    window.addEventListener('scroll', invalidateRect, { passive: true })
+    window.addEventListener('resize', invalidateRect, { passive: true })
 
     cleanups.push(() => {
       if (leaveTween) leaveTween.kill()
+      window.removeEventListener('scroll', invalidateRect)
+      window.removeEventListener('resize', invalidateRect)
       card.removeEventListener('mouseenter', onEnter)
       card.removeEventListener('mousemove', onMove)
       card.removeEventListener('mouseleave', onLeave)

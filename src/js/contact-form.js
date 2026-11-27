@@ -21,12 +21,39 @@ export function initContactForm() {
 
   const btn = document.getElementById('cfSubmit')
   const status = document.getElementById('cfStatus')
+  const requiredFields = Array.from(form.querySelectorAll('[required]'))
+
+  requiredFields.forEach((field) => {
+    field.addEventListener('input', () => {
+      if (field.checkValidity()) {
+        field.removeAttribute('aria-invalid')
+      }
+    })
+  })
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     // Silently ignore honeypot submissions
     if (form._gotcha && form._gotcha.value) return
+
+    let firstInvalid = null
+    requiredFields.forEach((field) => {
+      const valid = field.value.trim().length > 0 && field.checkValidity()
+      if (!valid) {
+        field.setAttribute('aria-invalid', 'true')
+        if (!firstInvalid) firstInvalid = field
+      } else {
+        field.removeAttribute('aria-invalid')
+      }
+    })
+
+    if (firstInvalid) {
+      status.textContent = 'Please fill in your name, a valid email address, and your message.'
+      status.className = 'form-status form-status--error'
+      firstInvalid.focus()
+      return
+    }
 
     btn.disabled = true
     setSubmitLabel(btn, 'Sending…')

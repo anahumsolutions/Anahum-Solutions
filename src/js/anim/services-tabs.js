@@ -19,14 +19,16 @@ export function initServicesTabs() {
 
   if (!rows.length || !images.length) return () => {}
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
   const canHover = window.matchMedia('(hover: hover)').matches
 
+  let prefersReducedMotion = reducedMotionQuery.matches
   let currentIndex = 0
   let autoTimer = null
   let isHovered = false
   let isFocused = false
   let isInView = !('IntersectionObserver' in window)
+  let isTabVisible = document.visibilityState === 'visible'
 
   function updatePanelContent(row) {
     const title = row.getAttribute('data-title')
@@ -89,29 +91,39 @@ export function initServicesTabs() {
     }
   }
 
+  function canAutoCycle() {
+    return !prefersReducedMotion && isInView && isTabVisible && !isHovered && !isFocused
+  }
+
   function startAutoCycle() {
-    if (prefersReducedMotion) return
     stopAutoCycle()
+    if (!canAutoCycle()) return
     autoTimer = setInterval(() => {
-      if (isInView && !isHovered && !isFocused && document.visibilityState === 'visible') {
+      if (canAutoCycle()) {
         const next = (currentIndex + 1) % rows.length
         activateTab(rows[next])
+      } else {
+        stopAutoCycle()
       }
     }, 4500)
   }
 
   const rowCleanups = []
 
+  const onEnter = (row) => () => {
+    if (!canHover) return
+    isHovered = true
+    stopAutoCycle()
+    activateTab(row)
+  }
+
   rows.forEach((row, idx) => {
-    const onEnter = () => {
-      if (!canHover) return
-      isHovered = true
-      activateTab(row)
-    }
+    const handleEnter = onEnter(row)
 
     const onLeave = () => {
       if (!canHover) return
       isHovered = false
+      startAutoCycle()
     }
 
     const onClick = () => {
@@ -129,7 +141,7 @@ export function initServicesTabs() {
         targetIdx = 0
       } else if (e.key === 'End') {
         targetIdx = rows.length - 1
-      } else if (e.key === 'Enter' || e.key === ' ') {
+      } else if (row.tagName !== 'BUTTON' && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault()
         activateTab(row)
         startAutoCycle()
@@ -143,13 +155,13 @@ export function initServicesTabs() {
       }
     }
 
-    row.addEventListener('mouseenter', onEnter)
+    row.addEventListener('mouseenter', handleEnter)
     row.addEventListener('mouseleave', onLeave)
     row.addEventListener('click', onClick)
     row.addEventListener('keydown', onKeyDown)
 
     rowCleanups.push(() => {
-      row.removeEventListener('mouseenter', onEnter)
+      row.removeEventListener('mouseenter', handleEnter)
       row.removeEventListener('mouseleave', onLeave)
       row.removeEventListener('click', onClick)
       row.removeEventListener('keydown', onKeyDown)
@@ -158,10 +170,12 @@ export function initServicesTabs() {
 
   const onFocusIn = () => {
     isFocused = true
+    stopAutoCycle()
   }
   const onFocusOut = (e) => {
     if (tablist && !tablist.contains(e.relatedTarget)) {
       isFocused = false
+      startAutoCycle()
     }
   }
   if (tablist) {
@@ -175,6 +189,8 @@ export function initServicesTabs() {
       (entries) => {
         entries.forEach((entry) => {
           isInView = entry.isIntersecting
+          if (isInView) startAutoCycle()
+          else stopAutoCycle()
         })
       },
       { threshold: 0.1 },
@@ -182,11 +198,27 @@ export function initServicesTabs() {
     observer.observe(section)
   }
 
+  const onVisibilityChange = () => {
+    isTabVisible = document.visibilityState === 'visible'
+    if (isTabVisible) startAutoCycle()
+    else stopAutoCycle()
+  }
+  document.addEventListener('visibilitychange', onVisibilityChange)
+
+  const onReducedMotionChange = () => {
+    prefersReducedMotion = reducedMotionQuery.matches
+    if (prefersReducedMotion) stopAutoCycle()
+    else startAutoCycle()
+  }
+  reducedMotionQuery.addEventListener('change', onReducedMotionChange)
+
   startAutoCycle()
 
   return () => {
     stopAutoCycle()
     if (observer) observer.disconnect()
+    document.removeEventListener('visibilitychange', onVisibilityChange)
+    reducedMotionQuery.removeEventListener('change', onReducedMotionChange)
     if (tablist) {
       tablist.removeEventListener('focusin', onFocusIn)
       tablist.removeEventListener('focusout', onFocusOut)

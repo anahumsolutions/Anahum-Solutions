@@ -24,6 +24,7 @@ export function initHeroNodesDrift() {
   let mouse = { x: -9999, y: -9999 }
   let rafPending = false
   let active = false // only true when wide screen
+  let isHeroVisible = true
 
   // ── width gate ────────────────────────────────────────────────────────────
   const wideQuery = window.matchMedia('(min-width: 1101px)')
@@ -45,10 +46,22 @@ export function initHeroNodesDrift() {
   wideQuery.addEventListener('change', onWidthChange)
   active = wideQuery.matches
 
+  let heroObserver = null
+  if ('IntersectionObserver' in window) {
+    heroObserver = new IntersectionObserver(
+      (entries) => {
+        isHeroVisible = entries[0].isIntersecting
+        if (!isHeroVisible) resetAll()
+      },
+      { threshold: 0.01 },
+    )
+    heroObserver.observe(hero)
+  }
+
   // ── per-frame update ──────────────────────────────────────────────────────
   function update() {
     rafPending = false
-    if (!active) return
+    if (!active || !isHeroVisible) return
 
     nodes.forEach((node, i) => {
       const card = node.querySelector('.hero__node-card')
@@ -92,30 +105,29 @@ export function initHeroNodesDrift() {
     }
   }
 
-  // ── pointer tracking ──────────────────────────────────────────────────────
-  hero.addEventListener(
-    'pointermove',
-    (e) => {
-      if (!active) return
-      mouse.x = e.clientX
-      mouse.y = e.clientY
-      scheduleUpdate()
-    },
-    { passive: true },
-  )
+  function onPointerMove(e) {
+    if (!active || !isHeroVisible) return
+    mouse.x = e.clientX
+    mouse.y = e.clientY
+    scheduleUpdate()
+  }
 
-  hero.addEventListener(
-    'pointerleave',
-    () => {
-      resetAll()
-    },
-    { passive: true },
-  )
-
-  // ── focus / visibility ────────────────────────────────────────────────────
-  document.addEventListener('visibilitychange', () => {
+  function onVisibilityChange() {
     if (document.hidden) resetAll()
-  })
+  }
 
+  // ── pointer tracking ──────────────────────────────────────────────────────
+  hero.addEventListener('pointermove', onPointerMove, { passive: true })
+  hero.addEventListener('pointerleave', resetAll, { passive: true })
+  document.addEventListener('visibilitychange', onVisibilityChange)
   window.addEventListener('blur', resetAll, { passive: true })
+
+  return () => {
+    if (heroObserver) heroObserver.disconnect()
+    wideQuery.removeEventListener('change', onWidthChange)
+    hero.removeEventListener('pointermove', onPointerMove)
+    hero.removeEventListener('pointerleave', resetAll)
+    document.removeEventListener('visibilitychange', onVisibilityChange)
+    window.removeEventListener('blur', resetAll)
+  }
 }

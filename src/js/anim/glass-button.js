@@ -86,6 +86,15 @@ export function initGlassButton(el, options = {}) {
     let leaveCoreTween = null
     let pressTween = null
     let needsSync = true
+    let cachedRect = null
+
+    function invalidateRect() {
+      cachedRect = null
+    }
+
+    function onEnter() {
+      cachedRect = el.getBoundingClientRect()
+    }
 
     function releasePress() {
       window.removeEventListener('pointerup', releasePress)
@@ -111,7 +120,7 @@ export function initGlassButton(el, options = {}) {
         leaveCoreTween.kill()
         leaveCoreTween = null
       }
-      const rect = el.getBoundingClientRect()
+      const rect = cachedRect || (cachedRect = el.getBoundingClientRect())
       if (!rect.width || !rect.height) return
       const nx = clamp(((e.clientX - rect.left) / rect.width) * 2 - 1, -1, 1)
       const ny = clamp(((e.clientY - rect.top) / rect.height) * 2 - 1, -1, 1)
@@ -142,6 +151,7 @@ export function initGlassButton(el, options = {}) {
     }
 
     function onLeave() {
+      cachedRect = null
       qtX.tween.pause()
       qtY.tween.pause()
       qtRx.tween.pause()
@@ -186,9 +196,12 @@ export function initGlassButton(el, options = {}) {
       window.addEventListener('pointercancel', releasePress)
     }
 
+    el.addEventListener('pointerenter', onEnter)
     el.addEventListener('pointermove', onMove)
     el.addEventListener('pointerleave', onLeave)
     el.addEventListener('pointerdown', onDown)
+    window.addEventListener('scroll', invalidateRect, { passive: true })
+    window.addEventListener('resize', invalidateRect, { passive: true })
 
     return () => {
       if (leaveShellTween) leaveShellTween.kill()
@@ -202,6 +215,9 @@ export function initGlassButton(el, options = {}) {
       qtInY.tween.kill()
       window.removeEventListener('pointerup', releasePress)
       window.removeEventListener('pointercancel', releasePress)
+      window.removeEventListener('scroll', invalidateRect)
+      window.removeEventListener('resize', invalidateRect)
+      el.removeEventListener('pointerenter', onEnter)
       el.removeEventListener('pointermove', onMove)
       el.removeEventListener('pointerleave', onLeave)
       el.removeEventListener('pointerdown', onDown)
@@ -217,6 +233,15 @@ export function initGlassButton(el, options = {}) {
   let leaveTween = null
   let pressTween = null
   let needsSync = true
+  let cachedRect = null
+
+  function invalidateRect() {
+    cachedRect = null
+  }
+
+  function onEnter() {
+    cachedRect = el.getBoundingClientRect()
+  }
 
   function releasePress() {
     window.removeEventListener('pointerup', releasePress)
@@ -238,7 +263,7 @@ export function initGlassButton(el, options = {}) {
       leaveTween.kill()
       leaveTween = null
     }
-    const rect = el.getBoundingClientRect()
+    const rect = cachedRect || (cachedRect = el.getBoundingClientRect())
     if (!rect.width || !rect.height) return
     const relX = e.clientX - rect.left
     const relY = e.clientY - rect.top
@@ -261,6 +286,7 @@ export function initGlassButton(el, options = {}) {
   }
 
   function onLeave() {
+    cachedRect = null
     qtX.tween.pause()
     qtY.tween.pause()
     if (leaveTween) leaveTween.kill()
@@ -289,9 +315,12 @@ export function initGlassButton(el, options = {}) {
     window.addEventListener('pointercancel', releasePress)
   }
 
+  el.addEventListener('pointerenter', onEnter)
   el.addEventListener('pointermove', onMove)
   el.addEventListener('pointerleave', onLeave)
   el.addEventListener('pointerdown', onDown)
+  window.addEventListener('scroll', invalidateRect, { passive: true })
+  window.addEventListener('resize', invalidateRect, { passive: true })
 
   return () => {
     if (leaveTween) leaveTween.kill()
@@ -300,6 +329,9 @@ export function initGlassButton(el, options = {}) {
     qtY.tween.kill()
     window.removeEventListener('pointerup', releasePress)
     window.removeEventListener('pointercancel', releasePress)
+    window.removeEventListener('scroll', invalidateRect)
+    window.removeEventListener('resize', invalidateRect)
+    el.removeEventListener('pointerenter', onEnter)
     el.removeEventListener('pointermove', onMove)
     el.removeEventListener('pointerleave', onLeave)
     el.removeEventListener('pointerdown', onDown)

@@ -22,7 +22,7 @@
  *   every 3 degrees, evenly spaced along the curve.
  */
 
-import * as THREE from 'three'
+// Note: THREE is passed in by logo-3d.js so this module never pulls three into the main bundle.
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -128,13 +128,14 @@ function dedup(pts) {
  * Build an arch outline as a THREE.Shape using only straight segments.
  * Reproduces the demo's silhouette exactly.
  *
+ * @param {typeof import('three')} THREE
  * @param {number} halfWidth  Horizontal distance from centre to each foot centre
  * @param {number} baseY      Y of both foot centres
  * @param {number} peakY      Y of the apex centre
  * @param {number} thickness  Stroke thickness (before bevel)
- * @returns {THREE.Shape}
+ * @returns {import('three').Shape}
  */
-export function createArchShape(halfWidth, baseY, peakY, thickness) {
+export function createArchShape(THREE, halfWidth, baseY, peakY, thickness) {
   const r = thickness * 0.5
   const h = peakY - baseY
   const len = Math.hypot(halfWidth, h)
